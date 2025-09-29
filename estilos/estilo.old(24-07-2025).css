@@ -1,0 +1,849 @@
+body{
+	background:#0F6D80;
+	/* Modificado por Jhon
+	para ajustar el tamaño
+	de la fuente al momento
+	de imprimir las boletas
+	y facturas...
+	font-family: Tahoma;
+	font-size: 14px;*/ 
+	font-family: Calibri;
+	font-size: 15px;
+	width: 100%;
+	margin: auto;
+}
+header h2{
+	color:#295482;
+	background:#CFD4DB;
+	width: auto;
+	margin: auto;
+	height: 120px;
+	text-align: center;
+	padding: 10px;
+	padding-top: 15px;
+
+}
+#logo{
+	margin-top: 18px;
+	margin-left: 10px;
+	 float:left;
+	 width: 410px;
+ 	height: 110px;
+}
+#enviar{
+	background:#154360;
+	color: #ffffff;
+	border-radius: 0px;
+	padding: 4px;
+	width: 110px;
+	height: 30px;
+	border-color:#154360;
+	font-size: 14px;
+}
+/*#enviar:hover{
+	background:#154360;
+	border-color:#154360;
+}*/
+#contrase{
+	border-color:skyblue;
+	padding: 3px;
+	width: 250px;
+	border-radius: 0px;
+	height: 22px;
+	}
+#nombre{
+border-color:skyblue;
+padding: 3px;
+width: 250px;
+border-radius: 0px;
+height: 22px;
+}
+#usuario{
+	width: 35px;
+	height:35px;
+	float: right;
+	margin: 1px 0px 10px 0px;
+
+}
+#contra{
+	width: 23px;
+	height:23px;
+	float: right;
+	margin: 45px -30px 10px 0px;
+}
+#bienvenidos{
+	text-align: left;
+	padding: 5px;
+	color: #ffffff;
+	background:#154360;
+	height: 32px;
+	width: 500px;
+	border-radius:10px 10px 0px 0px;
+	font-size: 16px;
+	margin-top: 5px;
+	font-size: 26px;
+	color: #CFD3D8;
+}
+#seccion{
+	background: #CFD3D8;
+	opacity: 0.8;
+	width: 450px;
+	height: 130px;
+	padding: 10px 30px 20px 30px;
+	border-radius: 0px 0px 10px 10px;
+}
+
+
+#footer{
+	color:#CFD4DB;
+	margin-top: 130px;
+
+}
+#tex{
+	margin-left: 16px;
+	font-size: 13px;
+
+}
+#wat{
+	height: 37px;
+	width: 37px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -30px;
+}
+#fc{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+#tw{
+	height: 35px;
+	width: 35px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -31px;
+}
+#you{
+	height: 32px;
+	width: 32px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+#goo{
+	height: 46px;
+	width: 46px;
+	float: right;
+	margin-right: 2px;
+	margin-top: -35px;
+}
+#logo{
+	margin-top: 18px;
+	margin-left: 10px;
+	float:left;
+	}
+#logo1{
+	margin-top: 10px;
+	margin-right:  10px;
+	float:right;
+	}
+p{
+
+	font-size: 14px;
+}
+h2{
+	color: #FFFFFF;
+	font-size: 18px;
+}
+#tex1{
+	color:#CFD4DB;
+	width: 300px;
+	text-align: justify;
+	padding: 8px;
+	margin-left: 15px ;
+	float: left;
+
+
+}
+#tex2{
+	font-size: 16px;
+	width: 250px;
+	margin-top: 30px;
+
+	text-align: justify;
+	padding: 8px;
+	border-radius: 40px;
+	margin-left: 55px ;
+	float: left;
+
+}
+#tex3{
+	 color:#CFD4DB;
+	width: 300px;
+	text-align: justify;
+	padding: 8px;
+	border-radius: 40px;
+	margin-left: 10px ;
+	float: left;
+
+}
+#tex4{
+	opacity: 0.4;
+	padding: 8px;
+	margin-left: 45px ;
+	float: left;
+
+}
+#tex5{
+	opacity: 0.6;
+	margin-left: 25px ;
+	float: left;
+	margin: -60px 0px 0px 50px;
+
+}
+section h2{
+	margin-left: 0px;
+}
+
+#tex{
+	margin-left: 16px;
+	font-size: 13px;
+	color:#CFD4DB;
+}
+#wat{
+	height: 37px;
+	width: 37px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -30px;
+}
+#fc{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+#tw{
+	height: 35px;
+	width: 35px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -31px;
+}
+#you{
+	height: 32px;
+	width: 32px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+/*Cuerpo de la página*/
+/*body{
+	background-color: #ffffff;
+	font-family: Calibri;
+	font-size: 15px;
+	text-align: justify;
+}*/
+/*Estilo de los vínculos*/
+/*a{
+	color: #0084ff;
+	text-decoration: none;
+}*/
+/*Estilo de las cajas de entrada de datos*/
+input[type="text"], input[type="password"], input[type="date"]{
+	behavior: url("../estilos/PIE-1.0.0/pie.htc"); /* codigo usado solo para IE 6,7 y 8 para border-radius o gradiente*/
+	position: relative; /* este valor se usa obligatoriamente con valor relative si se usa behavior: url("...pie.htc" */
+	border-radius: 5px;
+	background: rgb(240,240,240);
+	height: 16px;
+	border: 1px solid #cccccc;
+	width: 170px;
+	text-align: center;
+}
+/*Estilo de los botones de comando HTML*/
+input[type="button"] {
+	/* Se deben usar todas las formas de gradientes para los diferentes tipos de navegadores */
+	background: rgb(112,111,112);/* Old Browsers */
+	background: -moz-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* FF3.6+ */
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(112,111,112)), color-stop(100%, rgb(214,214,214)));/* Chrome, Safari4+ */
+	background: -webkit-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* IE 10+ */
+	background: linear-gradient(to bottom, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#706f70', endColorstr='#d6d6d6', GradientType=0 );/* IE6-9 */
+	/* Fin de los comandos background */
+	height: 25px;
+	color: #ffffff;
+	border: #ffffff solid 1px;
+	padding: 0 10px;
+}
+
+
+/* Este estilo se coloca como ID en un div antes del objeto Select para poner un fondo con color y borde redondeado
+sobre el cual el select(combo box) puede colocarse con sus propios estilos*/
+#fondo_select{
+	/*behavior: url("../estilos/PIE-1.0.0/pie.htc"); /* codigo usado solo para IE 6,7 y 8 */
+	position: relative; /* este valor se usa obligatoriamente con valor relative si se usa behavior: url("...pie.htc" */
+	background-color: rgb(240,240,240); /* color del fondo */
+	border-radius: 10px; /* borde redondeado */
+	display: inline-block; /* el objeto se coloca en la misma linea que los demas objetos */
+	height: 18px;
+}
+/* Este estilo es una clase que se usa en un div antes del objeto Select para poner un fondo con color y borde 
+redondeado sobre el cual el select(combo box) puede colocarse con sus propios estilos*/
+.fondo_select 
+{
+	/*behavior: url("../estilos/PIE-1.0.0/pie.htc"); /* codigo usado solo para IE 6,7 y 8 */
+	position: relative; /* este valor se usa obligatoriamente con valor relative si se usa behavior: url("...pie.htc" */
+	background-color: rgb(240,240,240); /* color del fondo */
+	border-radius: 10px; /* borde redondeado */
+	display: inline-block; /* el objeto se coloca en la misma linea que los demas objetos */
+	height: 18px;
+}
+/* Estilos para el select(combo box) */
+select{
+	behavior: url("../estilos/PIE-1.0.0/pie.htc"); /* codigo usado solo para IE 6,7 y 8 */
+	position: relative; /* este valor se usa obligatoriamente con valor relative si se usa behavior: url("...pie.htc" */
+	border-radius: 5px;
+	background: transparent;/* El fondo transparente activar la selección del select(combo box)*/
+	height: 20px;
+	border: 1px solid #cccccc;
+}
+/*Estilos de todos los botones de comando*/
+input[type="submit"], input[type="reset"]{
+	/* Se deben usar todas las formas de gradientes para los diferentes tipos de navegadores */
+	background: rgb(112,111,112);/* Old Browsers */
+	background: -moz-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* FF3.6+ */
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgb(112,111,112)), color-stop(100%, rgb(214,214,214)));/* Chrome, Safari4+ */
+	background: -webkit-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* IE 10+ */
+	background: linear-gradient(to bottom, rgb(112,111,112) 0%, rgb(214,214,214) 100%);/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#706f70', endColorstr='#d6d6d6', GradientType=0 );/* IE6-9 */
+	/* Fin de los comandos background */
+	height: 25px;
+	color: #ffffff;
+	border: #ffffff solid 1px;
+	padding: 0 10px;
+}
+/*Estilos de las líneas de la tabla*/
+td{
+	/*border-bottom: 1px dotted #0084ff;*/
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 5px;
+	/*padding-top: 5px;*/
+	padding-bottom: 5px;
+	/*padding-bottom: 5px;*/
+	/*text-overflow: ellipsis;*/
+	overflow: hidden;
+	list-style: circle;
+	white-space: nowrap;
+}
+/*Estilos de los títulos de la tabla */
+th{
+	background: #b2d7f9;
+	padding: 10px;
+	border: 1px solid rgb(240,240,200);
+	border-collapse: collapse;
+	/*overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;*/
+}
+/*Estilos para la clase .tblnormal */
+/*.tblnormal
+{
+	border-collapse: collapse;
+	background: rgb(210,210,210);
+	border: 1px solid rgb(240,240,200);
+	text-align: center;
+}*/
+.tblnormal td /* fila de tabla (TableData)*/
+{
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	overflow: hidden;
+	list-style: circle;
+	white-space: nowrap;
+	border: 1px solid rgb(240,240,200);
+}
+.tblnormal th /* cabecera de tabla (TableHeader) */
+{
+	background: rgb(180,210,250);
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.clr{/**/
+	clear: both;
+}
+/*Estilos del contenedor de la página*/
+/*#container{
+	width: 960px;
+	margin: 0px auto;
+	border-radius: 0px;
+	overflow: visible;
+}*/
+#container1{
+	width: 1383px;
+	height: 1030px;
+	background-color: rgb(100,250,100);
+}
+/* Estilos de la cabecera de la página*/
+/*#header{
+	height: 70px;
+	padding: 20px;
+}*/
+/* Estilos del bloque de logo de la página (imagen) */
+/*#logo{
+	float: left;
+	width: 600px;
+}*/
+/*Estilos del logo h1 (Tttulo)*/
+/*#logo h1{
+	/*color: #1c8bc2;*/
+	/*color: rgb(150,220,255);
+}
+/*#search{/*Buscar*/
+	/*float: right;
+	width: 500px;
+}*/
+#search form{/**/
+	float: right;
+}
+/* Estilos de la caja de búsqueda */
+#search input[type="text"]{
+	height: 24px;
+	border: 1px solid #cccccc;
+	width: 200px;
+	border-radius: 10px;
+}
+/* Estilos para la barra de navegación */
+#menu{
+	/* códigos de gradiente para diversos exploradores*/
+	/*background: rgba(112,111,112,1);*/
+	/*background: -moz-linear-gradient(top, rgba(112,111,112,1) 0%, rgba(214,214,214,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(112,111,112,1)), color-stop(100%, rgba(214,214,214,1)));
+	background: -webkit-linear-gradient(top, rgba(112,111,112,1) 0%, rgba(214,214,214,1) 100%);
+	background: -o-linear-gradient(top, rgba(112,111,112,1) 0%, rgba(214,214,214,1) 100%);
+	background: -ms-linear-gradient(top, rgba(112,111,112,1) 0%, rgba(214,214,214,1) 100%);
+	background: linear-gradient(to bottom, rgba(112,111,112,1) 0%, rgba(214,214,214,1) 100%);*/
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#706f70', endColorstr='#d6d6d6', GradientType=0 );*//* IE9*/
+	/* fin de codigos de gradiente */
+	/*color: #ffffff;
+	height: 37px;
+	width: 958px;
+	margin: auto;
+	border: 1px solid #cccccc;*/
+}
+/* Atributos del menu desplegable */
+ul{
+	/*list-style-type: none;*/
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+/* Estilos para los botones dentro de la barra de navegación */
+
+.nav > li {
+	float:left;
+
+}
+.nav li a {
+
+	display:block;
+	margin-right:5px;
+	padding: 12px;
+	background:#154360;
+
+	text-decoration: none;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 0px ;
+	margin: 2px 0.5px 0px 2px;
+}
+.nav li a:hover {
+	
+	background:#008a8a;
+}
+.nav li ul {
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+.nav li:hover > ul {
+	display:block;
+}
+.nav li ul li {
+	position:relative;
+}
+.nav li ul li ul {
+	right:-140px;
+	top:0px;
+}
+#main-col1{/**/
+	float: left;
+	width: 690px;
+	padding: 15px;
+	padding-top: 0px;
+	background: rgb(255,255,255);
+}
+/*Estilos de la barra lateral izquierda*/
+#main-col2{
+	float: left;
+	padding-top: 0px;
+	background: rgb(220,220,255);
+	overflow: hidden;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#main-col3{/**/
+	width: 1383px;
+	height: 1030px;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	overflow: visible;
+	float: left;
+	/*background: rgb(220,220,255);*/
+	background: rgb(250,250,250);
+	font-size: 24px;
+}
+#colizq{
+	float: left;
+	width: 25%;
+}
+#colcent1{
+	float: left;
+	width: 25%;
+}
+#colder{
+	float: left;
+	width: 30%;
+}
+#colizq1{
+	float: left;
+	width: 30%;
+}
+#colder1{
+	float: right;
+	width: 70%;
+}
+
+/* NOTA: Los estilos CSS no se ven de forma inmediata en el IE8 y posteriores; para verlos
+se debe actualizar la página WEB de IE( y posteriores usando el botón Vista de compatibilidad
+luego del cual recién se podrán ver los cambios hechos en la librería CSS.*/
+/*Estilos para tres columnas*/
+#colizq2{
+	float: left;
+	width: 35%;
+	/*border-style:solid;
+	border-color:red;
+	background: green;*/
+}
+
+#colcen2{
+	float: left;
+	width: 32%;
+	/*border-style:solid;
+	border-color:red;
+	background: yellow;*/
+}
+#colder2{
+	float: left;
+	width: 32%;
+	/*border-style:solid;
+	border-color:red;
+	background: magenta;*/
+}
+/*Estilos de la barra lateral derecha*/
+#side-col{
+	behavior: url("../estilos/PIE-1.0.0/pie.htc");
+	position: relative;
+	float: right;
+	width: 200px;
+	padding: 15px;/* agrega margen interior al bloque. Este se suma al ancho total del bloque. */
+	background-color: rgb(210,210,210);
+	border-radius: 10px;
+	margin: 10px;
+	margin-left: 10px;
+	margin-right: 0px;
+}
+/*Estilos del Pie de la página*/
+/*#footer{
+	behavior: url("../estilos/PIE-1.0.0/pie.htc");
+	position: relative;
+	text-align: center;
+	border-top: solid #cccccc 1px;
+	background-color: rgb(210,210,210);
+	border-radius: 0px 0px 10px 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 5px;
+	width: 950px;
+	margin: auto;
+}
+/*Estilo de los textos de inicio de sesión*/
+#contact label{
+	display: inline-block;
+	width: 150px;
+	color: black;
+}
+/* Estilos de los textos del formulario */
+#etq1{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	font-weight: bold;
+}
+
+/* Estilos de los textos del formulario */
+#etq2{
+	display: inline-block;
+	width: 140px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq3{
+	display: inline-block;
+	width: 136px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq4{
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+	font-weight: bold;
+
+}
+#etq5{
+	display: inline-block;
+	text-align: right;
+	font-weight: bold;
+	/*line-height: 0.6;*/
+}
+#etq6{
+	display: inline-block;
+	width: 535px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq7{
+	display: inline-block;
+	width: 450px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq8{
+	display: inline-block;
+	width: 250px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq9{
+	display: inline-block;
+	width: 400px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq10{
+	display: inline-block;
+	width: 350px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq11{
+	display: inline-block;
+	width: 75px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq12{
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+	font-weight: bold;
+}
+#etq13{
+	display: inline-block;
+	text-align: right;
+	font-weight: bold;
+	margin:0px;
+	margin-left:20px;
+	margin-right:5px;
+}
+#etq14{
+	display: inline-block;
+	text-align: right;
+	font-weight: bold;
+	margin:0px;
+	margin-right:5px;
+}
+#prn1{
+	display: inline-block;
+	text-align: right;
+	font-weight: bold;
+	/*background-color: rgb(100,250,100);*/
+}
+#prn2{
+	display: inline-block;
+	text-align: left;
+	font-weight: bold;
+	/*background-color: rgb(100,250,100);*/
+}
+#prn3{
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	/*background-color: rgb(100,250,100);*/
+}
+
+
+
+/* Colores con identidad Claro */
+:root {
+  --color-rojo: #E10600;       /* Rojo corporativo */
+  --color-blanco: #FFFFFF;     /* Blanco puro */
+  --color-rojo-claro: #FF4D4D; /* Variante para hover y acentos */
+}
+
+body {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+/* Encabezados y títulos importantes */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  font-weight: 700;
+}
+
+/* Texto con contorno (outline) */
+.outline-text {
+  -webkit-text-stroke: 2px var(--color-rojo);
+  color: var(--color-blanco);
+  font-weight: bold;
+}
+
+/* Variante sobre fondo blanco */
+.bg-white-text-red {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+}
+
+.bg-white-text-red .outline-text {
+  -webkit-text-stroke: 2px var(--color-blanco);
+  color: var(--color-rojo);
+}
+
+input, textarea, select {
+  border: 2px solid var(--color-rojo);
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-rojo-claro);
+  opacity: 1;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-rojo-claro);
+  box-shadow: 0 0 6px var(--color-rojo-claro);
+}
+
+/* Botones principales y secundarios */
+button,
+.button {
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  font-size: 1rem;
+}
+
+button.primary, .button.primary {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: none;
+}
+button.primary:hover, .button.primary:hover {
+  background-color: var(--color-rojo-claro);
+}
+
+button.secondary, .button.secondary {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  border: 2px solid var(--color-rojo);
+}
+button.secondary:hover, .button.secondary:hover {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+/* Formularios con inversión de color */
+form.inverted {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(225,6,0,0.08);
+  max-width: 450px;
+  margin: 0 auto 32px auto;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-blanco);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: var(--color-rojo-claro);
+  outline: none;
+}
+
+/* Enlaces sobre fondo blanco */
+.bg-white-text-red a {
+  color: var(--color-rojo);
+}
+.bg-white-text-red a:hover, .bg-white-text-red a:focus {
+  color: var(--color-rojo-claro);
+}
+
+/* Accesibilidad: focus visible */
+:focus-visible {
+  outline: 3px solid var(--color-rojo-claro);
+  outline-offset: 2px;
+}
+
+/* Detalles visuales para frescura */
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>{{razon_social_empresa}}</title>
+    <style type="text/css">
+        body{font-family: Arial; font-size: 13px;} td{ padding: 8px;}
+        .waves-effect {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            vertical-align: middle;
+            z-index: 1;
+            -webkit-transition: .3s ease-out;
+            transition: .3s ease-out;
+        }
+        .btn, .btn-large, .btn-small {
+            text-decoration: none;
+            color: #fff;
+            background-color: #26a69a;
+            text-align: center;
+            letter-spacing: .5px;
+            -webkit-transition: background-color .2s ease-out;
+            transition: background-color .2s ease-out;
+            cursor: pointer;
+        }
+        .btn, .btn-large, .btn-small, .btn-floating, .btn-large, .btn-small, .btn-flat {
+            font-size: 14px;
+            outline: 0;
+        }
+        .btn, .btn-large, .btn-small, .btn-flat {
+            border: none;
+            border-radius: 2px;
+            display: inline-block;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 16px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+        }
+        a {
+            text-decoration: none;
+        }
+        a {
+            color: #039be5;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+        *, ::before, ::after {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+    </style>
+</head>
+<body style="padding:25px;">
+    <table style="width:800px; border: solid 1px #000;">
+        <tr>
+            <td style="text-align:center" colspan="2">
+								<img src="../imagenes/logo_base.png" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:justify">
+                Estimado(a):
+                <p>{{email.razon_social}}</p>
+								Por encargo del emisor {{razon_social_empresa}} nos es grato informar que La <strong>{{email.tipo_comprobante}}</strong> Electr&oacute;nica Nro. {{email.num_comprobante}} ha sido <strong>EMITIDA</strong> con los siguientes datos:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Nro. RUC del Emisor: {{email.ruc_emisor}}</strong><br/>
+                <strong>Fecha de Emisi&oacute;n: {{email.fec_emision}}</strong><br/>
+                <strong>Monto total: S/. {{email.total}}</strong>
+            </td>
+            <td>
+								<a href="{{url_web_empresa}}" target="_blank" class="waves-effect waves-light btn">Comprobante</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <small>
+										Los comprobantes tambien pueden ser consultados en el link <a href="{{url_web_empresa}}" target="_blank">{{web_empresa}}</a> opci&oacute;n <strong>SEE</strong>, ingresando sus datos del comprobante.
+                </small>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="border-top: solid 1 px #AAE;">
+                <strong>
+                    Atentamente.<br/>
+										{{razon_social_empresa}}<br/>
+                    AGRADECEREMOS NO RESPONDER ESTE CORREO
+                </strong>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<style type="text/css">
+    div.container_ruc *{
+        border: solid 1px #000;
+        vertical-align: text-top;
+    }
+    div.container_detalles{
+        width: 100%;
+        height: 100%;
+        border: solid 1px #000;
+    }
+</style>
+<table>
+        <tr>
+						<td style="width:240px;" colspan="3"><img src="../imagenes/logo_base.png" alt="{{razon_social_empresa}}" width="200px"></td>
+            <td style="width:130px; font-size:5px; border-left: solid 1px #000; padding: 5px; ">
+                {% if empresa.sucursal is defined and empresa.sucursal.direccion is not empty %}
+                <br/>
+								Sucursal:<br/>
+                {{empresa.sucursal.direccion}}<br/>
+                <br/>
+                <br/>
+                {% endif %}
+                PRINCIPAL:<br/>
+                {{empresa.direccion}}<br/>
+                {{empresa.distrito}} - {{empresa.provincia}} - {{empresa.departamento}}<br/>
+                <br/>
+                {% if empresa.sitioweb is defined %}
+                {{empresa.sitioweb}}<br/>
+                {% endif %}
+                {% if empresa.email is defined %}
+                E-mail: {{ empresa.email }}
+                {% endif %}
+            </td>
+            <td style="width:196px;" rowspan="2" colspan="3">
+                <table>
+                    <tr>
+                        <td style="text-align:center; border:solid 1px #000;">{{empresa.abrev_doc_fiscal}}: {{empresa.num_doc_fiscal}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; border:solid 1px #000; background-color: #000; color:#fff;">{{venta.desc_comprobante}}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; border:solid 1px #000;">{{num_comprobante}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:center; font-size:8px;">
+                Distribuidor Autorizado de BITEL-PERU. Venta de productos y servicios en Telecomunicación,<br/>
+                Accesorios y suministros para Celulares, Tablets y Pads.<br/><br/>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:80px; font-size:10px;">Cliente:</td>
+            <td style="font-size:10px; font-weight: bold;" colspan="6">{{cliente.razon_social}}</td>
+        </tr>
+        <tr>
+            <td style="font-size:10px;">Dirección:</td>
+            <td style="font-size:10px; font-weight: bold;" colspan="3">
+						{% if cliente.direccion == '-' %}
+							&nbsp;
+						{% else %}
+							{{cliente.direccion}}
+						{% endif %}
+						</td>
+            <td style="font-size:10px;">Fecha:</td>
+            <td style="font-size:10px; font-weight: bold;" colspan="2">{{"now" | date("d/m/Y")}}</td>
+        </tr>
+        <tr>
+            <td style="font-size:10px;">Doc. Identidad:</td>
+            <td style="font-size:10px; font-weight: bold;" colspan="3">
+						{% if cliente.num_doc_identidad == '00000000' %}
+							&nbsp;
+						{% else %}
+							{{cliente.abrev_doc_identidad}}:{{cliente.num_doc_identidad}}
+						{% endif %}
+						</td>
+            <td style="font-size:10px; width:98px;">Condición de Pago:</td>
+            <td style="font-size:10px; font-weight: bold; width: 145px;" colspan="2">{{venta.condicion_pago}}</td>
+        </tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width:40px; font-size:9px; background-color:#000; color:#fff;">CANT.</td>
+            <td colspan="4" style="width:407px; font-size:9px; background-color:#000; color:#fff;">DESCRIPCIÓN</td>
+            <td style="width:60px; font-size:9px; background-color:#000; color:#fff;">P. UNIT.</td>
+            <td style="width:60px; font-size:9px; background-color:#000; color:#fff;">TOTAL</td>
+        </tr>
+        {% for item in venta.detalles %}
+        <tr>
+            <td style="width:40px; font-size:10px; text-align:center;">{{item.cantidad}}</td>
+            <td colspan="4" style="width:407px; font-size:10px;">{{item.descripcion}}</td>
+            <td style="width:60px; font-size:10px; text-align:right;">{{item.precio | number_format(2,'.', ',')}}</td>
+            <td style="width:60px; font-size:10px; text-align:right;">{{(item.precio*item.cantidad) | number_format(2,'.', ',')}}</td>
+        </tr>
+        {% endfor %}
+				<br/>
+        {% if venta.desc_comprobante == 'FACTURA' %}
+        <tr>
+            <td colspan="6" style="text-align:right; font-size:9px;">SUB-TOTAL S/.</td>
+            <td style="text-align:right; border-bottom: solid 1px #000; font-size:10px;">{{venta.subtotal | number_format(2, '.', ',')}}</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="text-align:right; font-size:9px;">I.G.V. S/.</td>
+            <td style="text-align:right; border-bottom: solid 1px #000; font-size:10px;">{{venta.importe_igv|number_format(2, '.', ',')}}</td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td colspan="6" style="text-align:right; font-size:9px;">TOTAL S/.</td>
+            <td style="text-align:right; border-bottom: solid 1px #000; font-size:10px;">{{venta.total|number_format(2, '.', ',')}}</td>
+        </tr>
+        <tr>
+            <td colspan="7" style="font-size:10px; color: #b1b0b0e6">
+                SON {{venta.importe_letra | upper}} SOLES
+            </td>
+        </tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="font-size:9px; color: #023;">
+							Esta es una representación impresa de su comprobante electronico. Puede consultarlo en {{web_empresa}}.
+            </td>
+            <td colspan="2">
+                <img src="./../assets/images/code_qr.png" style="width:90px; height:90px;" />
+            </td>
+        </tr>
+</table>

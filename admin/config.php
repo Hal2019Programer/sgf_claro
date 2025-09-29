@@ -1,0 +1,13 @@
+<?php
+define("OELFCAHOST","localhost");
+/*
+define("OELFCADB","db_sinven");
+define("OELFCAUSER","root");
+define("OELFCAPASS","");
+*/
+define("OELFCADB","ecositi1_sgf_claro");
+define("OELFCAUSER","ecositi1_root");
+define("OELFCAPASS","51z4@E@Ue417");
+define("OELFCAPORT","3306");
+/*date_default_timezone_set("America/Caracas");*/
+?>

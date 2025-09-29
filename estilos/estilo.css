@@ -1,0 +1,437 @@
+/* Colores con identidad Claro */
+:root {
+  --color-rojo: #E10600; /* Rojo corporativo */
+  --color-blanco: #FFFFFF; /* Blanco puro */
+  --color-rojo-claro: #FF4D4D; /* Variante para hover y acentos */
+  --color-gris-mas-claro: rgb(239, 244, 236); /* Gris claro para fondos */
+  --color-gris-claro1: rgb(215, 222, 210); /* Gris claro para fondos */
+  --color-gris-claro: rgb(189,195,184); /* Gris claro para fondos */
+  --color-gris-oscuro: rgb(127,140,141); /* Gris oscuro para textos */
+  --color-gris-mas-oscuro: rgb(86, 96, 97); /* Gris oscuro para textos */
+  --color-negro: black; /* Negro para corporativo */
+  --color-azul-heli: #1658a8;
+}
+html {
+	font-size:14px;
+}
+body {
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 24px;
+  line-height: 1.5;
+}
+.logo{
+	margin-top: 18px;
+	margin-left: 10px;
+	float:left;
+	width: 410px;
+ 	height: 100px;
+}
+.bienvenidos{
+	text-align: left;
+	font-weight: bold;
+	padding: 5px;
+	color: var(--color-blanco);
+	background:var(--color-rojo);
+	height: 36px;
+	width: 500px;
+	border-radius:10px 10px 0px 0px;
+	border: thin solid var(--color-rojo);
+	margin-top: 5px;
+	font-size: 26px;
+}
+.seccion{
+	background: var(--color-blanco);
+	width: 450px;
+	height: 75px;
+	padding: 20px 30px 20px 30px;
+	border-radius: 0px 0px 10px 10px;
+	border: thin solid var(--color-rojo);
+}
+.input_gris {
+	background-color: var(--color-gris-oscuro);
+	color: white;
+	border-radius: 10px;
+}
+.input_azul_heli[type="submit"] {
+	background-color: var(--color-azul-heli);
+	color: white;
+	border-radius: 5px;
+}
+.input_azul_heli[type="reset"] {
+	background-color: var(--color-azul-heli);
+	color: white;
+	border-radius: 5px;
+}
+.fc{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+.tw{
+	height: 35px;
+	width: 35px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -31px;
+}
+.you{
+	height: 32px;
+	width: 32px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -28px;
+}
+.goo{
+	height: 46px;
+	width: 46px;
+	float: right;
+	margin-right: 2px;
+	margin-top: -35px;
+}
+.piepag {
+	color:var(--color-azul-heli);
+	/*width: 400px;*/
+	text-align: justify;
+	padding: 8px;
+	margin-left: 0px ;
+	float: left;
+	font-weight: bold;
+}
+.textomenu {
+	color:var(--color-azul-heli);
+	/*width: 400px;*/
+	text-align: justify;
+	padding: 8px;
+	margin-left: 0px ;
+	float: left;
+	font-weight: bold;
+}
+/* Atributos del menu desplegable */
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+/* Estilos para los botones dentro de la barra de navegación */
+.nav > li {
+	float:left;
+}
+.nav li a {
+
+	display:block;
+	margin-right:5px;
+	padding: 10px;
+	background: var(--color-gris-mas-claro);
+	border: thin solid var(--color-gris-claro);
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	color: red;
+	border-radius: 5px ;
+	margin: 2px 0.5px 0px 2px;
+	box-shadow: 0 0 1px var(--color-gris-claro);
+}
+.nav li a:hover {
+	
+	background:red;
+	color: white;
+	font-weight: bold;
+}
+.nav li ul {
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+.nav li:hover > ul {
+	display:block;
+}
+.nav li ul li {
+	position:relative;
+}
+.nav li ul li ul {
+	right:-140px;
+	top:0px;
+}
+
+h1 {
+  margin-block:auto;	
+}
+
+
+/* Encabezados y títulos importantes */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  /* margin-bottom: 0.8em; */
+  font-weight: 700;
+}
+
+/* Texto con contorno (outline) */
+.outline-text {
+  -webkit-text-stroke: 2px var(--color-rojo);
+  color: var(--color-blanco);
+  font-weight: bold;
+}
+
+/* Variante sobre fondo blanco */
+.bg-white-text-red {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+}
+
+.bg-white-text-red .outline-text {
+  -webkit-text-stroke: 2px var(--color-blanco);
+  color: var(--color-rojo);
+}
+
+input, textarea, select, text {
+  /* border: thin solid var(--color-rojo); */
+  border: thin solid var(--color-gris-claro);
+  background-color: var(--color-blanco);
+  /* color: var(--color-rojo); */
+  color: var(--color-negro);
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="submit"] {
+  background-color: var(--color-azul-heli);
+  color: var(--color-blanco);
+  border-radius: 4px;
+}
+input[type="reset"] {
+  background-color: var(--color-gris-oscuro);
+  color: var(--color-blanco);
+  border-radius: 4px;
+}
+select {
+  display: inline-block; 	
+}
+input::placeholder,
+textarea::placeholder {
+  /* color: var(--color-rojo-claro); */
+  color: var(--color-gris-claro);
+  opacity: 1;
+}
+
+input:focus, textarea:focus, select:focus {
+  /* border-color: var(--color-rojo-claro); */
+  border-color: var(--color-gris-claro);
+  /* box-shadow: 0 0 6px var(--color-rojo-claro); */
+  box-shadow: 0 0 6px var(--color-gris-claro);
+}
+
+/* Botones principales y secundarios */
+button,
+.button {
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  font-size: 1rem;
+}
+
+button.primary, .button.primary {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: none;
+}
+button.primary:hover, .button.primary:hover {
+  background-color: var(--color-rojo-claro);
+}
+
+button.secondary, .button.secondary {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  border: 2px solid var(--color-rojo);
+}
+button.secondary:hover, .button.secondary:hover {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+}
+
+/* Formularios con inversión de color */
+form.inverted {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(225,6,0,0.08);
+  max-width: 450px;
+  margin: 0 auto 32px auto;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-blanco);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  /*color: var(--color-rojo-claro);*/
+  color:rgb(220,220,50);
+  outline: none;
+}
+
+/* Enlaces sobre fondo blanco */
+.bg-white-text-red a {
+  color: var(--color-rojo);
+}
+.bg-white-text-red a:hover, .bg-white-text-red a:focus {
+  color: var(--color-rojo-claro);
+}
+
+/* Accesibilidad: focus visible */
+:focus-visible {
+  /* outline: 2px solid var(--color-rojo-claro); */
+  outline: 2px solid var(--color-gris-claro);
+  outline-offset: 0.5px;
+}
+
+/* Detalles visuales para frescura */
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+/*Estilos de las líneas de la tabla*/
+/*td {
+	/*border-bottom: 1px dotted #0084ff;*/
+/*	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 5px;
+	/*padding-top: 5px;*/
+/*	padding-bottom: 5px;
+	/*padding-bottom: 5px;*/
+	/*text-overflow: ellipsis;*/
+/*	overflow: hidden;
+/*	list-style: circle;
+	white-space: nowrap;
+}
+/*Estilos de los títulos de la tabla */
+/*th {
+	background: #b2d7f9;
+	padding: 10px;
+	border: 1px solid rgb(240,240,200);
+	border-collapse: collapse;
+	/*overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;*/
+/*}
+/*Estilos para la clase .tblnormal */
+.tblnormal
+{
+	border-collapse: collapse;
+	/*border: 1px solid var(--color-gris-claro);*/
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+}
+.tblnormal td /* fila de tabla (TableData)*/
+{
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	overflow: hidden;
+	list-style: circle;
+	white-space: nowrap;
+	border: 1px solid var(--color-blanco);
+	background: var(--color-gris-claro1);
+}
+/* Estilos para fondo personalizado que sobrescriben al anterior */
+.tblnormal td.fondo {
+  background: black;
+}
+
+.tblnormal td.fondo:hover {
+  background: rgb(240,130,50);
+}
+.tblnormal th /* cabecera de tabla (TableHeader) */
+{
+	background: var(--color-negro);
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: 1px solid var(--color-blanco);
+	color:var(--color-blanco);
+}
+.tblnormal tr {
+	display: inline-flex;
+}
+
+.tblreporte01 
+{
+	border-collapse: collapse;
+	/*border: 1px solid var(--color-gris-claro);*/
+	text-align: center;
+	font-size: 12px;
+}
+.tblreporte01 td /* fila de tabla (TableData)*/
+{
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	overflow: hidden;
+	list-style: circle;
+	white-space: nowrap;
+	border: 1px solid var(--color-blanco);
+	background: var(--color-gris-claro1);
+}
+.tblreporte01 th /* cabecera de tabla (TableHeader) */
+{
+	background: var(--color-negro);
+	padding-right: 1px;
+	padding-left: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: 1px solid var(--color-blanco);
+	color:var(--color-blanco);
+}
+
+.tblreporte02
+{
+	border-collapse: collapse;
+	text-align: center;
+}
+.tblreporte02 td /* fila de tabla (TableData)*/
+{
+	white-space: nowrap;
+	border: 1px solid var(--color-gris-claro);
+}
+.tblreporte02 th /* cabecera de tabla (TableHeader) */
+{
+	white-space: nowrap;
+	background: var(--color-gris-claro);
+	border: 1px solid var(--color-blanco);
+}
+
+.color_items {
+	background:white;
+	color:red;
+	font-weight:600;
+	border-radius: 3px;;
+}
+.color_unidades {
+	background:rgb(127,140,141);
+	color:white;
+}
+.fondo_select 
+{
+	border-radius: 10px; /* borde redondeado */
+	display: inline-block; /* el objeto se coloca en la misma linea que los demas objetos */
+}
