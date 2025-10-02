@@ -344,7 +344,9 @@ muestraDatos_x_innerHTML_Js()
 						?>
 					</div>
 					<div>
-						<span id="etq4">Tipo de venta:</span><?php cmbNormJs_span("spn_select_tipVent", "cmbtip", $var7, "onchange=\"CambiarValor('cmbtip')\";", "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego")?>
+						<span id="etq4">Tipo de venta:</span><?php 
+						//cmbNormJs_span("spn_select_tipVent", "cmbtip", $var7, "onchange=\"CambiarValor('cmbtip')\";", "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
+						cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var7,"onchange=\"CambiarValor('cmbtip')\";","descrip_vtv");?>
 						<span id="etq5">Plan:</span><?php cmbfield("cmbipl", $Conexion, "SELECT * from planes WHERE activ_pla=1", $var8, "id_pla","abrv_pla");?>
 						<span id="etq5">Importe S/.:</span><?php txtvalstl("txtimp",$var12,7,"width:80px;");?>
 					</div>		

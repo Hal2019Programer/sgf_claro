@@ -141,20 +141,27 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 						// Encabezado: Titulo y Personalizdo, escoger Vacío
 						// Pié de página: URL y Fecha, escoger Vacío
 						$ccf=$_POST["txtcadsql"];$cadsql=$ccf;//cadena de consulta final
-						$znn=$_POST["cmbzna"];$var_zona=$znn;//zona
-						$tip=$_POST["cmbtip"];$var_tvta=$tip;//grupo
-						$ufn=$_POST["cmbusr"];$var_usua=$ufn;//usuario
-						$fid=$_POST["cmbfdyi"];$var_fchdyi=$fid;//dia inicial
-						$fim=$_POST["cmbfmsi"];$var_fchmsi=$fim;//mes inicial
-						$fia=$_POST["cmbfani"];$var_fchani=$fia;//año inicial
-						$ffd=$_POST["cmbfdyf"];$var_fchdyf=$ffd;//dia final
-						$ffm=$_POST["cmbfmsf"];$var_fchmsf=$ffm;//mes final
-						$ffa=$_POST["cmbfanf"];$var_fchanf=$ffa;//año final
-						$fin=$fid."/".$fim."/".$fia;//fecha inicial
-						$ffi=$ffd."/".$ffm."/".$ffa;//fecha final
-						$sql= mysqli_query ($Conexion,$ccf) or die ("Error al traer los datos de regventas");
-						$ncf=conversion_de_consulta($ccf);//convierta la cadena de consulta final para enviarlo a la siguiente ventana como parametro
-						echo "<script> window.open('../admin/reporte01imp.php?cadconsulta=$ncf&vizona=$znn&vitip=$tip&viufn=$ufn&vifin=$fin&viffi=$ffi', '_blank', 'width=962, height=600, left=0, top=0, menubar=no, toolbar=yes, scrollbars=yes, resizable=no, status=no'); </script>";
+						if (!empty($ccf))
+						{
+							$znn=$_POST["cmbzna"];$var_zona=$znn;//zona
+							$tip=$_POST["cmbtip"];$var_tvta=$tip;//grupo
+							$ufn=$_POST["cmbusr"];$var_usua=$ufn;//usuario
+							$fid=$_POST["cmbfdyi"];$var_fchdyi=$fid;//dia inicial
+							$fim=$_POST["cmbfmsi"];$var_fchmsi=$fim;//mes inicial
+							$fia=$_POST["cmbfani"];$var_fchani=$fia;//año inicial
+							$ffd=$_POST["cmbfdyf"];$var_fchdyf=$ffd;//dia final
+							$ffm=$_POST["cmbfmsf"];$var_fchmsf=$ffm;//mes final
+							$ffa=$_POST["cmbfanf"];$var_fchanf=$ffa;//año final
+							$fin=$fid."/".$fim."/".$fia;//fecha inicial
+							$ffi=$ffd."/".$ffm."/".$ffa;//fecha final
+							$sql= mysqli_query ($Conexion,$ccf) or die ("Error al traer los datos de regventas");
+							$ncf=conversion_de_consulta($ccf);//convierta la cadena de consulta final para enviarlo a la siguiente ventana como parametro
+							echo "<script> window.open('../admin/reporte01imp.php?cadconsulta=$ncf&vizona=$znn&vitip=$tip&viufn=$ufn&vifin=$fin&viffi=$ffi', '_blank', 'width=962, height=600, left=0, top=0, menubar=no, toolbar=yes, scrollbars=yes, resizable=no, status=no'); </script>";
+						}
+						else
+						{
+							mensaje("No se puede imprimir sin ejecutado el botón Filtrar previamente.");
+						}
 					}
 					//---------------------------------------------- Actualizar ----------------------------------------------
 					if($btn=="Actualizar")
@@ -162,14 +169,16 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 						echo "<script> location.href = 'reporte01.php'; </script>";
 					}
 				}
-				//---------------------------------------------- Conteos de cantidades y valores ----------------------------------------------
-				$tvppg=$tvprp=$trnor=$trpdv=$tvacc=$tvser=$tvotr=0;
-				$mtppg=$mtprp=$mtrnor=$mtrpdv=$mtacc=$mtser=$mtotr=0;
+				//---------------------------------------------- Conteos de cantidades y valores en regventas ----------------------------------------------
+				$tvppg=$tvprp=$trnor=$trpdv=$tvacc=$tvser=$tvotr=0; // Cantidades
+				$mtppg=$mtprp=$mtrnor=$mtrpdv=$mtacc=$mtser=$mtotr=0; // Monto acumulado
 				//Añadido por Juan para contar las ventas de juegos
 				$canti_vtas_juego=$monto_vtas_juego=0;
+				// Añadido para conteo de PortaPrePost, PortaPostPost, PortaPre, 1Play, 2Play, 3Play
+				$cant_PortaPrePost=$cant_PortaPostPost=$cant_PortaPre=$cant_1Play=$cant_2Play=$cant_3Play = 0;
+				$monto_PortaPrePost=$monto_PortaPostPost=$monto_PortaPre=$monto_1Play=$monto_2Play=$monto_3Play = 0;
 				//-------------------------------------------------
-				$mtrgv=$mtgrl=0;
-				$cnrgv=0;
+				$mtrgv=0;
 				//--------------------- Conteos en regventas ---------------------
 				//Agregado por Juan (27-04-2019)----------------------------------
 				$registro_x_zona=new conteo_zonas;
@@ -193,15 +202,23 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					if ($tp_pla=="Servicios") { $tvser++; $mtser=$mtser+$im_tot; }
 					if ($tp_pla=="Otros") { $tvotr++; $mtotr=$mtotr+$im_tot; }
 					if ($tp_pla=="Juego") { $canti_vtas_juego++; $monto_vtas_juego=$monto_vtas_juego+$im_tot; }
+					// Añadido para calcular PortaPrePost, PortaPostPost, PortaPre, 1Play, 2Play, 3Play
+					if ($tp_pla=="PortaPrePost") { $cant_PortaPrePost++; $monto_PortaPrePost=$monto_PortaPrePost+$im_tot; }
+					if ($tp_pla=="PortaPostPost") { $cant_PortaPostPost++; $monto_PortaPostPost=$monto_PortaPostPost+$im_tot; }
+					if ($tp_pla=="PortaPre") { $cant_PortaPre++; $monto_PortaPre=$monto_PortaPre+$im_tot; }
+					if ($tp_pla=="1Play") { $cant_1Play++; $monto_1Play=$monto_1Play+$im_tot; }
+					if ($tp_pla=="2Play") { $cant_2Play++; $monto_2Play=$monto_2Play+$im_tot; }
+					if ($tp_pla=="3Play") { $cant_3Play++; $monto_3Play=$monto_3Play+$im_tot; }
 					//Suma total
 					$mtrgv=$mtrgv+$im_tot;
 				}
-				//Cantidad de registros total
 				
 				//--------------------- Conteos en pagosdiv ---------------------
 				$suma_monto=0;
 				$cant_pa=$cant_pm=0;$cant_PayJoy=0;
 				$monto_pa=$monto_pm=0;$monto_PayJoy=0;
+				// Monto total de conteo en pagosdiv
+				$mtgrl=0;
 				//Agregado por Juan (27-04-2019)----------------------------------
 				$pagosdiv_x_zona=new conteo_zonas;
 				$pagosdiv_x_zona->inicializar_lista($pz,$pagosdiv_x_zona->lista_zona);
@@ -231,7 +248,10 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<?php 
 					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var_zona,"","nomb_zna"); 
 					?>
-					<span id="etq5"style="width:100px;">Tipo venta:</span><?php cmbnormal("cmbtip", $var_tvta, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");?>
+					<span id="etq5"style="width:100px;">Tipo venta:</span><?php 
+					//cmbnormal("cmbtip", $var_tvta, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
+					cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var_tvta,"","descrip_vtv");
+					?>
 					<span id="etq5"style="width:100px;">Usuario:</span><?php cmbfield("cmbusr", $Conexion, "SELECT * from usuarios WHERE (categ_usr='Vend') OR (categ_usr='Caja') OR (categ_usr='Cord') OR (categ_usr='Supr')", $var_usua, "id_usr","nomb_usr");?>
 					<span id="etq5"style="width:100px;">Tipo Doc.:</span><?php cmbnormal("cmbtdc", $var_tdoc, "Boleta de venta", "Factura");?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); }?>
@@ -255,7 +275,13 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span id="etq5"style="width:100px;">Accesorios =</span><?php echo " S/. ",$mtacc," (",$tvacc,")";?>
 					<span id="etq3"style="width:100px;">Servicios =</span><?php echo " S/. ",$mtser," (",$tvser,")";?>
 					<span id="etq3"style="width:80px;">Otros =</span><?php echo " S/. ",$mtotr," (",$tvotr,")";?>
-					<span id="etq3"style="width:80px;">Juego =</span><?php echo " S/. ",$monto_vtas_juego," (",$canti_vtas_juego,")";?> <br><hr>
+					<span id="etq3"style="width:80px;">Juego =</span><?php echo " S/. ",$monto_vtas_juego," (",$canti_vtas_juego,")";?>
+					<span id="etq3"style="width:120px;">Porta Pre a Post =</span><?php echo " S/. ",$monto_PortaPrePost," (",$cant_PortaPrePost,")";?>
+					<span id="etq3"style="width:120px;">Porta Post a Post =</span><?php echo " S/. ",$monto_PortaPostPost," (",$cant_PortaPostPost,")";?>
+					<span id="etq3"style="width:120px;">Porta Pre =</span><?php echo " S/. ",$monto_PortaPre," (",$cant_PortaPre,")";?>
+					<span id="etq3"style="width:120px;">1 Play =</span><?php echo " S/. ",$monto_1Play," (",$cant_1Play,")";?>
+					<span id="etq3"style="width:120px;">2 Play =</span><?php echo " S/. ",$monto_2Play," (",$cant_2Play,")";?>
+					<span id="etq3"style="width:120px;">3 Play =</span><?php echo " S/. ",$monto_3Play," (",$cant_3Play,")";?><br><hr>
 					<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE REGISTROS DE VENTA:</span><?php echo " S/. ",$mtrgv;?> <br><hr>
 					<span id="etq5" class="color_items" style="width:120px;">PAGOS DIVERSOS:</span>
 					<?php //Agregado por Juan (27-04-2019) -----------------------------------------------------

@@ -248,7 +248,10 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					//cmbnormal("cmbtip", $vbtip, "Handset", "Smartphone", "Modem", "PackConnect", "SIM Mobile", "BSmart", "BFree", "BCombo", "Uni","Kit BVoz","Kit BData","Kit BitelUNIV", "Kit Bfono", "Router", "Rec.Tarjeta", "Rec.Virtual", "Tablet", "SD Card", "Auricular", "CarcasaSmpl", "CarcasaTapa", "ProtectPant", "Migracion", "CambioPlan", "BajaLinea", "Desbloqueo", "Reconfigur.", "Otros");
 					cmbfieldJs("div_select_tipo","cmbtip",$Conexion,"SELECT desc_clase_prosrv FROM clase_prod_serv WHERE activo_clase_prosrv='S'",$vbtip,"","desc_clase_prosrv");
 					?>
-					<span id="etq5" style=" width:90px;">Tipo Vta.:</span><?php cmbnormal("cmbtvt", $vbtvt, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");?>
+					<span id="etq5" style=" width:90px;">Tipo Vta.:</span><?php 
+					//cmbnormal("cmbtvt", $vbtvt, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
+					cmbfieldJs_span("spn_select_tipVent","cmbtvt",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$vbtvt,"","descrip_vtv");
+					?>
 					<span id="etq5" style=" width:67px;">Plan:</span><?php cmbfield("cmbpla", $Conexion, "SELECT * from planes WHERE activ_pla=1", $vbpla, "id_pla","abrv_pla");?>
 					<span id="etq5" style=" width:100px;">Documento:</span><?php cmbnormal("cmbtdc", $vbtdc, "Boleta de venta", "Factura");?>
 					<span id="etq5" style=" width:55px;">Zona:</span>

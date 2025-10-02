@@ -529,7 +529,8 @@ class vLegend
 class conteo_zonas
 {
 	//public $lista_zona=["Satipo", "Pichanaki", "La Merced", "Huancayo", "Huancayo2", "Huancayo3", "RealPlaza","VentaCampo"];
-	public $lista_zona=["JUNCD05","JUNDL39","JUNDL43","PRE_DL39","PRE_DL43","JUNCD12","Almacen1","Almacen2","Almacen3","Almacen4","Almacen5","JUNDA29"];
+	//public $lista_zona=["JUNCD05","JUNDL39","JUNDL43","PRE_DL39","PRE_DL43","JUNCD12","Almacen1","Almacen2","Almacen3","Almacen4","Almacen5","JUNDA29"];
+	public $lista_zona=["PDV_JXU4"];
 	public $zona;
 	public $cuenta;
 	public $monto;
