@@ -229,7 +229,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					cmbfieldJs_span("spn_zona","cmbzona",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vzona,"","nomb_zna"); 
 					?>
 					<!-- <span id="etq5" style="width:85px;">Tipo Reg.:</span> --><?php // cmbnormal("cmbtrg",$vtipr,"Pag.Adel.","Pag.Mens.");?>
-					<span id="etq5" style="width:85px;">Tipo Reg.:&nbsp;</span><?php cmbnormal("cmbtrg",$vtipr,"PayJoy","Pag.Mens.");?>
+					<span id="etq5" style="width:85px;">Tipo Reg.:&nbsp;</span><?php cmbnormal("cmbtrg",$vtipr,"PayJoy","Pag.Mens.","CuotaInicial");?>
 					<span id="etq5" style=" width:90px;">Fecha Vta.:&nbsp;</span><?php txtvalstl("txtfch",$vbfch,10,"width:90px;");?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); }?>
 					<?php txtoculto("txtnumreg",$numreg);?><br><hr>
@@ -237,7 +237,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<div>
 						<span id="etq5" style="width:70px;">ID:</span><?php txtronstl("txtid",$v_id_rpg,"width:50px;");?>
 						<span id="etq5" style="width:75px;">Nº Celular:</span><?php txtvalstl("txtcel",$v_numcel_rpg,11,"width:100px;");?>
-						<span id="etq5" style="width:40px;">Tipo:</span><?php cmbnormal("cmbtrp",$v_tipo_rpg,"PayJoy","Pag.Mens.");?>
+						<span id="etq5" style="width:40px;">Tipo:</span><?php cmbnormal("cmbtrp",$v_tipo_rpg,"PayJoy","Pag.Mens.","CuotaInicial");?>
 						<span id="etq5" style="width:85px;">Descripción:</span><?php txtvalstl("txtdsc",$v_desc_rpg,50,"width:280px;");?>
 						<span id="etq5" style="width:75px;">Monto S/.:</span><?php txtvalstl("txtmnt",$v_monto_rpg,8,"width:70px;");?>
 						<span id="etq5" style="width:60px;">Efectivo:</span><?php txtvalstl("txterg",$v_efectivo_rpg,10,"width:70px;");?><br>
