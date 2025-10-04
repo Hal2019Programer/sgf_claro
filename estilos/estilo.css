@@ -9,13 +9,17 @@
   --color-gris-oscuro: rgb(127,140,141); /* Gris oscuro para textos */
   --color-gris-mas-oscuro: rgb(86, 96, 97); /* Gris oscuro para textos */
   --color-negro: black; /* Negro para corporativo */
-  --color-azul-heli: #1658a8;
+  --color-azul-heli: #1658A8;
+  --body-basico: #0F6D80;
+  --cabecera--bienvenidos: #154360;
+  --seccion--bienvenidos:#CFD3D8;
 }
 html {
 	font-size:14px;
 }
 body {
-  background-color: var(--color-blanco);
+  /*background-color: var(--color-blanco);*/
+  background-color: var(--body-basico);
   color: var(--color-negro);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -34,21 +38,23 @@ body {
 	font-weight: bold;
 	padding: 5px;
 	color: var(--color-blanco);
-	background:var(--color-rojo);
+	/*background:var(--color-rojo);*/
+	background: var(--cabecera--bienvenidos);
 	height: 36px;
 	width: 500px;
 	border-radius:10px 10px 0px 0px;
-	border: thin solid var(--color-rojo);
+	/*border: thin solid var(--color-rojo);*/
 	margin-top: 5px;
 	font-size: 26px;
 }
 .seccion{
-	background: var(--color-blanco);
+	/*background: var(--color-blanco);*/
+	background: var(--seccion--bienvenidos);
 	width: 450px;
 	height: 75px;
 	padding: 20px 30px 20px 30px;
 	border-radius: 0px 0px 10px 10px;
-	border: thin solid var(--color-rojo);
+	/*border: thin solid var(--color-rojo);*/
 }
 .input_gris {
 	background-color: var(--color-gris-oscuro);
@@ -56,12 +62,14 @@ body {
 	border-radius: 10px;
 }
 .input_azul_heli[type="submit"] {
-	background-color: var(--color-azul-heli);
+	/*background-color: var(--color-azul-heli);*/
+	background-color: var(--cabecera--bienvenidos);
 	color: white;
 	border-radius: 5px;
 }
 .input_azul_heli[type="reset"] {
-	background-color: var(--color-azul-heli);
+	/*background-color: var(--color-azul-heli);*/
+	background-color: var(--cabecera--bienvenidos);
 	color: white;
 	border-radius: 5px;
 }
@@ -191,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
 
 input, textarea, select, text {
   /* border: thin solid var(--color-rojo); */
-  border: thin solid var(--color-gris-claro);
+  /*border: thin solid var(--color-gris-claro);*/
   background-color: var(--color-blanco);
   /* color: var(--color-rojo); */
   color: var(--color-negro);
