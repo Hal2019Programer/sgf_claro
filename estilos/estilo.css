@@ -10,17 +10,19 @@
   --color-gris-mas-oscuro: rgb(86, 96, 97); /* Gris oscuro para textos */
   --color-negro: black; /* Negro para corporativo */
   --color-azul-heli: #1658A8;
+  --color-azul-tabla1: #5f9197;
   --body-basico: #0F6D80;
   --cabecera--bienvenidos: #154360;
   --seccion--bienvenidos:#CFD3D8;
+  --formulario-estandar1:#cfd8cf;
+  --formulario-estandar2:#bdd4d4;
 }
 html {
 	font-size:14px;
 }
 body {
-  /*background-color: var(--color-blanco);*/
   background-color: var(--body-basico);
-  color: var(--color-negro);
+  color: var(--color-gris-mas-claro);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 24px;
@@ -38,40 +40,40 @@ body {
 	font-weight: bold;
 	padding: 5px;
 	color: var(--color-blanco);
-	/*background:var(--color-rojo);*/
 	background: var(--cabecera--bienvenidos);
 	height: 36px;
 	width: 500px;
 	border-radius:10px 10px 0px 0px;
-	/*border: thin solid var(--color-rojo);*/
 	margin-top: 5px;
 	font-size: 26px;
 }
 .seccion{
-	/*background: var(--color-blanco);*/
 	background: var(--seccion--bienvenidos);
 	width: 450px;
 	height: 75px;
 	padding: 20px 30px 20px 30px;
 	border-radius: 0px 0px 10px 10px;
-	/*border: thin solid var(--color-rojo);*/
 }
-.input_gris {
+/*.input_gris {
 	background-color: var(--color-gris-oscuro);
 	color: white;
 	border-radius: 10px;
-}
+}*/
 .input_azul_heli[type="submit"] {
 	/*background-color: var(--color-azul-heli);*/
 	background-color: var(--cabecera--bienvenidos);
 	color: white;
 	border-radius: 5px;
+	padding: 8px;
+	width: 80px;
 }
 .input_azul_heli[type="reset"] {
 	/*background-color: var(--color-azul-heli);*/
 	background-color: var(--cabecera--bienvenidos);
 	color: white;
 	border-radius: 5px;
+	padding: 8px;
+	width: 80px;
 }
 .fc{
 	height: 30px;
@@ -102,7 +104,7 @@ body {
 	margin-top: -35px;
 }
 .piepag {
-	color:var(--color-azul-heli);
+	color:var(--seccion--bienvenidos);
 	/*width: 400px;*/
 	text-align: justify;
 	padding: 8px;
@@ -209,16 +211,19 @@ input, textarea, select, text {
   margin-bottom: 5px;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: solid 1px var(--color-gris-claro);
 }
 input[type="submit"] {
-  background-color: var(--color-azul-heli);
+  background-color: var(--cabecera--bienvenidos);
   color: var(--color-blanco);
   border-radius: 4px;
+  border: none;
 }
 input[type="reset"] {
   background-color: var(--color-gris-oscuro);
   color: var(--color-blanco);
   border-radius: 4px;
+  border: none;
 }
 select {
   display: inline-block; 	
@@ -313,31 +318,6 @@ a:hover, a:focus {
   margin-bottom: 24px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-/*Estilos de las líneas de la tabla*/
-/*td {
-	/*border-bottom: 1px dotted #0084ff;*/
-/*	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 5px;
-	/*padding-top: 5px;*/
-/*	padding-bottom: 5px;
-	/*padding-bottom: 5px;*/
-	/*text-overflow: ellipsis;*/
-/*	overflow: hidden;
-/*	list-style: circle;
-	white-space: nowrap;
-}
-/*Estilos de los títulos de la tabla */
-/*th {
-	background: #b2d7f9;
-	padding: 10px;
-	border: 1px solid rgb(240,240,200);
-	border-collapse: collapse;
-	/*overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	display: block;*/
-/*}
 /*Estilos para la clase .tblnormal */
 .tblnormal
 {
@@ -357,7 +337,7 @@ a:hover, a:focus {
 	list-style: circle;
 	white-space: nowrap;
 	border: 1px solid var(--color-blanco);
-	background: var(--color-gris-claro1);
+	background: var(--color-azul-tabla1);
 }
 /* Estilos para fondo personalizado que sobrescriben al anterior */
 .tblnormal td.fondo {
@@ -442,4 +422,8 @@ a:hover, a:focus {
 {
 	border-radius: 10px; /* borde redondeado */
 	display: inline-block; /* el objeto se coloca en la misma linea que los demas objetos */
+}
+.formulario
+{
+	background: var(--formulario-estandar2);
 }

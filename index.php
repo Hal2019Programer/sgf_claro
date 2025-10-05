@@ -14,7 +14,7 @@ include("library/funcionA.php");
 	</header>
 		<form action="login.php" method="post"><br>
 			<center>
-					<header><h1 style="color:var(--color-azul-heli);">INICIAR SESIÓN</h1></header>
+					<header><h1 style="color:var(--seccion--bienvenidos);">INICIAR SESIÓN</h1></header>
 					<article class="bienvenidos">Bienvenidos</article>
 					<section class="seccion">
 						<table>
@@ -38,7 +38,7 @@ include("library/funcionA.php");
 	</body>
 	<br>
 	<footer id="footer">
-		<article style="text-align:left; font-weight:bold; color:var(--color-azul-heli); margin-left:10px;">
+		<article style="text-align:left; font-weight:bold; color:var(--seccion--bienvenidos); margin-left:10px;">
 			<?php echo razon_social_year;?>
 		</article>
 		<article>

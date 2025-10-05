@@ -192,7 +192,7 @@ cargar_id_busqueda($variable_idLink);
 				<!--<input type="button" value="T" onclick="tamanno_ventana();">-->
 				<br><hr>
 				<input type="hidden" name="txtnumreg" value="<?php echo $numreg; ?>"/>
-				<div>
+				<div class="formulario">
 					<div id="colizq" style=" float:left; width:30%;">
 						<div><span id="etq4">ID:&nbsp;</span><input type="text" name="txtid" style="background:rgb(189, 195, 184); width:80px;" readonly="readonly" value="<?php echo $id_cat?>"/></div>
 						<div><span id="etq4">Grupo:&nbsp;</span><?php 

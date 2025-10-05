@@ -182,7 +182,7 @@ cargar_id_busqueda($variable_idLink);
 				<span id="etq5">Activo(S/N):</span><?php cmbnormal("cmbact", $v_act, "0", "1"); if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); } ?>
 				<br><hr> <!-- Salto de linea y linea de división -->
 				<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-				<div style="background:white; height:175px; padding: 5px 0px 5px 0px; color:black;">
+				<div style="background:var(--formulario-estandar2); height:175px; padding: 5px 0px 5px 0px; color:black;">
 					<div id="colizq" style="float:left; margin-left:5px; width:24%;">
 						<div><span id="etq1" >ID:&nbsp;</span><input type="text" name="txtid" style="background:rgb(189, 195, 184); width:70px" readonly=”readonly” value="<?php echo $var0?>"/></div>
 						<div><span id="etq1">Usuario:&nbsp;</span><input type="text" name="txtusr" style="width:130px" value="<?php echo $var1?>"/></div>

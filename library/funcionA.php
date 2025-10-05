@@ -292,17 +292,17 @@ Incluye un fondo de imágen de 66px de alto y un texto en la cabecera.*/
 }
 function cabecera04($niv=0,$titulo)
 { ?>
-	<article style="height:120px; background-color:var(--color-rojo); border-radius:10px 10px 10px 10px; padding:5px;">
+	<article style="height:120px; background-color:var(--color-gris-mas-claro); border-radius:10px 10px 10px 10px; padding:5px;">
 		<table style="width:100%;">
 			<tr>
 				<td style="width:120px;">
 					<?php 
 					if ($niv==1) { 
-						echo "<img src='imagenes/logo_heli(3).gif' style='width:120px; height:120px; float:left;'>"; }
+						echo "<img src='imagenes/logo_heli(4).gif' style='width:120px; height:120px; float:left;'>"; }
 					else {
-						echo "<img src='../imagenes/logo_heli(3).gif' style='width:120px; height:120px; float:left;'>"; } ?>
+						echo "<img src='../imagenes/logo_heli(4).gif' style='width:120px; height:120px; float:left;'>"; } ?>
 				</td>
-				<td style="width:calc(100% - 120px); text-align:center; color:var(--color-blanco); font-size:xx-large; font-weight:bold;"><?php echo $titulo; ?></td>
+				<td style="width:calc(100% - 120px); text-align:center; color:var(--cabecera--bienvenidos); font-size:xx-large; font-weight:bold;"><?php echo $titulo; ?></td>
 			</tr>
 		</table>
 	</article> <?php
