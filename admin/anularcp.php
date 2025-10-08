@@ -356,54 +356,51 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<br><hr>
 					<!-- Presentación de datos encontrados luego de la busqueda o filtro de datos -->
 					<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-					<div>
-						<?php echo "<b>REGISTRO DE CAJA</b><br><hr>"; ?>
-						<?php lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$v_id_rvc,"width:40px;");?>
-						<?php lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$v_id_cli.":".$v_cliente,"width:220px;");?>
-						<?php lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$v_fechaemi_rvi,"width:85px;");?>
-						<?php lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$v_fechaven_rvi,"width:85px;");?>
-						<?php lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $v_codcpg_rvi, "width:70px;");?>
-					</div><hr>
-					<div>
-					<div id="colizq2" style="float:left; width:30%">
+					<div class="formulario">
 						<div>
-							<?php lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $v_tipodoccp_rvi, "width:110px;");?>
-							<?php txtronstl("txt_v_seriecp_rvi", $v_seriecp_rvi, "width:15px;"); echo "-";?>
-							<?php txtronstl("txt_v_numcp_rvi", $v_numcp_rvi, "width:50px;");?>
+							<?php echo "<b>REGISTRO DE CAJA</b><br><hr>"; ?>
+							<?php lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$v_id_rvc,"width:40px;");?>
+							<?php lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$v_id_cli.":".$v_cliente,"width:220px;");?>
+							<?php lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$v_fechaemi_rvi,"width:85px;");?>
+							<?php lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$v_fechaven_rvi,"width:85px;");?>
+							<?php lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $v_codcpg_rvi, "width:70px;");?>
+						</div><hr>
+						<div>
+						<div id="colizq2" style="float:left; width:30%">
+							<div>
+								<?php lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $v_tipodoccp_rvi, "width:110px;");?>
+								<?php txtronstl("txt_v_seriecp_rvi", $v_seriecp_rvi, "width:15px;"); echo "-";?>
+								<?php txtronstl("txt_v_numcp_rvi", $v_numcp_rvi, "width:50px;");?>
+							</div>
+							<div><?php lblnorm("Descripción:","etq4"); txtronstl("txt_v_descrip_rvi", $v_descrip_rvi, "width:220px;");?></div>
+							<div><?php lblnorm("Forma pago:","etq4"); txtronstl("txt_v_formapago_rvi", $v_formapago_rvi, "width:60px;");?></div>
+							<div><?php lblnorm("Estado pago:","etq4"); txtronstl("txt_v_estado_rvc", $v_estado_rvc, "width:60px;");?></div>
 						</div>
-						<div><?php lblnorm("Descripción:","etq4"); txtronstl("txt_v_descrip_rvi", $v_descrip_rvi, "width:220px;");?></div>
-						<div><?php lblnorm("Forma pago:","etq4"); txtronstl("txt_v_formapago_rvi", $v_formapago_rvi, "width:60px;");?></div>
-						<div><?php lblnorm("Estado pago:","etq4"); txtronstl("txt_v_estado_rvc", $v_estado_rvc, "width:60px;");?></div>
-					</div>
-					<div id="colcen2" style="float:left; width:30%">
-						<div><?php lblnorm("BIPG:","etq2"); txtronstl("txt_v_baseimpopgrv_rvi", $v_baseimpopgrv_rvi, "width:60px;");?></div>
-						<div><?php lblnorm("BIPNG:","etq2"); txtronstl("txt_v_baseimpopngrv_rvi", $v_baseimpopngrv_rvi, "width:60px;");?></div>
-						<div><?php lblnorm("ISC:","etq2"); txtronstl("txt_v_isc_rvi", $v_isc_rvi, "width:60px;");?></div>
-						<div><?php lblnorm("IGV:","etq2"); txtronstl("txt_v_igv_rvi", $v_igv_rvi, "width:60px;");?></div>
-						<div><?php lblnorm("Importe Total:","etq2"); txtronstl("txt_v_importetot_rvi", $v_importetot_rvi, "width:60px;");?></div>
-					</div>
-					<div id="colder2" style="float:left; width:30%">
-						<div><?php lblnorm("Estado:","etq2"); txtronstl("txt_v_estado_rvc", $v_estado_rvc, "width:60px;");?></div>
-						<div><?php lblnorm("Usuario Inicial:","etq2"); txtronstl("txt_v_id_usr", $v_id_usr.":".$v_usuario, "width:130px;");?></div>
-						<div><?php lblnorm("Zona:","etq2"); txtronstl("txt_v_zona_rvi", $v_zona_rvi, "width:70px;");?></div>
-						<div><?php lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $v_id_usr_anula.":".$v_usuario_anula, "width:130px;");?></div>
-						<div><?php lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $v_causanul_rvc, "width:85px;");?></div>
-					</div>
-					</div>
-					<div style="clear:both"></div>
-					<hr>
-					<?php 
-					lblnorm("Causa de anulación:","etq14"); cmbnormal("cmb_causanul_rvc",$v_causanul_rvc, "Impresion", "Devolucion", "Errordigitacion");
-					$var_codnotcred='';
-					cmbfield("cmbcodnotcred", $Conexion, "SELECT * FROM codnotacred", $var_codnotcred, "id_ncred","desc_ncred");
-					lblnorm("Desc. Nota Cred.:","etqdesc_nota");
-					txtnrmstl("txtdescnc","width:150px;");
-					?>
-					<?php if (activar_boton($datos_perfil,$resultado_perfil_accesos,"Anular")) { ?> <input type="submit" name="btnGrl" value="Anular"/> <?php } ?>
-					<?php if (activar_boton($datos_perfil,$resultado_perfil_accesos,"Actualizar")) { ?> <input type="submit" name="btnGrl" value="Actualizar"/> <?php } ?>
-					<br><hr>
-				</form> <!-- Fin de formulario -->
-				<!-- Inicio de listado de datos de usuario en una tabla ajustada a la medida de los datos -->
+						<div id="colcen2" style="float:left; width:30%">
+							<div><?php lblnorm("BIPG:","etq2"); txtronstl("txt_v_baseimpopgrv_rvi", $v_baseimpopgrv_rvi, "width:60px;");?></div>
+							<div><?php lblnorm("BIPNG:","etq2"); txtronstl("txt_v_baseimpopngrv_rvi", $v_baseimpopngrv_rvi, "width:60px;");?></div>
+							<div><?php lblnorm("ISC:","etq2"); txtronstl("txt_v_isc_rvi", $v_isc_rvi, "width:60px;");?></div>
+							<div><?php lblnorm("IGV:","etq2"); txtronstl("txt_v_igv_rvi", $v_igv_rvi, "width:60px;");?></div>
+							<div><?php lblnorm("Importe Total:","etq2"); txtronstl("txt_v_importetot_rvi", $v_importetot_rvi, "width:60px;");?></div>
+						</div>
+						<div id="colder2" style="float:left; width:30%">
+							<div><?php lblnorm("Estado:","etq2"); txtronstl("txt_v_estado_rvc", $v_estado_rvc, "width:60px;");?></div>
+							<div><?php lblnorm("Usuario Inicial:","etq2"); txtronstl("txt_v_id_usr", $v_id_usr.":".$v_usuario, "width:130px;");?></div>
+							<div><?php lblnorm("Zona:","etq2"); txtronstl("txt_v_zona_rvi", $v_zona_rvi, "width:70px;");?></div>
+							<div><?php lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $v_id_usr_anula.":".$v_usuario_anula, "width:130px;");?></div>
+							<div><?php lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $v_causanul_rvc, "width:85px;");?></div>
+						</div>
+						</div>
+						<div style="clear:both"></div><hr><?php 
+						lblnorm("Causa de anulación:","etq14"); cmbnormal("cmb_causanul_rvc",$v_causanul_rvc, "Impresion", "Devolucion", "Errordigitacion");
+						$var_codnotcred='';
+						cmbfield("cmbcodnotcred", $Conexion, "SELECT * FROM codnotacred", $var_codnotcred, "id_ncred","desc_ncred");
+						lblnorm("Desc. Nota Cred.:","etqdesc_nota");
+						txtnrmstl("txtdescnc","width:150px;");?>
+						<?php if (activar_boton($datos_perfil,$resultado_perfil_accesos,"Anular")) { ?> <input type="submit" name="btnGrl" value="Anular"/> <?php } ?>
+						<?php if (activar_boton($datos_perfil,$resultado_perfil_accesos,"Actualizar")) { ?> <input type="submit" name="btnGrl" value="Actualizar"/> <?php } ?>
+					</div><hr>
+				</form>
 				<?php
 				if($clave_id_rvi==1)
 				{

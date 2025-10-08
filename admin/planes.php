@@ -5,6 +5,7 @@ conexiondb($Conexion);
 /* Variables de busqueda:
 id_pla, nombre_pla, mensual_pla, mesescont_pla, fechreg_pla, activ_pla, id_usr, abrv_pla */
 $var0=$var1=$var2=$var3=$var4=$var5=$var6=$var7="";
+$numreg=null;
 //Datos iniciales para control de accesos de perfil
 $resultado_perfil_accesos = Null; $datos = array();
 cargar_datos_perfil($Conexion,$ident_usuario,"Planes",$resultado_perfil_accesos,$datos,$categ_usuario,$nivel_usuario,$zona_usuario);
@@ -150,19 +151,21 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { ?> <input type="submit" name="btnGrl"  value="Filtrar"/> <?php } ?>
 					<br><hr> <!-- Salto de linea y linea de división -->
 					<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-					<div id="colizq" style="float:left; margin-left:1px;width:300px">
-						<div><span id="etq2"style="width:130px;">ID:&nbsp;</span><input type="text" name="txtid" style="background:rgb(220,220,255); width:60px;" readonly="readonly" value="<?php echo $var0?>"/></div>
-						<div><span id="etq2"style="width:130px;">Nombre de plan:&nbsp;</span><input style="width:150px;"type="text" name="txtnpl"  value="<?php echo $var1?>"/></div>
+					<div class ="formulario">
+						<div id="colizq" style="float:left; margin-left:1px;width:300px">
+							<div><span id="etq2"style="width:130px;">ID:&nbsp;</span><input type="text" name="txtid" style="background:rgb(220,220,255); width:60px;" readonly="readonly" value="<?php echo $var0?>"/></div>
+							<div><span id="etq2"style="width:130px;">Nombre de plan:&nbsp;</span><input style="width:150px;"type="text" name="txtnpl"  value="<?php echo $var1?>"/></div>
+							</div>
+						<div id="colder"style="float:left; margin-left:10px;width:300px">
+							<div><span id="etq2"style="width:150px;">Costo Mensual:&nbsp;</span><input type="text" name="txtmsp" style="width:100px;" value="<?php echo $var2?>"/></div>
+							<div><span id="etq2"style="width:150px;">Meses contrato:&nbsp;</span><input type="text" name="txtmct" style="width:100px;" value="<?php echo $var3?>"/></div>
 						</div>
-					<div id="colder"style="float:left; margin-left:10px;width:300px">
-						<div><span id="etq2"style="width:150px;">Costo Mensual:&nbsp;</span><input type="text" name="txtmsp" style="width:100px;" value="<?php echo $var2?>"/></div>
-						<div><span id="etq2"style="width:150px;">Meses contrato:&nbsp;</span><input type="text" name="txtmct" style="width:100px;" value="<?php echo $var3?>"/></div>
+						<div id="colders"  style=" float:right; margin-right:10px;">	
+							<div><span id="etq2"style="width:100px;">Fecha:&nbsp;</span><input type="text" name="txtfch"  value="<?php echo $var4?>"/></div>
+							<div><span id="etq2"style="width:100px;">Activo(S/N):&nbsp;</span><?php cmbnormal("cmbacp", $var5, "1", "0");?></div>
+						</div>
 					</div>
-					<div id="colders"  style=" float:right; margin-right:10px;">	
-						<div><span id="etq2"style="width:100px;">Fecha:&nbsp;</span><input type="text" name="txtfch"  value="<?php echo $var4?>"/></div>
-						<div><span id="etq2"style="width:100px;">Activo(S/N):&nbsp;</span><?php cmbnormal("cmbacp", $var5, "1", "0");?></div>
-					</div>
-					<br><br>&nbsp;<hr>
+					<hr>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar")) { ?> <input type="submit" name="btnGrl" value="Agregar"/> <?php } ?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { ?> <input type="submit" name="btnGrl" value="Modificar"/> <?php } ?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Eliminar")) { ?> <input type="submit" name="btnGrl" value="Eliminar"/> <?php } ?>
