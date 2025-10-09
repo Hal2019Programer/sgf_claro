@@ -244,8 +244,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					}
 				}
 				?>
-				<form name="usuario" action="" method="post">
-					<?php
+				<form name="usuario" action="" method="post"><?php
 					lblnorm("ID:","etq5"); txtnrmstl("txtbus","width:50px;"); 
 					if (activar_boton($datos,$resultado_perfil_accesos,"Cargar ID")) { btnnormal("btnGrl", "Cargar ID"); }
 					lblnorm("IMEI:","etq12"); txtnrmstl("txtbim","width:100px;"); 
@@ -254,51 +253,37 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar ICC")) { btnnormal("btnGrl", "Buscar ICC"); }
 					lblnorm("Serie:","etq12");txtnrmstl("txtbse","width:100px;"); 
 					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar Serie")) { btnnormal("btnGrl", "Buscar Serie"); } ?><br>
-					<span id="etq5"style="width:233px;">Zona:</span>
-					<?php 
-					//cmbnormal("cmbbzn", $vbzn, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29"); 
-					cmbfieldJs_span("spn_zona","cmbbzn",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vbzn,"","nomb_zna"); 
-					?>
+					<span id="etq5"style="width:233px;">Zona:</span><?php 
+						cmbfieldJs_span("spn_zona","cmbbzn",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vbzn,"","nomb_zna"); ?>
 					<span id="etq4">Grupo:</span><?php 
-					//cmbnormal("cmbtpc", $vbgr, "Equipo", "Modem", "Chip", "Recarga", "Tableta", "Servicios", "Accesorios", "Otros");
-					cmbfieldJs("div_select_grupo","cmbtpc",$Conexion,"SELECT desc_tipo_prosrv FROM tipo_prod_serv WHERE activo_tipo_prosrv='S'",$vbgr,"","desc_tipo_prosrv");
-					?>
+						cmbfieldJs("div_select_grupo","cmbtpc",$Conexion,"SELECT desc_tipo_prosrv FROM tipo_prod_serv WHERE activo_tipo_prosrv='S'",$vbgr,"","desc_tipo_prosrv"); ?>
 					<span id="etq4">Tipo:</span><?php 
-					//cmbnormal("cmbclc", $vbtp, "Handset", "Smartphone", "Modem", "PackConnect", "SIM Mobile", "BSmart", "BFree", "BCombo", "Uni","Kit BVoz","Kit BData","Kit BitelUNIV", "Kit Bfono", "Router", "Rec.Tarjeta", "Rec.Virtual", "Tablet", "SD Card", "Auricular", "CarcasaSmpl", "CarcasaTapa", "ProtectPant", "Migracion", "CambioPlan", "BajaLinea", "Desbloqueo", "Reconfigur.", "Otros");
-					cmbfieldJs("div_select_tipo","cmbclc",$Conexion,"SELECT desc_clase_prosrv FROM clase_prod_serv WHERE activo_clase_prosrv='S'",$vbtp,"","desc_clase_prosrv");
-					?>
+						cmbfieldJs("div_select_tipo","cmbclc",$Conexion,"SELECT desc_clase_prosrv FROM clase_prod_serv WHERE activo_clase_prosrv='S'",$vbtp,"","desc_clase_prosrv"); ?>
 					<span id="etq2">Activo(S/N):</span><?php cmbnormal("cmbbac", $vbac, "1", "0"); 
 					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar Zona/Grupo/Tipo")) { btnnormal("btnGrl", "Buscar Zona/Grupo/Tipo"); } ?>
 					<br><hr>
-					<!-- Cuadros de texto oculto que contienen variables -->
 					<?php txtoculto("txtnumreg",$numreg); txtoculto("txtabrv",$var11); txtoculto("txttcat",$var13); txtoculto("txtccat",$var14);?>
-					<!-- Cuadros de texto de solo lectura, para usarse en la transferencia -->
-					<?php
-					if (!empty($var2)) $var2=$var2.":".valfield($Conexion,"catalogo","abrv_cat","id_cat",$var2);
-					lblnorm("ID:","etq5"); txtronstl("txtid",$var0,"width:50px;");
-					lblnorm("Cód. Prod.:","etq4"); txtronstl("txtcdp",$var1,"width:75px;");
-					lblnorm("Catálogo:","etq4"); txtronstl("txtidc",$var2,"width:240px;"); 
-					//if ($cantactual<>0) { lblnorm("Recarga disponible:","etq2"); txtronstl("txtcna",$cantactual,"width:80px;"); } verificar su uso
-					?><br>
-					<?php
-					lblnorm("Serie:","etq5"); txtronstl("txtser",$var3,"width:140px;");
-					lblnorm("Imei:","etq12"); txtronstl("txtime",$var4,"width:140px;");
-					lblnorm("Icc:","etq12"); txtronstl("txticc",$var5,"width:140px;");
-					lblnorm("Fecha:","etq12"); txtronstl("txtfpr",$var8,"width:90px;");
-					lblnorm("Zona origen:","etq4"); txtronstl("txtzno", $var12,"width:90px;");
-					?>
-					<br><hr>
-					<?php lblnorm("Zona destino:","etq5"); 
-					//cmbnormal("cmbznd", $vt_znadest_trs, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-					cmbfieldJs_span("spn_zona","cmbznd",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vt_znadest_trs,"","nomb_zna"); 
-					?>
-					<?php lblnorm("Serie de Guía Remis.:","etq3"); txtvalstl("txtsgr",$vt_sergr_trs,2,"width:25px;");?>
-					<?php lblnorm("Núm. de Guía Remis.:","etq3"); txtvalstl("txtngr",$vt_numgr_trs,12,"width:60px;");?>
-					<?php lblnorm("Monto transf.:","etq4"); txtvalstl("txtmnt",$vt_monto_transf,12,"width:60px;");?><span style="display:inline-block; width:45px;"></span>
-					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Transferir")) { btnnormal("btnGrl", "Transferir"); } ?>
-					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); } ?>
-					<?php btnnormal("btnGrl", "Guia Remision"); ?>
-					<br><hr>
+					<div class="formulario"><?php
+						if (!empty($var2)) $var2=$var2.":".valfield($Conexion,"catalogo","abrv_cat","id_cat",$var2);
+						lblnorm("ID:","etq5"); txtronstl("txtid",$var0,"width:50px;");
+						lblnorm("Cód. Prod.:","etq4"); txtronstl("txtcdp",$var1,"width:75px;");
+						lblnorm("Catálogo:","etq4"); txtronstl("txtidc",$var2,"width:240px;"); ?><br><?php
+						lblnorm("Serie:","etq5"); txtronstl("txtser",$var3,"width:140px;");
+						lblnorm("Imei:","etq12"); txtronstl("txtime",$var4,"width:140px;");
+						lblnorm("Icc:","etq12"); txtronstl("txticc",$var5,"width:140px;");
+						lblnorm("Fecha:","etq12"); txtronstl("txtfpr",$var8,"width:90px;");
+						lblnorm("Zona origen:","etq4"); txtronstl("txtzno", $var12,"width:90px;");?><br><hr>
+						<?php lblnorm("Zona destino:","etq5"); 
+							cmbfieldJs_span("spn_zona","cmbznd",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vt_znadest_trs,"","nomb_zna"); ?>
+						<?php lblnorm("Serie de Guía Remis.:","etq3"); txtvalstl("txtsgr",$vt_sergr_trs,2,"width:25px;");?>
+						<?php lblnorm("Núm. de Guía Remis.:","etq3"); txtvalstl("txtngr",$vt_numgr_trs,12,"width:60px;");?>
+						<?php lblnorm("Monto transf.:","etq4"); txtvalstl("txtmnt",$vt_monto_transf,12,"width:60px;");?><span style="display:inline-block; width:45px;"></span>
+						<?php if (activar_boton($datos,$resultado_perfil_accesos,"Transferir")) { btnnormal("btnGrl", "Transferir"); } ?>
+						<?php if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); } ?>
+						<?php btnnormal("btnGrl", "Guia Remision"); ?>
+						<br>
+					</div>
+					<hr>
 				</form> <!-- Fin de formulario -->
 				<!-- Inicio de listado de datos de usuario -->
 				<?php tblanchovariable($Conexion,"margin-left:0px;","height:250px;",$sql,"tblnormal",$ambito_busqueda,

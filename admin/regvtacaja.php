@@ -303,61 +303,49 @@ cargar_id_busqueda($variable_idLink);
 				?>
 			<!-------------------------------------------------------- Formulario -------------------------------------------------------->
 			<form name="usuario" action="" method="post">
-					<span id="etq5">Buscar ID:&nbsp;</span><?php txtnrmstl("txtbus","width:40px;"); 
-					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar")) { btnnormal("btnGrl", "Buscar"); }
-					if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); }
-					if (activar_boton($datos,$resultado_perfil_accesos,"Imprimir FormaTCK")) { btnnormal("btnGrl", "Imprimir FormaTCK"); }
-					//btnnormal("btnGrl", "Pagar");?>
-					<!--<span id="etq4"><?php //if ($zona_usuario=="Total") { btnnormal("btnGrl", "Pag.Cred."); } ?></span>-->
-					<span id="etq4">Tip.Pag.:&nbsp;</span><?php cmbnormal("cmbtpg", $v_tpg, "Contado");?>
-					<span id="etq5">Est.Pag.:&nbsp;</span><?php cmbnormal("cmbepg", $v_epg, "Pagado", "NoPago");?>
-					<span id="etq5">Nomb.Ape.:&nbsp;</span><?php txtnrmstl("txtNomApe","width:250px;")?>
-					<span id="etq5">DNI:&nbsp;</span><?php txtnrmstl("txtDNI","width:80px;")?>
-					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { ?> <span id="etq5"><?php btnnormal("btnGrl", "Filtrar");?></span> <?php } ?>
+				<span id="etq5">Buscar ID:&nbsp;</span><?php txtnrmstl("txtbus","width:40px;"); 
+				if (activar_boton($datos,$resultado_perfil_accesos,"Buscar")) { btnnormal("btnGrl", "Buscar"); }
+				if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); }
+				if (activar_boton($datos,$resultado_perfil_accesos,"Imprimir FormaTCK")) { btnnormal("btnGrl", "Imprimir FormaTCK"); } ?>
+				<span id="etq4">Tip.Pag.:&nbsp;</span><?php cmbnormal("cmbtpg", $v_tpg, "Contado");?>
+				<span id="etq5">Est.Pag.:&nbsp;</span><?php cmbnormal("cmbepg", $v_epg, "Pagado", "NoPago");?>
+				<span id="etq5">Nomb.Ape.:&nbsp;</span><?php txtnrmstl("txtNomApe","width:250px;")?>
+				<span id="etq5">DNI:&nbsp;</span><?php txtnrmstl("txtDNI","width:80px;")?>
+				<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { ?> <span id="etq5"><?php btnnormal("btnGrl", "Filtrar");?></span> <?php } ?>
 				<hr>
 				<?php txtoculto("txtnumreg",$numreg);?>
-					<div>
-					<span id="etq2">ID:</span>	<?php txtrdonly("txtid",$var0);?>
-					</div>
-					<div><span id="etq2">Cliente:</span><?php txtrdonly01("txtcli",$var1); echo valfldmul($Conexion, "clientes", "id_cli", $var1, "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli");?></div>
-					<div><span id="etq2">Fecha de emisión:</span><?php txtrdonly("txtfev",$var4);?>
+				<div class="formulario">
+					<span>ID:</span><?php txtrdonly01("txtid",$var0);?>
+					<span>Cliente:</span><?php txtrdonly01("txtcli",$var1); echo valfldmul($Conexion, "clientes", "id_cli", $var1, "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli");?>
+					<div><span>Fecha de emisión:</span><?php txtrdonly("txtfev",$var4);?>
 					<span id="etq5">Fecha de venta:</span><?php txtrdonly("txtfvv",$var5);?>
-					<span id="etq5">Cod. Comprob. Pago:</span><?php txtrdonly("txtccp",$var6);?></div>
+					<span id="etq5">Cod. Comprob. Pago:</span><?php txtrdonly01("txtccp",$var6);?></div>
 					<hr>
-				<div id="colizq"  style=" float:left; width:30%;">
-					<!-- Datos para/desde caja -->
-					<div><span id="etq2">Documento:</span><?php txtrdonly("cmbtdv", $var7);?></div>
-					<div><span id="etq2">Serie:</span><?php txtrdonly("txtsrv",$var8);?></div>
-					<div><span id="etq2">Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div>
-					<div><span id="etq2">Descripción:</span><?php txtrdonly("txtdsv",$var10);?></div>
+					<div id="colizq"  style=" float:left; width:30%;">
+						<div><span>Documento:</span><?php txtrdonly("cmbtdv", $var7);?></div>
+						<div><span>Serie:</span><?php txtrdonly("txtsrv",$var8);?></div>
+						<div><span>Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div>
+						<div><span>Descripción:</span><?php txtrdonly("txtdsv",$var10);?></div>
+					</div>
+					<div id="colder"  style=" float:left; width:35%;">
+						<div><span style=" width:200px;">Forma de pago:</span><?php txtrdonly("cmbfpv", $var11);?></div><?php
+						if ($zona_usuario<>"Total") { ?>
+							<div><span style=" width:200px;">Estado de pago:</span><?php txtrdonly("cmbpag", $var18);?></div><?php
+						}
+						else { ?>
+							<div><span style=" width:200px;">Estado de pago:</span><?php cmbnormal("cmbpag", $var18, "Pagado", "NoPago");?></div><?php 
+						} ?>
+						<div><span style=" width:200px;">Bas.imp.prod. grv.:</span><?php txtrdonly("txtbgr",$var12);?></div>
+						<div><span style=" width:200px;">Bas.imp.prod. no grv.:</span><?php txtrdonly("txtbng",$var13);?></div>
+					</div>
+					<div id="colders"  style=" float:left; width:35%;">		
+						<div><span>ISC:</span><?php txtrdonly("txtisc",$var14);?></div>
+						<div><span>IGV:</span><?php txtrdonly("txtigv",$var15);?></div>
+						<div><span>Importe total:</span><?php txtrdonly("txtitv",$var16);?></div>
+						<div><span>Estado:</span><?php txtrdonly("txtest",$var20);?></div>
+					</div>
+					<div style="clear:both"></div>
 				</div>
-				<div id="colder"  style=" float:left; width:35%;">
-					<div><span id="etq2"  style=" width:200px;">Forma de pago:</span><?php txtrdonly("cmbfpv", $var11);?></div>
-					<?php
-					if ($zona_usuario<>"Total")
-					{
-					?>
-						<div><span id="etq2"  style=" width:200px;">Estado de pago:</span><?php txtrdonly("cmbpag", $var18);?></div>
-					<?php
-					}
-					else
-					{ 
-					?>
-						<div><span id="etq2"  style=" width:200px;">Estado de pago:</span><?php cmbnormal("cmbpag", $var18, "Pagado", "NoPago");?></div>
-					<?php 
-					}	
-					?>
-					<!-- Datos autocalculables -->
-					<div><span id="etq2"  style=" width:200px;">Bas.imp.prod. grv.:</span><?php txtrdonly("txtbgr",$var12);?></div>
-					<div><span id="etq2"  style=" width:200px;">Bas.imp.prod. no grv.:</span><?php txtrdonly("txtbng",$var13);?></div>
-				</div>
-				<div id="colders"  style=" float:left; width:35%;">		
-					<div><span id="etq2">ISC:</span><?php txtrdonly("txtisc",$var14);?></div>
-					<div><span id="etq2">IGV:</span><?php txtrdonly("txtigv",$var15);?></div>
-					<div><span id="etq2">Importe total:</span><?php txtrdonly("txtitv",$var16);?></div>
-					<div><span id="etq2">Estado:</span><?php txtrdonly("txtest",$var20);?></div>
-				</div>
-				<div style="clear:both"></div>
 				<hr>
 			</form> <!-- Fin de formulario -->
 	<!-- Inicio de listado de datos de usuario -->	

@@ -261,7 +261,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<?php
 					//--------------------------------- Opciones solo disponible para el Gerente o Programador -------------------------------------
 					//------------------------------------------------------------------------------------------------------------------------------ ?>
-					<div >
+					<div class="formulario">
 						<span id="etq5">ID:</span><?php txtronstl("txtid",$v_id_cch,"width:50px;"); spc(2); ?>
 						<span id="etq5" style="width:85px;">Proveedor:</span><?php cmbfield("cmbidp",$Conexion,"SELECT * FROM proveedores",$v_id_prv,"id_prv","nom_rzs_prv"); spc(2); ?>
 						<span id="etq5" style="width:140px;">Tipo de documento:</span><?php cmbnormal("cmbtdc",$v_tipodoccp_cch, "Factura", "Boleta de venta", "Guía de Remis.", "Reporte de Inv.", "Documento Bancario", "Comprobante de Ingreso", "Comprobante de Salida", "Movilidad Local", "Otros"); spc(2); ?>

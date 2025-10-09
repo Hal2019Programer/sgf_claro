@@ -5,7 +5,7 @@ include("../library/datos.php");
 require_once './class/vendor/autoload.php';
 use Greenter\Ws\Services\ConsultCdrService;
 use Greenter\Ws\Services\SoapClient;
-$rucEmisor="20602109225";
+$rucEmisor="10413437186";
 //--------------------------------------------------------------
 sesion01($ident_usuario, $nombre_usuario, $names_usuario, $apellido_usuario, $nivel_usuario, $zona_usuario, $categ_usuario);
 conexiondb($Conexion);
@@ -44,7 +44,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				<?php cabecera04(0,"Comprobantes Enviados a SUNAT Válidos/No Válidos"); menu02(); sl(1);?>
 				<!--<center><h1>Comprobantes Electrónicos Válidos/No Válidos</h1></center><hr>-->
 				<?php
-				$consulta_normal=$consulta_regvtacaja." ORDER BY a.id_rvc DESC LIMIT 5";
+				$consulta_normal=$consulta_regvtacaja." ORDER BY a.id_rvc DESC LIMIT 4";
 				$sql_regvtacaja=mysqli_query($Conexion,$consulta_normal) or die ("Error al traer los datos de regvtacaja.");
 				date_default_timezone_set("America/Lima");
 				if (empty($v_fechaven_rvi)) $v_fechaven_rvi=date("d-m-Y");
@@ -169,7 +169,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				if ($ambito_busqueda=="Normal")
 				{
 					//Lista de los ultimos 10 datos de registro de caja
-					echo "<b>ULTIMOS 5 REGISTROS DE COMPROBANTES</b><br>";	
+					echo "<b>ULTIMOS 4 REGISTROS DE COMPROBANTES</b><br>";	
 				}
 				else
 				{
@@ -231,41 +231,44 @@ function busqueda_filtros_comprobante($v_fechaven_rvi,$var_doc,$var_std,$var_zna
 }
 function mostrar_reg_comprobante($rc,$v_cliente)
 { ?>
-	<div>	<?php 
-		echo "<b>REGISTRO DE COMPROBANTE</b>"; spc(16);
-		lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$rc->id_rvc,"width:50px;");
-		lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$rc->id_cli.":".$v_cliente,"width:220px;");
-		lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$rc->fechaemi_rvi,"width:70px;");
-		lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$rc->fechaven_rvi,"width:70px;");
-		lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $rc->codcpg_rvi, "width:70px;");?>
-	</div><hr>
-	<div>
-		<!--<div id="colizq2">-->
-		<div style="float:left; width:28%;">
-			<div> <?php 
-				lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $rc->tipodoccp_rvi, "width:110px;");
-				txtronstl("txt_v_seriecp_rvi", $rc->seriecp_rvi, "width:15px;"); echo "-";
-				txtronstl("txt_v_numcp_rvi", $rc->numcp_rvi, "width:50px;");?>
+	<div class="formulario">
+		<div><?php 
+			echo "<b>REGISTRO DE COMPROBANTE</b>"; spc(16);
+			lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$rc->id_rvc,"width:50px;");
+			lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$rc->id_cli.":".$v_cliente,"width:220px;");
+			lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$rc->fechaemi_rvi,"width:70px;");
+			lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$rc->fechaven_rvi,"width:70px;");
+			lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $rc->codcpg_rvi, "width:70px;");?>
+		</div><hr>
+		<div>
+			<!--<div id="colizq2">-->
+			<div style="float:left; width:28%;">
+				<div> <?php 
+					lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $rc->tipodoccp_rvi, "width:110px;");
+					txtronstl("txt_v_seriecp_rvi", $rc->seriecp_rvi, "width:15px;"); echo "-";
+					txtronstl("txt_v_numcp_rvi", $rc->numcp_rvi, "width:50px;");?>
+				</div>
+				<div><?php lblnorm("Total:","etq4"); txtronstl("txt_v_importetot_rvi", $rc->importetot_rvi, "width:60px;");?></div>
 			</div>
-			<div><?php lblnorm("Total:","etq4"); txtronstl("txt_v_importetot_rvi", $rc->importetot_rvi, "width:60px;");?></div>
+			<!--<div id="colcen2">-->
+			<div style="float:left; width:13%;">
+				<div><?php lblnorm("Estado:","etq4"); txtronstl("txt_v_estado_rvc", $rc->estado_rvc, "width:60px;");?></div>
+				<div><?php lblnorm("Causa Anul.:","etq4"); txtronstl("txt_v_causanul_rvc", $rc->causanul_rvc, "width:65px;");?></div>
+			</div>
+			<!--<div id="colder2">-->
+			<div style="float:left; width:26%;">
+				<div><?php lblnorm("Compr.Emit.:","etq4"); txtronstl("txt_v_cee_rvc", $rc->cee_rvc, "width:50px;");?></div>
+				<div><?php lblnorm("Archivo:","etq4"); txtronstl("txt_v_nombarch_rvc", $rc->nombarch_rvc, "width:230px;");?></div>
+			</div>
+			<!-- MODIFICADO POR JUAN (09-06-2019) PARA COMPROBANTE ELECTRONICO -->
+			<div style="float:left; width:32%;">
+				<div><?php lblnorm("Codigo CDR:","etq4"); txtronstl("txt_v_codigocdr_rvc", $rc->codigocdr_rvc, "width:50px;");?></div>
+				<div><?php lblnorm("Mensaje CDR:","etq4"); txtronstl("txt_v_mensajecdr_rvc", $rc->mensajecdr_rvc, "width:340px;");?></div>
+			</div>
 		</div>
-		<!--<div id="colcen2">-->
-		<div style="float:left; width:13%;">
-			<div><?php lblnorm("Estado:","etq4"); txtronstl("txt_v_estado_rvc", $rc->estado_rvc, "width:60px;");?></div>
-			<div><?php lblnorm("Causa Anul.:","etq4"); txtronstl("txt_v_causanul_rvc", $rc->causanul_rvc, "width:65px;");?></div>
-		</div>
-		<!--<div id="colder2">-->
-		<div style="float:left; width:26%;">
-			<div><?php lblnorm("Compr.Emit.:","etq4"); txtronstl("txt_v_cee_rvc", $rc->cee_rvc, "width:50px;");?></div>
-			<div><?php lblnorm("Archivo:","etq4"); txtronstl("txt_v_nombarch_rvc", $rc->nombarch_rvc, "width:230px;");?></div>
-		</div>
-		<!-- MODIFICADO POR JUAN (09-06-2019) PARA COMPROBANTE ELECTRONICO -->
-		<div style="float:left; width:32%;">
-			<div><?php lblnorm("Codigo CDR:","etq4"); txtronstl("txt_v_codigocdr_rvc", $rc->codigocdr_rvc, "width:50px;");?></div>
-			<div><?php lblnorm("Mensaje CDR:","etq4"); txtronstl("txt_v_mensajecdr_rvc", $rc->mensajecdr_rvc, "width:340px;");?></div>
-		</div>
+		<div style="clear:both"></div>
 	</div>
-	<div style="clear:both"></div><hr><?php
+	<hr><?php
 }
 function mostrar_resultado_consulta_CDR($validez_consulta,$codigo_estado,$mensaje_estado)
 { 

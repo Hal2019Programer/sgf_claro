@@ -350,99 +350,66 @@ $limitar_cliente1=" ORDER BY id_cli DESC LIMIT 0,5";
 				}
 				?>
 			<form name="usuario" action="" method="post">
-				<div>	
-					<?php
+				<div><?php
 					btnnormal("btnGrl", "Actualizar");
 					btnnormal("btnGrl", "Cargar Cliente");
 					btnnormal("btnGrl", "Cliente Nuevo");
 					btnnormal("btnGrl", "Cancelar");
-					btnnormal("btnGrl", "Añadir Productos");
-					?>
-				</div>
-				<hr>
+					btnnormal("btnGrl", "Añadir Productos");?>
+				</div><hr>
 				<?php txtoculto("txtnumreg",$numreg);?>
-					<div>
-					<!-- Sumar todos los datos de la tabla rgvtatmp del total de los productos -->
-					<?php
-					if (mysqli_num_rows($sql_rgvtatmp)>0)
-					{
-    					mysqli_data_seek($sql_rgvtatmp, 0); 
-    					$datsuma=mysqli_fetch_array($sql_rgvtatmp);
-    					$varsuma=$datsuma[21];//codcpg_rvi
-    					$resultado = mysqli_query($Conexion,"SELECT SUM(importetot_rvi) AS total FROM rgvtatmp WHERE codcpg_rvi='$varsuma'");
-    					$dato = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
-    					$sumatot=$dato["total"];
-					}
-					else
-					{
-						$sumatot=0;
-					}
-					?>
+				<div><?php
+				if (mysqli_num_rows($sql_rgvtatmp)>0) {
+					mysqli_data_seek($sql_rgvtatmp, 0); 
+					$datsuma=mysqli_fetch_array($sql_rgvtatmp);
+					$varsuma=$datsuma[21];//codcpg_rvi
+					$resultado = mysqli_query($Conexion,"SELECT SUM(importetot_rvi) AS total FROM rgvtatmp WHERE codcpg_rvi='$varsuma'");
+					$dato = mysqli_fetch_array($resultado, MYSQLI_ASSOC);
+					$sumatot=$dato["total"];
+				}
+				else {
+					$sumatot=0;
+				} ?>
+				</div>
+				<?php lblnorm("Filtrar cliente(s):","etq5"); txtnrmstl("txtcli","width:100px;"); btnnormal("btnGrl", "Buscar Cliente");?>
+				<?php lblnorm("Fecha de emisión:","etq2"); txtronstl("txtfev",$var5,"width:80px;");?>
+				<?php lblnorm("Fecha de venta:","etq5"); txtronstl("txtfvv",$var6,"width:80px;");?>
+				<?php lblnorm("Cód.Comprob.Pago:","etq5"); txtronstl("txtccp",$var21,"width:60px;");?><?php
+				$datos=mysqli_num_rows($sqldtt);
+				if ($datos==0) { ?>
+					<div><span id="etq5">Cliente:</span><?php cmb_cliente("cmbidc", $Conexion, "SELECT * FROM clientes".$cad_busca_cualquiera.$limitar_cliente1, $var1, "id_cli", "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli");?></div> <?php
+				}
+				else { ?>
+					<div><?php txtronstl("txtfev",$var1,"width:80px;");
+					echo valfield($Conexion,"clientes","nom_rzs_cli","id_cli",$var1),",    ";
+					echo "DNI:",valfield($Conexion,"clientes","dni_ruc_cli","id_cli",$var1),",    ";
+					echo valfield($Conexion,"clientes","direcc_cli","id_cli",$var1),",    ";
+					echo valfield($Conexion,"clientes","lugar_cli","id_cli",$var1);
+					?></div> <?php
+				} ?><hr>
+				<div class="formulario">
+					<div id="colizq" style=" float:left; width:35%;">
+						<div><span id="etq2">Documento:</span><?php txtrdonly("txttdv",$var7);?></div>
+						<div><span id="etq2">Serie:</span><?php txtrdonly("txtsrv",$var8);?></div><?php
+						if (empty($var9)) { ?>
+							<div><span style="background:var(--color-gris-claro); color:var(--color-gris-mas-oscuro); height:24.4px; display:inline-block;">Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div><?php
+						}
+						else { ?>
+							<div><span id="etq2">Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div><?php
+						} ?>
+						<div><span id="etq2">Descripción:</span><?php txtrdonly("txtdsv",$var10);?></div>
 					</div>
-					<!-- Datos estaticos -->
-					<?php lblnorm("Filtrar cliente(s):","etq5"); txtnrmstl("txtcli","width:100px;"); btnnormal("btnGrl", "Buscar Cliente");?>
-					<?php lblnorm("Fecha de emisión:","etq2"); txtronstl("txtfev",$var5,"width:80px;");?>
-					<?php lblnorm("Fecha de venta:","etq5"); txtronstl("txtfvv",$var6,"width:80px;");?>
-					<?php lblnorm("Cód.Comprob.Pago:","etq5"); txtronstl("txtccp",$var21,"width:60px;");?>
-					<?php
-					$datos=mysqli_num_rows($sqldtt);
-					if ($datos==0)
-					{ ?>
-						<div><span id="etq5">Cliente:</span><?php cmb_cliente("cmbidc", $Conexion, "SELECT * FROM clientes".$cad_busca_cualquiera.$limitar_cliente1, $var1, "id_cli", "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli");?></div> <?php
-					}
-					else
-					{ ?>
-						<div><?php txtronstl("txtfev",$var1,"width:80px;");
-						echo valfield($Conexion,"clientes","nom_rzs_cli","id_cli",$var1),",    ";
-						echo "DNI:",valfield($Conexion,"clientes","dni_ruc_cli","id_cli",$var1),",    ";
-						echo valfield($Conexion,"clientes","direcc_cli","id_cli",$var1),",    ";
-						echo valfield($Conexion,"clientes","lugar_cli","id_cli",$var1);
-						?></div>
-					<?php
-					}
-					?>
-					<!--<div><span id="etq2">Fecha de emisión:</span><?php //txtvalue("txtfev",$var5,13);?>
-					<span id="etq5">Fecha de venta:</span><?php //txtvalue("txtfvv",$var6,13);?>
-					<span id="etq5">Cod. Comprob. Pago:</span><?php //txtvalue("txtccp",$var21,5);?></div>-->
-					<hr>
-				<div id="colizq" style=" float:left; width:35%;">
-					<!-- Datos para/desde caja -->
-					<div><span id="etq2">Documento:</span><?php txtrdonly("txttdv",$var7);?></div>
-					<div><span id="etq2">Serie:</span><?php txtrdonly("txtsrv",$var8);?></div>
-					<?php
-					if (empty($var9))
-					{
-					?>
-						<div><span style="background:var(--color-gris-claro); color:var(--color-gris-mas-oscuro); height:24.4px; display:inline-block;">Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div>
-					<?php
-					}
-					else
-					{
-					?>
-						<div><span id="etq2">Nº de documento:</span><?php txtrdonly("txtncv",$var9);?></div>
-					<?php
-					}
-					?>
-					<div><span id="etq2">Descripción:</span><?php txtrdonly("txtdsv",$var10);?></div>
+					<div id="colder"  style=" float:left; width:36%;">
+						<div><span id="etq2">Forma de pago:</span><?php txtrdonly("txtfpv", $var11);?></div>
+						<div><span id="etq2">Estado de pago:</span><?php txtrdonly("txtpag", $var22);?></div>
+						<div><span id="etq2">Importe total:</span><?php txtvalue("txtitv",$sumatot,13);?></div>
+						<div><span id="etq2">Zona:</span><?php txtrdonly("txtzna", $var23);?></div>
+					</div>
+					<div style="clear:both"></div><hr>
+					<span id="etq5">ID Registro:</span><?php txtnormal("txtbus"); btnnormal("btnGrl", "Buscar"); btnnormal("btnGrl", "Eliminar");?>
+					<span id="etq5">Registro:</span>	<?php txtrdonly("txtid",$var0);?>
+					<b>Producto: </b><?php if(!empty($var2)) echo valfield($Conexion,"productos","abrv_pro","id_pro",$var2);?>
 				</div>
-				<div id="colder"  style=" float:left; width:36%;">
-					<!-- Datos calculados -->
-					<div><span id="etq2">Forma de pago:</span><?php txtrdonly("txtfpv", $var11);?></div>
-					<div><span id="etq2">Estado de pago:</span><?php txtrdonly("txtpag", $var22);?></div>
-					<div><span id="etq2">Importe total:</span><?php txtvalue("txtitv",$sumatot,13);?></div>
-					<div><span id="etq2">Zona:</span><?php txtrdonly("txtzna", $var23);?></div>
-				</div>
-					<!-- Datos para/desde activación -->
-				<!--<div>
-					<span id="etq2">Nº de Contrato:</span><?php //txtvalue("txtnct",$var18,15);?><br>
-					<span id="etq2">Nº de Celular:</span><?php //txtvalue("txtncl",$var19,12);?><br><br>
-					<span id="etq4"></span><?php //btnnormal("btnGrl", "Registrar Contrato y Num.Celular");?>
-				</div>-->
-				<div style="clear:both"></div>
-				<hr>
-				<span id="etq5">ID Registro:</span><?php txtnormal("txtbus"); btnnormal("btnGrl", "Buscar"); btnnormal("btnGrl", "Eliminar");?>
-				<span id="etq5">Registro:</span>	<?php txtrdonly("txtid",$var0);?>
-				<b>Producto: </b><?php if(!empty($var2)) echo valfield($Conexion,"productos","abrv_pro","id_pro",$var2);?>
 				<hr>
 			</form> <!-- Fin de formulario -->
 	<!-- Inicio de listado de datos de usuario -->	

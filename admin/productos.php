@@ -533,40 +533,43 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 							</td>
 						</tr>
 					</table><hr>
-					<div id="colizq" style=" float:left; width:26%;"><?php txtoculto("txtnumreg",$numreg);
-						lblnorm("ID:","etq2"); txtrdonly("txt_id_pro",$id_pro); sl(1);
-						lblnorm("Imei:","etq2"); txtvalue("txt_imei_pro",$imei_pro,25); sl(1);
-						lblnorm("Icc:","etq2"); txtvalue("txt_icc_pro",$icc_pro,25); sl(1);
-						lblnormExt("Serie:","","etq2","width:140px;"); txtvalue("txt_serie_pro",$serie_pro,25); sl(1);
-						lblnorm("Número de celular:","etq2"); txtvalue("txt_numcel_pro",$numcel_pro,12); sl(1);
-						lblnorm("Fecha:","etq2"); txtrdonly("txt_fechreg_pro",$fechreg_pro); ?>
+					<div class="formulario">
+						<div id="colizq" style=" float:left; width:26%;"><?php txtoculto("txtnumreg",$numreg);
+							lblnorm("ID:","etq2"); txtrdonly("txt_id_pro",$id_pro); sl(1);
+							lblnorm("Imei:","etq2"); txtvalue("txt_imei_pro",$imei_pro,25); sl(1);
+							lblnorm("Icc:","etq2"); txtvalue("txt_icc_pro",$icc_pro,25); sl(1);
+							lblnormExt("Serie:","","etq2","width:140px;"); txtvalue("txt_serie_pro",$serie_pro,25); sl(1);
+							lblnorm("Número de celular:","etq2"); txtvalue("txt_numcel_pro",$numcel_pro,12); sl(1);
+							lblnorm("Fecha:","etq2"); txtrdonly("txt_fechreg_pro",$fechreg_pro); ?>
+						</div>
+						<div id="centro" style=" float:left; width:26%;"><?php
+							lblnorm("Activo(S/N):","etq2"); cmbnormal("cmb_activ_pro", $activ_pro, "1", "0"); sl(1);
+							lblnorm("Zona:","etq2"); cmbfieldJs_span("spn_zona","cmb_zona_pro",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$zona_pro,"","nomb_zna"); sl(1);
+							lblnorm("Precio Normal S/ :","etq2"); txtvalue("txt_precio_pro",$precio_pro,10); sl(1);
+							lblnorm("Precio Desct. S/ :","etq2"); txtvalue("txt_preciodesc_pro",$preciodesc_pro,10); sl(1);
+							lblnormExt("Ult.regis.(prec./cant.):","","etq5","width:140px;"); txtvalstl("txt_ultreg_pro", $ultreg_pro, 10, "width:100px;"); ?>
+						</div>
+						<div id="colder"  style=" float:left; width:48%;"><?php
+							lblnormExt("Catálogo:","","etq2","width:70px;"); combo_select("div_catalogo","cmb_id_cat",$Conexion,"SELECT * FROM catalogo WHERE activo_cat='S'",$id_cat,"id_cat","tipo_cat","abrv_cat"); boton_busqueda("div_catalogo", "productos.busca_catalogo.php"); sl(1);
+							lblnorm("Proveedor:","etq2"); cmbfieldJs_span("spn_proveedor","cmb_id_prv",$Conexion,"SELECT id_prv,nom_rzs_prv FROM proveedores",$id_prv,"","id_prv","nom_rzs_prv"); sl(1);
+							lblnorm("Prec.Norm.Prov. S/ :","etq2"); txtvalue("txt_precionormal_prv",$precionormal_prv,10); sl(1);
+							lblnorm("Prec.Espe.Prov. S/ :","etq2"); txtvalue("txt_precioespecial_prv",$precioespecial_prv,10); sl(1);
+							lblnormExt("Prec.anter.1 = ","","etq5","width:90px;"); echo $precio_anterior_pro;
+							lblnormExt("Fech.anter.1 = ","","etq5","width:90px;"); echo $fecha_anterior_pro;
+							lblnormExt("Prov.anter.1 = ","","etq5","width:90px;"); echo $proveedor_anterior; sl(1);
+							lblnormExt("Prec.anter.2 = ","","etq5","width:90px;"); echo $precio_antes_anterior_pro;
+							lblnormExt("Fech.anter.2 = ","","etq5","width:90px;"); echo $fecha_antes_anterior_pro;
+							lblnormExt("Prov.anter.2 = ","","etq5","width:90px;"); echo $proveedor_antes_anterior; ?>
+						</div><div style="clear:both"></div><hr>
+						<div><?php
+							if (activar_boton($datos,$resultado_perfil_accesos,"Agregar Individual")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern") OR ($categ_usuario=="Supr" AND $nivel_usuario=="sup")	OR ($categ_usuario=="Almc" AND $nivel_usuario=="sup")) btnnormal("btnGrl", "Agregar Individual"); }
+							if (activar_boton($datos,$resultado_perfil_accesos,"Agregar Bloque ICC")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern") OR ($categ_usuario=="Supr" AND $nivel_usuario=="sup")	OR ($categ_usuario=="Almc" AND $nivel_usuario=="sup")) btnnormal("btnGrl", "Agregar Bloque ICC"); }
+							if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern")) btnnormal("btnGrl", "Modificar"); }
+							if (activar_boton($datos,$resultado_perfil_accesos,"Eliminar")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern")) btnnormal("btnGrl", "Eliminar"); }
+							if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); }?>
+						</div>
 					</div>
-					<div id="centro" style=" float:left; width:26%;"><?php
-						lblnorm("Activo(S/N):","etq2"); cmbnormal("cmb_activ_pro", $activ_pro, "1", "0"); sl(1);
-						lblnorm("Zona:","etq2"); cmbfieldJs_span("spn_zona","cmb_zona_pro",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$zona_pro,"","nomb_zna"); sl(1);
-						lblnorm("Precio Normal S/ :","etq2"); txtvalue("txt_precio_pro",$precio_pro,10); sl(1);
-						lblnorm("Precio Desct. S/ :","etq2"); txtvalue("txt_preciodesc_pro",$preciodesc_pro,10); sl(1);
-						lblnormExt("Ult.regis.(prec./cant.):","","etq5","width:140px;"); txtvalstl("txt_ultreg_pro", $ultreg_pro, 10, "width:100px;"); ?>
-					</div>
-					<div id="colder"  style=" float:left; width:48%;"><?php
-						lblnormExt("Catálogo:","","etq2","width:70px;"); combo_select("div_catalogo","cmb_id_cat",$Conexion,"SELECT * FROM catalogo WHERE activo_cat='S'",$id_cat,"id_cat","tipo_cat","abrv_cat"); boton_busqueda("div_catalogo", "productos.busca_catalogo.php"); sl(1);
-						lblnorm("Proveedor:","etq2"); cmbfieldJs_span("spn_proveedor","cmb_id_prv",$Conexion,"SELECT id_prv,nom_rzs_prv FROM proveedores",$id_prv,"","id_prv","nom_rzs_prv"); sl(1);
-						lblnorm("Prec.Norm.Prov. S/ :","etq2"); txtvalue("txt_precionormal_prv",$precionormal_prv,10); sl(1);
-						lblnorm("Prec.Espe.Prov. S/ :","etq2"); txtvalue("txt_precioespecial_prv",$precioespecial_prv,10); sl(1);
-						lblnormExt("Prec.anter.1 = ","","etq5","width:90px;"); echo $precio_anterior_pro;
-						lblnormExt("Fech.anter.1 = ","","etq5","width:90px;"); echo $fecha_anterior_pro;
-						lblnormExt("Prov.anter.1 = ","","etq5","width:90px;"); echo $proveedor_anterior; sl(1);
-						lblnormExt("Prec.anter.2 = ","","etq5","width:90px;"); echo $precio_antes_anterior_pro;
-						lblnormExt("Fech.anter.2 = ","","etq5","width:90px;"); echo $fecha_antes_anterior_pro;
-						lblnormExt("Prov.anter.2 = ","","etq5","width:90px;"); echo $proveedor_antes_anterior; ?>
-					</div><div style="clear:both"></div><hr>
-					<div><?php
-						if (activar_boton($datos,$resultado_perfil_accesos,"Agregar Individual")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern") OR ($categ_usuario=="Supr" AND $nivel_usuario=="sup")	OR ($categ_usuario=="Almc" AND $nivel_usuario=="sup")) btnnormal("btnGrl", "Agregar Individual"); }
-						if (activar_boton($datos,$resultado_perfil_accesos,"Agregar Bloque ICC")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern") OR ($categ_usuario=="Supr" AND $nivel_usuario=="sup")	OR ($categ_usuario=="Almc" AND $nivel_usuario=="sup")) btnnormal("btnGrl", "Agregar Bloque ICC"); }
-						if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern")) btnnormal("btnGrl", "Modificar"); }
-						if (activar_boton($datos,$resultado_perfil_accesos,"Eliminar")) { if (($categ_usuario=="Prog") OR ($categ_usuario=="Gern")) btnnormal("btnGrl", "Eliminar"); }
-						if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); }?>
-					</div><hr>
+					<hr>
 				</form>
 				<!---------------------------------------------- LISTADO DE DATOS EN TABLAS ---------------------------------------------->
 				<?php

@@ -135,21 +135,23 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span Id="etq2">Buscar ID:</span>&nbsp;<input type="text" name="txtbus" style="width:60px;"/>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Buscar")) { ?> <input type="submit" name="btnGrl"  value="Buscar"/> <?php } ?>
 					<br><hr><!-- Salto de linea y linea de división -->
-					<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-					<div id="colizq" style=" float:left; width:38%;">
-						<div><span Id="etq2"style="width:140px;">ID:&nbsp;</span><input style="width:70px;" type="text" name="txtIdprov" style="background:rgb(220,220,255);" readonly="readonly" value="<?php echo $var0?>"/></div>
-						<div><span Id="etq2" style="width:140px;">Nomb./Raz.Soc.:&nbsp;</span><input style="width:200px;" type="text" name="txtNom_Rzs"  value="<?php echo $var1?>"/></div>
-						<div><span Id="etq2"style="width:140px;">DNI/RUC:&nbsp;</span><input style="width:100px;"type="text" name="txtDni_Ruc"  value="<?php echo $var2?>"/></div>
-					</div>
-					<div id="colder" style=" float:left; width:32%;">	
-						<div><span Id="etq2"style="width:130px;">Teléfono/Celular:&nbsp;</span><input style="width:90px;"type="text" name="txtTlfcel"  value="<?php echo $var3?>"/></div>
-						<div><span Id="etq2"style="width:130px;">Dirección:&nbsp;</span><input style="width:180px;"type="text" name="txtDirecc"  value="<?php echo $var4?>"/></div>
-						<div><span Id="etq2"style="width:130px;">Lugar:&nbsp;</span><input style="width:140px;"type="text" name="txtLug"  value="<?php echo $var5?>"/></div>
-					</div>
-					<div id="colders"  style=" float:left; width:30%;">		
-						<div><span Id="etq2" style="width:150px;">Person.contac.:&nbsp;</span><input style="width:130px;" type="text" name="txtPrscont"  value="<?php echo $var6?>"/></div>
-						<div><span Id="etq2" style="width:150px;">Tlf/Cel.pers.cont.:&nbsp;</span><input style="width:90px;"type="text" name="txtTlfcel_Prscont"  value="<?php echo $var7?>"/></div>
-						<div><span Id="etq2" style="width:150px;">Fecha:&nbsp;</span><input style="width:75px;" type="text" name="txtFechareg"  value="<?php echo $var8?>"/></div>
+					<div class="formulario">
+						<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
+						<div id="colizq" style=" float:left; width:38%;">
+							<div><span Id="etq2"style="width:140px;">ID:&nbsp;</span><input style="width:70px;" type="text" name="txtIdprov" style="background:rgb(220,220,255);" readonly="readonly" value="<?php echo $var0?>"/></div>
+							<div><span Id="etq2" style="width:140px;">Nomb./Raz.Soc.:&nbsp;</span><input style="width:200px;" type="text" name="txtNom_Rzs"  value="<?php echo $var1?>"/></div>
+							<div><span Id="etq2"style="width:140px;">DNI/RUC:&nbsp;</span><input style="width:100px;"type="text" name="txtDni_Ruc"  value="<?php echo $var2?>"/></div>
+						</div>
+						<div id="colder" style=" float:left; width:32%;">	
+							<div><span Id="etq2"style="width:130px;">Teléfono/Celular:&nbsp;</span><input style="width:90px;"type="text" name="txtTlfcel"  value="<?php echo $var3?>"/></div>
+							<div><span Id="etq2"style="width:130px;">Dirección:&nbsp;</span><input style="width:180px;"type="text" name="txtDirecc"  value="<?php echo $var4?>"/></div>
+							<div><span Id="etq2"style="width:130px;">Lugar:&nbsp;</span><input style="width:140px;"type="text" name="txtLug"  value="<?php echo $var5?>"/></div>
+						</div>
+						<div id="colders"  style=" float:left; width:30%;">		
+							<div><span Id="etq2" style="width:150px;">Person.contac.:&nbsp;</span><input style="width:130px;" type="text" name="txtPrscont"  value="<?php echo $var6?>"/></div>
+							<div><span Id="etq2" style="width:150px;">Tlf/Cel.pers.cont.:&nbsp;</span><input style="width:90px;"type="text" name="txtTlfcel_Prscont"  value="<?php echo $var7?>"/></div>
+							<div><span Id="etq2" style="width:150px;">Fecha:&nbsp;</span><input style="width:75px;" type="text" name="txtFechareg"  value="<?php echo $var8?>"/></div>
+						</div>
 					</div>
 					<hr>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar")) { ?> <input type="submit" name="btnGrl" value="Agregar"/> <?php } ?>

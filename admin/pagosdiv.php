@@ -223,18 +223,13 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				<form name="usuario" action="" method="post">
 					<span id="etq5" style="width:75px;">Buscar ID:&nbsp;</span><?php txtnrmstl("txtbus","width:60px;"); 
 					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar")) { btnnormal("btnGrl", "Buscar"); }?>
-					<span id="etq5" style="width:75px;">Zona:&nbsp;</span>
-					<?php 
-					//cmbnormal("cmbzona", $vzona, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-					cmbfieldJs_span("spn_zona","cmbzona",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vzona,"","nomb_zna"); 
-					?>
-					<!-- <span id="etq5" style="width:85px;">Tipo Reg.:</span> --><?php // cmbnormal("cmbtrg",$vtipr,"Pag.Adel.","Pag.Mens.");?>
+					<span id="etq5" style="width:75px;">Zona:&nbsp;</span><?php 
+					cmbfieldJs_span("spn_zona","cmbzona",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vzona,"","nomb_zna"); ?>
 					<span id="etq5" style="width:85px;">Tipo Reg.:&nbsp;</span><?php cmbnormal("cmbtrg",$vtipr,"PayJoy","Pag.Mens.","CuotaInicial");?>
 					<span id="etq5" style=" width:90px;">Fecha Vta.:&nbsp;</span><?php txtvalstl("txtfch",$vbfch,10,"width:90px;");?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); }?>
 					<?php txtoculto("txtnumreg",$numreg);?><br><hr>
-					<!---------------------------------------------------------------------------------------------------------------------------------->
-					<div>
+					<div class="formulario">
 						<span id="etq5" style="width:70px;">ID:</span><?php txtronstl("txtid",$v_id_rpg,"width:50px;");?>
 						<span id="etq5" style="width:75px;">Nº Celular:</span><?php txtvalstl("txtcel",$v_numcel_rpg,11,"width:100px;");?>
 						<span id="etq5" style="width:40px;">Tipo:</span><?php cmbnormal("cmbtrp",$v_tipo_rpg,"PayJoy","Pag.Mens.","CuotaInicial");?>
@@ -245,7 +240,6 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 						<span id="etq5" style="width:100px;">Numero Doc.:</span><?php  txtronstl("txtndc",$v_numdoc_rpg,"width:85px;background:rgb(222,228,255)");?>
 						<span id="etq5" style="width:60px;">Fecha:</span><?php txtronstl("txtfrg",$v_fechareg_rpg,"width:70px;");?>
 					</div><hr>
-					<!---------------------------------------------------------------------------------------------------------------------------------->
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar")) { btnnormal("btnGrl", "Agregar"); }?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { btnnormal("btnGrl", "Modificar"); }?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Eliminar")) { btnnormal("btnGrl", "Eliminar"); }?>

@@ -103,56 +103,58 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					if (activar_boton($datos,$resultado_perfil_accesos,"Excel")) { btnnormal("btnGrl", "Excel"); }
 					if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); } ?><br>
 					<hr>
-					<div style="width:20%; float:left;">
-						<span id="etq1" class="color_items">ZONA:</span><br>
-						<?php mostrar_resultados_conteo($array_valor_de_zonas, $resultado_contar_zonas);?><br>
-						<span id="etq1" class="color_items">EXISTENCIAS:</span><br>
-						<?php mostrar_resultados_conteo_activos($array_valor_de_activos, $resultado_contar_activos);?>
+					<div class="formulario">
+						<div style="width:20%; float:left;">
+							<span id="etq1" class="color_items">ZONA:</span><br>
+							<?php mostrar_resultados_conteo($array_valor_de_zonas, $resultado_contar_zonas);?><br>
+							<span id="etq1" class="color_items">EXISTENCIAS:</span><br>
+							<?php mostrar_resultados_conteo_activos($array_valor_de_activos, $resultado_contar_activos);?>
+						</div>
+						<div style="width:15%; float:left;">
+							<span id="etq1" class="color_items">GRUPO:</span><br>
+							<span id="etq4">Equipo=</span><?php echo $ct_equ;?><br>
+							<span id="etq4">Modem=</span><?php echo $ct_mod;?><br>
+							<span id="etq4">Chip=</span><?php echo $ct_chp;?><br>
+							<span id="etq4">Recarga=</span><?php echo $ct_rec;?><br>
+							<span id="etq4">Tableta=</span><?php echo $ct_tab;?><br>
+							<span id="etq4">Servicios=</span><?php echo $ct_srv;?><br>
+							<span id="etq4">Accesorios=</span><?php echo $ct_acc;?><br>
+							<span id="etq4">Otros=</span><?php echo $ct_otr;?><br>
+							<br>
+						</div>
+						<div style="width:65%; float:left;">
+							<span id="etq5" class="color_items">TIPO:</span><br>
+							<span id="etq5">Handset=</span><?php echo $ct_hnd;?>
+							<span id="etq5" style="width:110px;">Smartphone=</span><?php echo $ct_sph;?><br>
+							<span id="etq5">Modem=</span><?php echo $ct_mdm;?>
+							<span id="etq5" style="width:90px;">Router=</span><?php echo $ct_rou;?><br>
+							<span id="etq5">PackConnect=</span><?php echo $ct_pck;?>
+							<span id="etq5" style="width:100px;">SIM Mobile=</span><?php echo $ct_smb;?>
+							<span id="etq5" style="width:65px;">BSmart=</span><?php echo $ct_bsm;?>
+							<span id="etq5" style="width:60px;">BFree=</span><?php echo $ct_bfr;?>
+							<span id="etq5" style="width:70px;">BCombo=</span><?php echo $ct_bcm;?>
+							<span id="etq5" style="width:45px;">Uni=</span><?php echo $ct_uni;?><br>
+							<span id="etq5">Kit BVoz=</span><?php echo $ct_kbv;?>
+							<span id="etq5" style="width:100px;">Kit Bfono=</span><?php echo $ct_kbf;?>
+							<span id="etq5" style="width:100px;">Kit BData=</span><?php echo $ct_kbd;?>
+							<span id="etq5" style="width:105px;">Kit BitelUNIV=</span><?php echo $ct_kbu;?>
+							<span id="etq5" style="width:105px;">Rec.Tarjeta=</span><?php echo $ct_rtj;?>
+							<span id="etq5" style="width:100px;">Rec.Virtual=</span><?php echo $ct_rvr;?><br>
+							<span id="etq5">Tablet=</span><?php echo $ct_tbl;?><br>
+							<span id="etq5">Migracion=</span><?php echo $ct_mgr;?>
+							<span id="etq5" style="width:105px;">CambioPlan=</span><?php echo $ct_cmp;?>
+							<span id="etq5" style="width:105px;">BajaLinea=</span><?php echo $ct_bjl;?>
+							<span id="etq5" style="width:120px;">Desbloqueo=</span><?php echo $ct_dsb;?>
+							<span id="etq5" style="width:110px;">Reconfigur=</span><?php echo $ct_rcf;?><br>
+							<span id="etq5">SD Card=</span><?php echo $ct_sdc;?>
+							<span id="etq5" style="width:100px;">Auricular=</span><?php echo $ct_aur;?>
+							<span id="etq5" style="width:105px;">CarcasaSmpl=</span><?php echo $ct_crs;?>
+							<span id="etq5" style="width:105px;">CarcasaTapa=</span><?php echo $ct_cst;?>
+							<span id="etq5" style="width:105px;">ProtectPant=</span><?php echo $ct_prp;?><br>
+							<span id="etq5">Otros=</span><?php echo $ct_ots;?><br>
+						</div>
+						<div style="clear:both"></div>
 					</div>
-					<div style="width:15%; float:left;">
-						<span id="etq1" class="color_items">GRUPO:</span><br>
-						<span id="etq4">Equipo=</span><?php echo $ct_equ;?><br>
-						<span id="etq4">Modem=</span><?php echo $ct_mod;?><br>
-						<span id="etq4">Chip=</span><?php echo $ct_chp;?><br>
-						<span id="etq4">Recarga=</span><?php echo $ct_rec;?><br>
-						<span id="etq4">Tableta=</span><?php echo $ct_tab;?><br>
-						<span id="etq4">Servicios=</span><?php echo $ct_srv;?><br>
-						<span id="etq4">Accesorios=</span><?php echo $ct_acc;?><br>
-						<span id="etq4">Otros=</span><?php echo $ct_otr;?><br>
-						<br>
-					</div>
-					<div style="width:65%; float:left;">
-						<span id="etq5" class="color_items">TIPO:</span><br>
-						<span id="etq5">Handset=</span><?php echo $ct_hnd;?>
-						<span id="etq5" style="width:110px;">Smartphone=</span><?php echo $ct_sph;?><br>
-						<span id="etq5">Modem=</span><?php echo $ct_mdm;?>
-						<span id="etq5" style="width:90px;">Router=</span><?php echo $ct_rou;?><br>
-						<span id="etq5">PackConnect=</span><?php echo $ct_pck;?>
-						<span id="etq5" style="width:100px;">SIM Mobile=</span><?php echo $ct_smb;?>
-						<span id="etq5" style="width:65px;">BSmart=</span><?php echo $ct_bsm;?>
-						<span id="etq5" style="width:60px;">BFree=</span><?php echo $ct_bfr;?>
-						<span id="etq5" style="width:70px;">BCombo=</span><?php echo $ct_bcm;?>
-						<span id="etq5" style="width:45px;">Uni=</span><?php echo $ct_uni;?><br>
-						<span id="etq5">Kit BVoz=</span><?php echo $ct_kbv;?>
-						<span id="etq5" style="width:100px;">Kit Bfono=</span><?php echo $ct_kbf;?>
-						<span id="etq5" style="width:100px;">Kit BData=</span><?php echo $ct_kbd;?>
-						<span id="etq5" style="width:105px;">Kit BitelUNIV=</span><?php echo $ct_kbu;?>
-						<span id="etq5" style="width:105px;">Rec.Tarjeta=</span><?php echo $ct_rtj;?>
-						<span id="etq5" style="width:100px;">Rec.Virtual=</span><?php echo $ct_rvr;?><br>
-						<span id="etq5">Tablet=</span><?php echo $ct_tbl;?><br>
-						<span id="etq5">Migracion=</span><?php echo $ct_mgr;?>
-						<span id="etq5" style="width:105px;">CambioPlan=</span><?php echo $ct_cmp;?>
-						<span id="etq5" style="width:105px;">BajaLinea=</span><?php echo $ct_bjl;?>
-						<span id="etq5" style="width:120px;">Desbloqueo=</span><?php echo $ct_dsb;?>
-						<span id="etq5" style="width:110px;">Reconfigur=</span><?php echo $ct_rcf;?><br>
-						<span id="etq5">SD Card=</span><?php echo $ct_sdc;?>
-						<span id="etq5" style="width:100px;">Auricular=</span><?php echo $ct_aur;?>
-						<span id="etq5" style="width:105px;">CarcasaSmpl=</span><?php echo $ct_crs;?>
-						<span id="etq5" style="width:105px;">CarcasaTapa=</span><?php echo $ct_cst;?>
-						<span id="etq5" style="width:105px;">ProtectPant=</span><?php echo $ct_prp;?><br>
-						<span id="etq5">Otros=</span><?php echo $ct_ots;?><br>
-					</div>
-					<div style="clear:both"></div>
 					<hr>	
 				</form>
 				<!-------------------------------------------------- Inicio de listado de datos de usuario -------------------------------------------------->
@@ -229,30 +231,30 @@ function cargar_en_variables_de_clase_resultados_conteo($array_valor_de_campos, 
 		$ct_hnd=$fila["_Handset"];
 		$ct_sph=$fila["_Smartphone"];
 		$ct_mdm=$fila["_Modem"];
-		$ct_pck=$fila["_PackConnect"];
+		//$ct_pck=$fila["_PackConnect"]; modificado por nuevo sistema Claro
 		$ct_smb=$fila["_SIMMobile"];
 		// $ct_bsm=$fila["_BSmart"];//*
-		$ct_bfr=$fila["_BFree"];
+		//$ct_bfr=$fila["_BFree"]; modificado por nuevo sistema Claro
 		// $ct_bcm=$fila["_BCombo"];//*
 		// $ct_uni=$fila["_Uni"];//*
-		$ct_rou=$fila["_Router"];
+		//$ct_rou=$fila["_Router"]; modificado por nuevo sistema Claro
 		// $ct_rtj=$fila["_Rec_Tarjeta"];//*
 		$ct_rvr=$fila["_Rec_Virtual"];
-		$ct_tbl=$fila["_Tablet"];
-		$ct_sdc=$fila["_SDCard"];
+		//$ct_tbl=$fila["_Tablet"]; modificado por nuevo sistema Claro
+		//$ct_sdc=$fila["_SDCard"]; modificado por nuevo sistema Claro
 		$ct_aur=$fila["_Auricular"];
-		$ct_crs=$fila["_CarcasaSmpl"];
-		$ct_cst=$fila["_CarcasaTapa"];
-		$ct_prp=$fila["_ProtectPant"];
-		$ct_mgr=$fila["_Migracion"];
+		//$ct_crs=$fila["_CarcasaSmpl"]; modificado por nuevo sistema Claro
+		//$ct_cst=$fila["_CarcasaTapa"]; modificado por nuevo sistema Claro
+		//$ct_prp=$fila["_ProtectPant"]; modificado por nuevo sistema Claro
+		//$ct_mgr=$fila["_Migracion"]; modificado por nuevo sistema Claro
 		// $ct_cmp=$fila["_CambioPlan"];//*
-		$ct_bjl=$fila["_BajaLinea"];
-		$ct_dsb=$fila["_Desbloqueo"];
-		$ct_rcf=$fila["_Reconfigur_"];
-		$ct_kbv=$fila["_KitBVoz"];
+		//$ct_bjl=$fila["_BajaLinea"]; modificado por nuevo sistema Claro
+		//$ct_dsb=$fila["_Desbloqueo"]; modificado por nuevo sistema Claro
+		//$ct_rcf=$fila["_Reconfigur_"]; modificado por nuevo sistema Claro
+		//$ct_kbv=$fila["_KitBVoz"]; modificado por nuevo sistema Claro
 		// $ct_kbf=$fila["_KitBFono"];//*
-		$ct_kbd=$fila["_KitBData"];
-		$ct_kbu=$fila["_KitBitelUN"];
+		//$ct_kbd=$fila["_KitBData"]; modificado por nuevo sistema Claro
+		//$ct_kbu=$fila["_KitBitelUN"]; modificado por nuevo sistema Claro
 		$ct_ots=$fila["_Otros"];
 	}
 }
@@ -266,10 +268,10 @@ function cargar_en_variables_de_tipo_resultados_conteo($array_valor_de_campos, $
 		$ct_mod=$fila["_Modem"];
 		$ct_chp=$fila["_Chip"];
 		$ct_rec=$fila["_Recarga"];
-		$ct_tab=$fila["_Tableta"];
+		//$ct_tab=$fila["_Tableta"]; modificado por nuevo sistema Claro
 		$ct_srv=$fila["_Servicios"];
 		$ct_acc=$fila["_Accesorios"];
-		$ct_otr=$fila["_Otros"];
+		//$ct_otr=$fila["_Otros"]; modificado por nuevo sistema Claro
 	}
 }
 // function ejecuta_busca_datos_Ajax($idTagHtml_a_cargar, $dato_a_buscar, $archivo_donde_buscar_datos)

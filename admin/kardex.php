@@ -180,7 +180,7 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span id="etq2">Buscar ID:</span><?php txtnormal("txtbus"); 
 					if (activar_boton($datos,$resultado_perfil_accesos,"Buscar")) { btnnormal("btnGrl", "Buscar"); } ?><br><hr>
 					<?php txtoculto("txtnumreg",$numreg);?>
-					<div>
+					<div class="formulario">
 						<span id="etq2">ID:</span><?php txtronstl("txtid",$var0,"width:50px;");?>
 						<span id="etq5" style="width:210px;">Tipo de registro:</span><?php cmbnormal("cmbtrg",$var13, "I", "E");?>
 						<span id="etq5" style="width:250px;">Tipo de documento:</span><?php cmbnormal("cmbtdc",$var1, "Factura", "Boleta de venta", "Guía de Remis.", "Reporte de Inv.");?>

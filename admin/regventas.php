@@ -241,24 +241,15 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span id="etq7"><?php if (activar_boton($datos,$resultado_perfil_accesos,"Venta Nueva")) { btnnormal("btnGrl", "Venta Nueva"); } ?></span><br><hr>
 					<span id="etq1" >Cliente:</span><?php txtvalstl("txtcli",$vbcli,10,"width:100px;");?>
 					<span id="etq5" style=" width:70px;">Grupo:</span><?php 
-					//cmbnormal("cmbgrp", $vbgrp, "Equipo", "Modem", "Chip", "Recarga", "Tableta", "Servicios", "Accesorios", "Otros");
-					cmbfieldJs("div_select_grupo","cmbgrp",$Conexion,"SELECT desc_tipo_prosrv FROM tipo_prod_serv WHERE activo_tipo_prosrv='S'",$vbgrp,"","desc_tipo_prosrv");
-					?>
+					cmbfieldJs("div_select_grupo","cmbgrp",$Conexion,"SELECT desc_tipo_prosrv FROM tipo_prod_serv WHERE activo_tipo_prosrv='S'",$vbgrp,"","desc_tipo_prosrv");?>
 					<span id="etq5" style=" width:100px;">Tipo Prod.:</span><?php 
-					//cmbnormal("cmbtip", $vbtip, "Handset", "Smartphone", "Modem", "PackConnect", "SIM Mobile", "BSmart", "BFree", "BCombo", "Uni","Kit BVoz","Kit BData","Kit BitelUNIV", "Kit Bfono", "Router", "Rec.Tarjeta", "Rec.Virtual", "Tablet", "SD Card", "Auricular", "CarcasaSmpl", "CarcasaTapa", "ProtectPant", "Migracion", "CambioPlan", "BajaLinea", "Desbloqueo", "Reconfigur.", "Otros");
-					cmbfieldJs("div_select_tipo","cmbtip",$Conexion,"SELECT desc_clase_prosrv FROM clase_prod_serv WHERE activo_clase_prosrv='S'",$vbtip,"","desc_clase_prosrv");
-					?>
+					cmbfieldJs("div_select_tipo","cmbtip",$Conexion,"SELECT desc_clase_prosrv FROM clase_prod_serv WHERE activo_clase_prosrv='S'",$vbtip,"","desc_clase_prosrv");?>
 					<span id="etq5" style=" width:90px;">Tipo Vta.:</span><?php 
-					//cmbnormal("cmbtvt", $vbtvt, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
-					cmbfieldJs_span("spn_select_tipVent","cmbtvt",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$vbtvt,"","descrip_vtv");
-					?>
+					cmbfieldJs_span("spn_select_tipVent","cmbtvt",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$vbtvt,"","descrip_vtv");?>
 					<span id="etq5" style=" width:67px;">Plan:</span><?php cmbfield("cmbpla", $Conexion, "SELECT * from planes WHERE activ_pla=1", $vbpla, "id_pla","abrv_pla");?>
 					<span id="etq5" style=" width:100px;">Documento:</span><?php cmbnormal("cmbtdc", $vbtdc, "Boleta de venta", "Factura");?>
-					<span id="etq5" style=" width:55px;">Zona:</span>
-					<?php 
-					//cmbnormal("cmbzon", $vbzna, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-					cmbfieldJs_span("spn_zona","cmbzon",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vbzna,"","nomb_zna");
-					?>
+					<span id="etq5" style=" width:55px;">Zona:</span><?php 
+					cmbfieldJs_span("spn_zona","cmbzon",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$vbzna,"","nomb_zna");?>
 					<span id="etq5" style=" width:60px;">Celular:</span><?php txtvalstl("txtcel",$vbcel,9,"width:90px;");?>
 					<span id="etq5" style=" width:130px;">Nº Doc.(Ser-Num):</span><?php txtvalstl("txtndc",$vbndc,7,"width:100px;");?>
 					<span id="etq5" style=" width:90px;">Fecha Vta.:</span><?php txtvalstl("txtfch",$vbfch,10,"width:90px;");?>
@@ -266,32 +257,32 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span id="etq5" style=" width:70px;">Cod.Pago:</span><?php txtvalstl("txtcpg",$vbcpg,6,"width:55px;");?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); } ?><br><hr>
 					<?php txtoculto("txtnumreg",$numreg);?>
-					<div id="colizq"  style=" float:left; width:34%;margin-left:25px;">
-						<div><span>ID:</span>	<?php txtrdonly("txtid",$var0);?></div>
-						<div><span>Fecha de emisión:</span><?php txtvalue("txtfev",$var5,10);?></div>
-						<div><span>Fecha de venta:</span><?php txtvalue("txtfvv",$var6,10);?></div>
-						<div><span>Documento:</span><?php cmbnormal("cmbtdv", $var7, "Boleta de venta", "Factura");?></div>
-						<div><span>Serie:</span><?php txtvalue("txtsrv",$var8,2);?></div>
+					<div class="formulario">
+						<div id="colizq"  style=" float:left; width:34%;margin-left:25px;">
+							<div><span>ID:</span>	<?php txtrdonly("txtid",$var0);?></div>
+							<div><span>Fecha de emisión:</span><?php txtvalue("txtfev",$var5,10);?></div>
+							<div><span>Fecha de venta:</span><?php txtvalue("txtfvv",$var6,10);?></div>
+							<div><span>Documento:</span><?php cmbnormal("cmbtdv", $var7, "Boleta de venta", "Factura");?></div>
+							<div><span>Serie:</span><?php txtvalue("txtsrv",$var8,2);?></div>
+						</div>
+						<div id="colder"  style=" float:left; width:32%;">
+							<div><span>Nº de documento:</span><?php txtvalue("txtncv",$var9,5);?></div>
+							<div><span>Descripción:</span><?php txtvalue("txtdsv",$var10,50);?></div>
+							<div><span>Forma de pago:</span><?php txtvalue("txtfpv",$var11,8);?></div>
+							<div><span>Estado de pago:</span><?php cmbnormal("cmbpag", $var22, "Pagado", "NoPago");?></div>
+							<div><span>Bas.imp.prod. grv.:</span><?php txtvalue("txtbgr",$var12,12);?></div>
+						</div>
+						<div id="colders"  style=" float:left; width:32%;">		
+							<div><span style=" width:200px;">Bas.imp.prod. no grv.:</span><?php txtvalue("txtbng",$var13,12);?></div>
+							<div><span style=" width:200px;">ISC:</span><?php txtvalue("txtisc",$var14,12);?></div>
+							<div><span style=" width:200px;">IGV:</span><?php txtvalue("txtigv",$var15,12);?></div>
+							<div><span style=" width:200px;">Importe total:</span><?php txtvalue("txtitv",$var16,12);?></div>
+							<div><span style=" width:200px;">Zona:</span><?php 
+							cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var23,"","nomb_zna");?>
+							</div>
+						</div>
 					</div>
-					<div id="colder"  style=" float:left; width:32%;">
-						<div><span>Nº de documento:</span><?php txtvalue("txtncv",$var9,5);?></div>
-						<div><span>Descripción:</span><?php txtvalue("txtdsv",$var10,50);?></div>
-						<div><span>Forma de pago:</span><?php txtvalue("txtfpv",$var11,8);?></div>
-						<div><span>Estado de pago:</span><?php cmbnormal("cmbpag", $var22, "Pagado", "NoPago");?></div>
-						<div><span>Bas.imp.prod. grv.:</span><?php txtvalue("txtbgr",$var12,12);?></div>
-					</div>
-					<div id="colders"  style=" float:left; width:32%;">		
-						<div><span style=" width:200px;">Bas.imp.prod. no grv.:</span><?php txtvalue("txtbng",$var13,12);?></div>
-						<div><span style=" width:200px;">ISC:</span><?php txtvalue("txtisc",$var14,12);?></div>
-						<div><span style=" width:200px;">IGV:</span><?php txtvalue("txtigv",$var15,12);?></div>
-						<div><span style=" width:200px;">Importe total:</span><?php txtvalue("txtitv",$var16,12);?></div>
-						<div><span style=" width:200px;">Zona:</span>
-						<?php 
-						//cmbnormal("cmbzna", $var23, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-						cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var23,"","nomb_zna"); 
-						?></div>
-					</div>
-					<br>&nbsp;<hr>
+					<hr>
 				</form>
 				<!---------------------------------------------- LISTADO DE DATOS EN TABLAS ---------------------------------------------->
 				<?php

@@ -141,29 +141,25 @@ function filtrar_lista()
 					lblnormExt("Fecha:","","",$sty01); txtNrStJs("txt_busq_fecha",$buscar,"date",10,"width:110px;","onchange='filtrar_lista()';"); spc(3);
 					lblnormExt("Origen:","","",$sty01); txtNrStJs("txt_busq_origen",$buscar,"text",15,"width:100px;","onkeyup='filtrar_lista()';"); spc(3);
 					lblnormExt("Destino:","","",$sty01); txtNrStJs("txt_busq_destino",$buscar,"text",15,"width:100px;","onkeyup='filtrar_lista()';"); spc(3);
-					if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); }
-					?>
+					if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar"); } ?>
 					<br><hr>
-					<?php
-					lblnormExt("ID:","","",$sty01); txtronstl("txt_id_gr",$id_gr,"width:50px;"); spc(3);
-					lblnormExt("Serie:","","",$sty01); txtronstl("txt_serie_gr",$serie_gr,"width:30px;"); spc(3);
-					lblnormExt("Numero:","","",$sty01); txtronstl("txt_numero_gr",$numero_gr,"width:60px;"); spc(3);
-					lblnormExt("Fecha de traslado:","","",$sty01); txtronstl("txt_fechtrasl_gr",$fechtrasl_gr,"width:80px;"); spc(3);
-					lblnormExt("Zona origen:","","",$sty01); txtronstl("txt_znaorig_gr",$znaorig_gr,"width:80px;"); spc(3);
-					lblnormExt("Zona destino:","","",$sty01); txtronstl("txt_znadest_gr",$znadest_gr,"width:80px;"); spc(3);
-					lblnormExt("Usuario:","","",$sty01); txtronstl("txt_usuario",$usuario,"width:200px;");
-					?><br>
-					<?php
-					
-					lblnormExt("Motivo de traslado:","","",$sty01); txtronstl("txt_motivo_trasl_gr", $motivo_trasl_gr,"width:250px;"); spc(3);
-					lblnormExt("RUC de transportista:","","",$sty01); txtronstl("txt_ruc_transp_gr", $ruc_transp_gr,"width:110px;"); spc(3);
-					lblnormExt("Nombre o Razon Social:","","",$sty01); txtronstl("txt_descrip_transp_gr", $descrip_transp_gr,"width:200px;"); spc(3);
-					lblnormExt("Marca Vehic. y Placa:","","",$sty01); txtronstl("txt_marca_placa_transp_gr", $marca_placa_transp_gr,"width:90px;");
-					?>
-					<br><hr><?php 
-					if (activar_boton($datos,$resultado_perfil_accesos,"Generar Guia Remision")) { btnnormal("btnGrl", "Generar Guia Remision"); }
-					if (activar_boton($datos,$resultado_perfil_accesos,"Anular Guia Remision")) { btnnormal("btnGrl", "Anular Guia Remision"); } ?>
-					<br><hr>
+					<div class="formulario"><?php
+						lblnormExt("ID:","","",$sty01); txtronstl("txt_id_gr",$id_gr,"width:50px;"); spc(3);
+						lblnormExt("Serie:","","",$sty01); txtronstl("txt_serie_gr",$serie_gr,"width:30px;"); spc(3);
+						lblnormExt("Numero:","","",$sty01); txtronstl("txt_numero_gr",$numero_gr,"width:60px;"); spc(3);
+						lblnormExt("Fecha de traslado:","","",$sty01); txtronstl("txt_fechtrasl_gr",$fechtrasl_gr,"width:80px;"); spc(3);
+						lblnormExt("Zona origen:","","",$sty01); txtronstl("txt_znaorig_gr",$znaorig_gr,"width:80px;"); spc(3);
+						lblnormExt("Zona destino:","","",$sty01); txtronstl("txt_znadest_gr",$znadest_gr,"width:80px;"); spc(3);
+						lblnormExt("Usuario:","","",$sty01); txtronstl("txt_usuario",$usuario,"width:200px;"); ?><br><?php
+						lblnormExt("Motivo de traslado:","","",$sty01); txtronstl("txt_motivo_trasl_gr", $motivo_trasl_gr,"width:250px;"); spc(3);
+						lblnormExt("RUC de transportista:","","",$sty01); txtronstl("txt_ruc_transp_gr", $ruc_transp_gr,"width:110px;"); spc(3);
+						lblnormExt("Nombre o Razon Social:","","",$sty01); txtronstl("txt_descrip_transp_gr", $descrip_transp_gr,"width:200px;"); spc(3);
+						lblnormExt("Marca Vehic. y Placa:","","",$sty01); txtronstl("txt_marca_placa_transp_gr", $marca_placa_transp_gr,"width:90px;");	?>
+						<br><hr><?php 
+						if (activar_boton($datos,$resultado_perfil_accesos,"Generar Guia Remision")) { btnnormal("btnGrl", "Generar Guia Remision"); }
+						if (activar_boton($datos,$resultado_perfil_accesos,"Anular Guia Remision")) { btnnormal("btnGrl", "Anular Guia Remision"); } ?><br>
+					</div>
+					<hr>
 				</form>
 				<div id="tabla_seleccionProductos">
 				<?php 

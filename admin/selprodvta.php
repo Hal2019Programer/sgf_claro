@@ -318,46 +318,39 @@ muestraDatos_x_innerHTML_Js()
 					}
 				}
 				?>
-				<form name="usuario" action="" method="post">
-					<br>
+				<form name="usuario" action="" method="post"><br>
 					<span id="etq4">Buscar ID:</span><?php txtnormal("txtbus"); btnnormal("btnGrl", "Buscar");?>
-					<span id="etq10">Cod. Paquete:</span><?php txtvalstl("txtcpq",$var4,5,"width:70px;");?><br><hr>
-					<?php
-						txtoculto("txtnumreg",$numreg);
-						txtoculto("txtCodProdBusq",$id_producto);
-					?>
-					<div>
-						<span id="etq5">Serie/Imei/Icc/Id/Código/Grupo/Tipo:</span><?php txtvalstl("txtsii", $var_ser_ime_icc,21,"width:100px;");?>
-						<?php btnnormal("btnGrl", "Filtrar");?><br>
-						<span id="etq5">Producto:</span>
-						<?php
-						cmbfieldJs("div_cmbidp","cmbidp",$Conexion,$cmbprod,"","onchange=\"muestra_stock_juego('cmbidp')\";","id_pro","cod_pro","abrv_pro","serie_pro","imei_pro","icc_pro");
-						lblnormExt("", "", "lbl_saldo_stock_juego", "color:RGB(255,255,255); background-color:RGB(220,220,255);");
-						if ($tip_pro=="Recarga")
-						{						
-							echo " CA: ".$cantactual;
-							if ($cantactual<=200)
-							{
-								echo "<script> alert('Las recargas estan por debajo del límite mínimo. Solicite renovación antes de quedarse sin saldo.'); </script>";
-							}
-						}
-						?>
-					</div>
-					<div>
-						<span id="etq4">Tipo de venta:</span><?php 
-						//cmbNormJs_span("spn_select_tipVent", "cmbtip", $var7, "onchange=\"CambiarValor('cmbtip')\";", "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
-						cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var7,"onchange=\"CambiarValor('cmbtip')\";","descrip_vtv");?>
-						<span id="etq5">Plan:</span><?php cmbfield("cmbipl", $Conexion, "SELECT * from planes WHERE activ_pla=1", $var8, "id_pla","abrv_pla");?>
-						<span id="etq5">Importe S/.:</span><?php txtvalstl("txtimp",$var12,7,"width:80px;");?>
-					</div>		
-					<div><span id="etq5">Importe efectivo de recarga S/.:</span><?php txtvalstl("txtier",$var13,7,"width:80px;");?></div>
-					<hr>
-					<?php btnnormal("btnGrl", "Agregar");?>
-					<?php btnnormal("btnGrl", "Modificar");?>
-					<?php btnnormal("btnGrl", "Eliminar");?>
-					<?php btnnormal("btnGrl", "Actualizar");?>
-					<span id="etq6"><?php btnnormal("btnGrl", "Cobrar");?></span>
-					<br><hr>
+					<span id="etq10">Cod. Paquete:</span><?php txtvalstl("txtcpq",$var4,5,"width:70px;");?><br><hr>	<?php
+					txtoculto("txtnumreg",$numreg);
+					txtoculto("txtCodProdBusq",$id_producto);?>
+					<div class="formulario">
+						<div>
+							<span id="etq5">Serie/Imei/Icc/Id/Código/Grupo/Tipo:</span><?php txtvalstl("txtsii", $var_ser_ime_icc,21,"width:100px;");?>
+							<?php btnnormal("btnGrl", "Filtrar");?><br>
+							<span id="etq5">Producto:</span><?php
+							cmbfieldJs("div_cmbidp","cmbidp",$Conexion,$cmbprod,"","onchange=\"muestra_stock_juego('cmbidp')\";","id_pro","cod_pro","abrv_pro","serie_pro","imei_pro","icc_pro");
+							lblnormExt("", "", "lbl_saldo_stock_juego", "color:RGB(255,255,255); background-color:RGB(220,220,255);");
+							if ($tip_pro=="Recarga") {						
+								echo " CA: ".$cantactual;
+								if ($cantactual<=200) {
+									echo "<script> alert('Las recargas estan por debajo del límite mínimo. Solicite renovación antes de quedarse sin saldo.'); </script>";
+								}
+							} ?>
+						</div>
+						<div>
+							<span id="etq4">Tipo de venta:</span><?php 
+							cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var7,"onchange=\"CambiarValor('cmbtip')\";","descrip_vtv");?>
+							<span id="etq5">Plan:</span><?php cmbfield("cmbipl", $Conexion, "SELECT * from planes WHERE activ_pla=1", $var8, "id_pla","abrv_pla");?>
+							<span id="etq5">Importe S/.:</span><?php txtvalstl("txtimp",$var12,7,"width:80px;");?>
+						</div>		
+						<div><span id="etq5">Importe efectivo de recarga S/.:</span><?php txtvalstl("txtier",$var13,7,"width:80px;");?></div>
+						<hr>
+						<?php btnnormal("btnGrl", "Agregar");?>
+						<?php btnnormal("btnGrl", "Modificar");?>
+						<?php btnnormal("btnGrl", "Eliminar");?>
+						<?php btnnormal("btnGrl", "Actualizar");?>
+						<span id="etq6"><?php btnnormal("btnGrl", "Cobrar");?></span><br>
+					</div><hr>
 				</form> <!-- Fin de formulario -->
 				<!-- Inicio de listado de datos de usuario -->	
 				<center>

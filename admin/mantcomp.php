@@ -255,60 +255,62 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<br><hr>
 					<!----------------------- Mostrar datos existentes desde registro / Cambiar datos para modificar / Añadir datos para nuevo registro  ------------------------------>
 					<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-					<div>
-						<?php 
-						echo "<b>DATOS DE COMPROBANTE:</b>"; lblspace(15); 
-						lblnorm("Id:","etq14"); txtronstl("txt_id_rvc",$v_id_rvc,"width:40px;"); lblspace(3); 
-						lblnorm("Fecha emisión:","etq14"); txtvalstl("txt_v_fechaemi_rvi",$v_fechaemi_rvi,10,"width:70px;"); lblspace(3);
-						lblnorm("Fecha venta:","etq14"); txtvalstl("txt_v_fechaven_rvi",$v_fechaven_rvi,10,"width:70px;"); lblspace(3);
-						lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $v_codcpg_rvi, "width:70px;");
-						lblnorm("Documento:","etq4"); cmbfield("cmb_v_tipodoccp_rvi", $Conexion, "SELECT DISTINCT tipodoccp_rvi FROM regvtacaja", $v_tipodoccp_rvi, "tipodoccp_rvi");
-						txtvalstl("txt_v_seriecp_rvi", $v_seriecp_rvi, 1, "width:15px;"); echo "-";
-						txtvalstl("txt_v_numcp_rvi", $v_numcp_rvi, 5, "width:50px;"); echo "<br><hr>";
-						lblnorm("Buscar Cliente:","etq14"); txtvalstl("txtbsc",$v_bsc,13,"width:100px;"); 
-						if (activar_boton($datos,$resultado_perfil_accesos,"Buscar Cliente")) { btnnormal("btnGrl", "Buscar Cliente"); lblspace(3); }
-						lblnorm("Cliente:","etq14"); cmbfield("cmb_v_id_cli", $Conexion, "SELECT * FROM clientes".$cad_busca_cliente.$limitar_cliente1, $v_id_cli, "id_cli", "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli"); echo "<br>";
-						?>
-					</div><hr>
-					<div>
-						<div id="colizq2" style="float:left; width:33%;">
+					<div class="formulario">
+						<div>
 							<?php 
-							lblnorm("Descripción:","etq2"); txtvalstl("txt_v_descrip_rvi", $v_descrip_rvi, 30, "width:220px;"); echo "<br>";
-							lblnorm("Forma pago:","etq2"); cmbnormal("cmb_v_formapago_rvi", $v_formapago_rvi, "Contado"); echo "<br>";
-							lblnorm("Estado pago:","etq2"); cmbnormal("cmb_v_rgpag_rvc", $v_rgpag_rvc, "Pagado", "NoPago"); echo "<br>";
-							lblnorm("Usuario:","etq2"); cmbfield("cmb_v_id_usr", $Conexion, "SELECT * FROM usuarios WHERE ((categ_usr='Vend') OR (categ_usr='Caja') OR (categ_usr='Almc') OR (categ_usr='Supr') OR (categ_usr='Gern'))", $v_id_usr, "id_usr","nomb_usr"); echo "<br>";
-							if ($v_busqueda==1)
-							{
-								lblnorm("Zona:","etq2"); txtronstl("cmb_v_zona_rvi", $v_zona_rvi, "width:100px;");
-							}
-							else
-							{
-								lblnorm("Zona:","etq2"); 
-								//cmbnormal("cmb_v_zona_rvi", $v_zona_rvi, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29"); 
-								cmbfieldJs_span("spn_zona","cmb_v_zona_rvi",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$v_zona_rvi,"","nomb_zna");
-								echo "<br>";
-							}
+							echo "<b>DATOS DE COMPROBANTE:</b>"; lblspace(15); 
+							lblnorm("Id:","etq14"); txtronstl("txt_id_rvc",$v_id_rvc,"width:40px;"); lblspace(3); 
+							lblnorm("Fecha emisión:","etq14"); txtvalstl("txt_v_fechaemi_rvi",$v_fechaemi_rvi,10,"width:70px;"); lblspace(3);
+							lblnorm("Fecha venta:","etq14"); txtvalstl("txt_v_fechaven_rvi",$v_fechaven_rvi,10,"width:70px;"); lblspace(3);
+							lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $v_codcpg_rvi, "width:70px;");
+							lblnorm("Documento:","etq4"); cmbfield("cmb_v_tipodoccp_rvi", $Conexion, "SELECT DISTINCT tipodoccp_rvi FROM regvtacaja", $v_tipodoccp_rvi, "tipodoccp_rvi");
+							txtvalstl("txt_v_seriecp_rvi", $v_seriecp_rvi, 1, "width:15px;"); echo "-";
+							txtvalstl("txt_v_numcp_rvi", $v_numcp_rvi, 5, "width:50px;"); echo "<br><hr>";
+							lblnorm("Buscar Cliente:","etq14"); txtvalstl("txtbsc",$v_bsc,13,"width:100px;"); 
+							if (activar_boton($datos,$resultado_perfil_accesos,"Buscar Cliente")) { btnnormal("btnGrl", "Buscar Cliente"); lblspace(3); }
+							lblnorm("Cliente:","etq14"); cmbfield("cmb_v_id_cli", $Conexion, "SELECT * FROM clientes".$cad_busca_cliente.$limitar_cliente1, $v_id_cli, "id_cli", "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli"); echo "<br>";
 							?>
+						</div><hr>
+						<div>
+							<div id="colizq2" style="float:left; width:33%;">
+								<?php 
+								lblnorm("Descripción:","etq2"); txtvalstl("txt_v_descrip_rvi", $v_descrip_rvi, 30, "width:220px;"); echo "<br>";
+								lblnorm("Forma pago:","etq2"); cmbnormal("cmb_v_formapago_rvi", $v_formapago_rvi, "Contado"); echo "<br>";
+								lblnorm("Estado pago:","etq2"); cmbnormal("cmb_v_rgpag_rvc", $v_rgpag_rvc, "Pagado", "NoPago"); echo "<br>";
+								lblnorm("Usuario:","etq2"); cmbfield("cmb_v_id_usr", $Conexion, "SELECT * FROM usuarios WHERE ((categ_usr='Vend') OR (categ_usr='Caja') OR (categ_usr='Almc') OR (categ_usr='Supr') OR (categ_usr='Gern'))", $v_id_usr, "id_usr","nomb_usr"); echo "<br>";
+								if ($v_busqueda==1)
+								{
+									lblnorm("Zona:","etq2"); txtronstl("cmb_v_zona_rvi", $v_zona_rvi, "width:100px;");
+								}
+								else
+								{
+									lblnorm("Zona:","etq2"); 
+									//cmbnormal("cmb_v_zona_rvi", $v_zona_rvi, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29"); 
+									cmbfieldJs_span("spn_zona","cmb_v_zona_rvi",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$v_zona_rvi,"","nomb_zna");
+									echo "<br>";
+								}
+								?>
+							</div>
+							<div id="colcen2" style="float:left; width:33%;">
+								<?php
+								lblnorm("BIPG:","etq2"); txtvalstl("txt_v_baseimpopgrv_rvi", $v_baseimpopgrv_rvi, 10, "width:60px;"); echo "<br>";
+								lblnorm("BIPNG:","etq2"); txtvalstl("txt_v_baseimpopngrv_rvi", $v_baseimpopngrv_rvi, 10, "width:60px;"); echo "<br>";
+								lblnorm("ISC:","etq2"); txtvalstl("txt_v_isc_rvi", $v_isc_rvi, 10, "width:60px;"); echo "<br>";
+								lblnorm("IGV:","etq2"); txtvalstl("txt_v_igv_rvi", $v_igv_rvi, 10, "width:60px;"); echo "<br>";
+								lblnorm("Importe Total:","etq2"); txtvalstl("txt_v_importetot_rvi", $v_importetot_rvi, 10, "width:60px;");
+								?>
+							</div>
+							<div id="colder2" style="float:left; width:33%;">
+								<?php
+								lblnorm("Condición:","etq2"); cmbnormal("cmb_v_estado_rvc", $v_estado_rvc, "anulado"); echo "<br>";
+								lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $v_id_usr_anula.":".$v_usuario_anula, "width:130px;"); echo "<br>";
+								lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $v_causanul_rvc, "width:100px;"); echo "<br>";
+								lblnorm("Causa Manten.:","etq2"); cmbnormal("cmb_v_causamant_rvc", $v_causamant_rvc, "modif.n>siguiente", "modif.n<_o_dup.sig.", "añad.regist.elimin.", "añad.comprb.fallid.", "otros.cambios");
+								?>
+							</div>
 						</div>
-						<div id="colcen2" style="float:left; width:33%;">
-							<?php
-							lblnorm("BIPG:","etq2"); txtvalstl("txt_v_baseimpopgrv_rvi", $v_baseimpopgrv_rvi, 10, "width:60px;"); echo "<br>";
-							lblnorm("BIPNG:","etq2"); txtvalstl("txt_v_baseimpopngrv_rvi", $v_baseimpopngrv_rvi, 10, "width:60px;"); echo "<br>";
-							lblnorm("ISC:","etq2"); txtvalstl("txt_v_isc_rvi", $v_isc_rvi, 10, "width:60px;"); echo "<br>";
-							lblnorm("IGV:","etq2"); txtvalstl("txt_v_igv_rvi", $v_igv_rvi, 10, "width:60px;"); echo "<br>";
-							lblnorm("Importe Total:","etq2"); txtvalstl("txt_v_importetot_rvi", $v_importetot_rvi, 10, "width:60px;");
-							?>
-						</div>
-						<div id="colder2" style="float:left; width:33%;">
-							<?php
-							lblnorm("Condición:","etq2"); cmbnormal("cmb_v_estado_rvc", $v_estado_rvc, "anulado"); echo "<br>";
-							lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $v_id_usr_anula.":".$v_usuario_anula, "width:130px;"); echo "<br>";
-							lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $v_causanul_rvc, "width:100px;"); echo "<br>";
-							lblnorm("Causa Manten.:","etq2"); cmbnormal("cmb_v_causamant_rvc", $v_causamant_rvc, "modif.n>siguiente", "modif.n<_o_dup.sig.", "añad.regist.elimin.", "añad.comprb.fallid.", "otros.cambios");
-							?>
-						</div>
+						<div style="clear:both"></div>
 					</div>
-					<div style="clear:both"></div>
 					<hr>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar")) { ?> <input type="submit" name="btnGrl" value="Agregar"/> <?php } ?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { ?> <input type="submit" name="btnGrl" value="Modificar"/> <?php } ?>

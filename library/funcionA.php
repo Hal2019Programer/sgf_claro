@@ -4000,9 +4000,9 @@ function tbl_lista_comprob_SUNAT($Conex,$vStylMargIzq,$vStyAltura,$vSql,$claseTa
 		</table>
 	</div>
 	<?php
-	$soap->setCredentials('20602109225IDAKENC2', 'jmoptta1U');
+	$soap->setCredentials('10413437186USUARIO2','Heli2025');
 	$service->setClient($soap);
-	$rucEmisor="20602109225";
+	$rucEmisor="10413437186";
 	?>
 	<div id="div2" style="width:100%; overflow:auto; <?php echo $vStyAltura;?>">
 		<table class="<?php echo $claseTabla;?>" border='0' cellspacing='0' cellpadding='0' style="<?php echo $vStylMargIzq;?> table-layout:fixed; width:<?php echo $suma;?>px;">
@@ -4491,7 +4491,7 @@ function consulta_validez($access_token,$datos_comprobante,&$mensaje,&$mensaje_e
 	$monto=$dc[4];
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
-	  CURLOPT_URL => 'https://api.sunat.gob.pe/v1/contribuyente/contribuyentes/20602109225/validarcomprobante',
+	  CURLOPT_URL => 'https://api.sunat.gob.pe/v1/contribuyente/contribuyentes/10413437186/validarcomprobante',
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_ENCODING => '',
 	  CURLOPT_MAXREDIRS => 10,
@@ -4500,7 +4500,7 @@ function consulta_validez($access_token,$datos_comprobante,&$mensaje,&$mensaje_e
 	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 	  CURLOPT_CUSTOMREQUEST => 'POST',
 	  CURLOPT_POSTFIELDS =>'{
-		 "numRuc":"20602109225",
+		 "numRuc":"10413437186",
 		 "codComp":"'.$codComp.'",
 		 "numeroSerie":"'.$numeroSerie.'",
 		 "numero":"'.$numero.'",

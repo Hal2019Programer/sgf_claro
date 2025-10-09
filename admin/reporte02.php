@@ -325,56 +325,46 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Exportar Verificación")) { btnnormal("btnGrl","Exportar Verificación"); } ?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Descargar Archivo Validez")) { btnnormal("btnGrl","Descargar Archivo Validez"); } ?>
 					<hr>
-					<span id="etq3"  class="color_items" style="width:200px;">ZONA:</span>
-					<?php //Agregado por Juan (28-03-2019) -----------------------------------------------------
-					$registro_x_zona->mostrar_lista($rz,$registro_x_zona->lista_zona);
-					//-----------------------------------------------------------
-					?><br>
-					<span id="etq3"  class="color_items" style="width:200px;">TIPO DE DOCs:</span>
-						<span id="etq3"style="width:135px;">Boleta de venta=</span><?php echo "S/. ",$mtbv,"(",$ctbv,")";?>
-						<span id="etq4"style="width:135px;">Factura=</span><?php echo "S/. ",$mtfc,"(",$ctfc,")";?> <br>
-					<span id="etq3"  class="color_items" style="width:200px;">FORMA DE PAGO:</span>
-						<span id="etq4"style="width:135px;">Contado=</span><?php echo "S/. ",$mfct,"(",$cfct,")";?>
-						<!--<span id="etq4"style="width:135px;">Crédito=</span>--><?php //echo "S/. ",$mfcr,"(",$cfcr,")";?>
-						<!--<span id="etq4"style="width:135px;">Depósito=</span>--><?php //echo "S/. ",$mfdp,"(",$cfdp,")";?>
-						<!--<span id="etq4"style="width:135px;">Tarjeta=</span>--><?php //echo "S/. ",$mftj,"(",$cftj,")";?> <br>
-					<span id="etq3" class="color_items" style="width:200px;">REGISTRO DE PAGO:</span>
-						<span id="etq3"style="width:135px;">Total No pagados=</span><?php echo "S/. ",$mrnp,"(",$crnp,")";?> 
-						<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cnbv;?>
-						<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cnfc;?><br>
-						<span id="etq3" style="width:339px;">Pagados=</span><?php echo "S/. ",$mrpg,"(",$crpg,")";?> 
-						<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cpbv;?>
-						<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cpfc;?><br>
-					<span id="etq3"  class="color_items" style="width:200px;">ESTADO:</span>
-						<span id="etq3"style="width:135px;">Total Anulados=</span><?php echo "S/. ",$mean,"(",$cean,")";?> 
-						<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cabv;?>
-						<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cafc;?><br>
-						<span id="etq3"style="width:339px;">No anulados=</span><?php echo "S/. ",$menr,"(",$cenr,")";?> 
-						<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cnrb;?>
-						<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cnrf;?><br>
-					<span id="etq3"  class="color_items" style="width:200px;">TOTAL DE VENTAS:</span><span id="etq3"><?php echo "S/. ",$ct-$mean;?></span><br><hr>
-					<div style="width:15%; float:left;">
-						<span id="etq5"  class="color_items" style="width:200px;">PAGOS DIVERSOS:</span>
-					</div>
-					<div style="width:25%; float:left;">
-					<?php //Agregado por Juan (28-03-2019) -----------------------------------------------------
-					$pagosdiv_x_zona->mostrar_lista($pz,$pagosdiv_x_zona->lista_zona);
-					//-----------------------------------------------------------
-					?><br>
-					</div>
-					<div style="width:29%; float:left;">
-						<!-- <span id="etq3">Pago Adelantado =</span>--><?php //echo " S/. ",$padel," (",$cadel,")";?><!--<br>-->
-						<span id="etq3">PayJoy =</span><?php echo " S/. ",$pPayJoy," (",$cPayJoy,")";?><br>
-						<span id="etq3">Pago Mensual =</span><?php echo " S/. ",$pmens," (",$cmens,")";?><br>
-					</div>
-					<div style="width:26%; float:left;">
-						<span id="etq5"  class="color_items" style="text-align:left;">TOTAL PAGOS:</span><?php echo " S/. ",$pt;?><br>
-					</div>
-					<div style="clear:both"></div><hr>
-					<span id="etq5"  class="color_items" style="text-align:left;">TOTAL DE VENTAS + PAGOS DIVERSOS:</span><span id="etq4"><?php echo "S/. ",$ct+$pt-$mean;?></span>
-					<hr>	
-				</form> <!-- Fin de formulario -->
-				<!-- Inicio de listado de datos de usuario -->	
+					<div class="formulario">
+						<span id="etq3"  class="color_items" style="width:200px;">ZONA:</span><?php
+						$registro_x_zona->mostrar_lista($rz,$registro_x_zona->lista_zona);?><br>
+						<span id="etq3"  class="color_items" style="width:200px;">TIPO DE DOCs:</span>
+							<span id="etq3"style="width:135px;">Boleta de venta=</span><?php echo "S/. ",$mtbv,"(",$ctbv,")";?>
+							<span id="etq4"style="width:135px;">Factura=</span><?php echo "S/. ",$mtfc,"(",$ctfc,")";?> <br>
+						<span id="etq3"  class="color_items" style="width:200px;">FORMA DE PAGO:</span>
+							<span id="etq4"style="width:135px;">Contado=</span><?php echo "S/. ",$mfct,"(",$cfct,")";?><br>
+						<span id="etq3" class="color_items" style="width:200px;">REGISTRO DE PAGO:</span>
+							<span id="etq3"style="width:135px;">Total No pagados=</span><?php echo "S/. ",$mrnp,"(",$crnp,")";?> 
+							<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cnbv;?>
+							<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cnfc;?><br>
+							<span id="etq3" style="width:339px;">Pagados=</span><?php echo "S/. ",$mrpg,"(",$crpg,")";?> 
+							<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cpbv;?>
+							<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cpfc;?><br>
+						<span id="etq3"  class="color_items" style="width:200px;">ESTADO:</span>
+							<span id="etq3"style="width:135px;">Total Anulados=</span><?php echo "S/. ",$mean,"(",$cean,")";?> 
+							<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cabv;?>
+							<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cafc;?><br>
+							<span id="etq3"style="width:339px;">No anulados=</span><?php echo "S/. ",$menr,"(",$cenr,")";?> 
+							<span id="etq4"style="width:135px;">Boletas=</span><?php echo $cnrb;?>
+							<span id="etq4"style="width:135px;">Facturas=</span><?php echo $cnrf;?><br>
+						<span id="etq3"  class="color_items" style="width:200px;">TOTAL DE VENTAS:</span><span id="etq3"><?php echo "S/. ",$ct-$mean;?></span><br><hr>
+						<div style="width:15%; float:left;">
+							<span id="etq5"  class="color_items" style="width:200px;">PAGOS DIVERSOS:</span>
+						</div>
+						<div style="width:25%; float:left;"><?php
+						$pagosdiv_x_zona->mostrar_lista($pz,$pagosdiv_x_zona->lista_zona);?><br>
+						</div>
+						<div style="width:29%; float:left;">
+							<span id="etq3">PayJoy =</span><?php echo " S/. ",$pPayJoy," (",$cPayJoy,")";?><br>
+							<span id="etq3">Pago Mensual =</span><?php echo " S/. ",$pmens," (",$cmens,")";?><br>
+						</div>
+						<div style="width:26%; float:left;">
+							<span id="etq5"  class="color_items" style="text-align:left;">TOTAL PAGOS:</span><?php echo " S/. ",$pt;?><br>
+						</div>
+						<div style="clear:both"></div><hr>
+						<span id="etq5"  class="color_items" style="text-align:left;">TOTAL DE VENTAS + PAGOS DIVERSOS:</span><span id="etq4"><?php echo "S/. ",$ct+$pt-$mean;?></span>
+					</div><hr>	
+				</form>
 				<div id="div1" style="width:100%; height:30px; overflow-x:hidden;">
 					<table border='0' cellspacing='0' cellpadding='0' class="tblreporte01" style="table-layout:fixed; width:1410px;">
 						<?php head_tbl("ID",30,"Cliente",160,"Fech.Venta",60,"Cód.Comp.",50,"Tipo Dóc.",90,"Serie",35,"Nº Dóc.",40,"Descripción",200,"FormaPago",60,"Importe",60,"Estado",80,"Situación",80);?>

@@ -24,22 +24,24 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				//--------------------------------------- Seleccionar fechas sin repetir ---------------------------------------
 				$vfch=array(); $m=1;
 				$sql_prod_ord_fech= mysqli_query ($Conexion,"SELECT fech_trs FROM transfprod ORDER BY `fech_trs` ASC") or die ("Error al traer los datos de fecha de transferencias");
-				mysqli_data_seek($sql_prod_ord_fech, 0);
-				$r=mysqli_fetch_array($sql_prod_ord_fech, MYSQLI_ASSOC);//lee primer registro
-				$vfch[$m]=invFech($r["fech_trs"],"-");
-				while($r=mysqli_fetch_array($sql_prod_ord_fech, MYSQLI_ASSOC))//Empieza a leer el segundo registro
-				{
-					$clv_busq=0;
-					$n=1;
-					while ($n<=$m)//Recorrer el arreglo
+				if (mysqli_num_rows($sql_prod_ord_fech)>0) {
+					mysqli_data_seek($sql_prod_ord_fech, 0);
+					$r=mysqli_fetch_array($sql_prod_ord_fech, MYSQLI_ASSOC);//lee primer registro
+					$vfch[$m]=invFech($r["fech_trs"],"-");
+					while($r=mysqli_fetch_array($sql_prod_ord_fech, MYSQLI_ASSOC))//Empieza a leer el segundo registro
 					{
-						if ($vfch[$n]==invFech($r["fech_trs"],"-")) $clv_busq=1;
-						$n++;
-					}
-					if ($clv_busq==0)
-					{
-						$m++;
-						$vfch[$m]=invFech($r["fech_trs"],"-");
+						$clv_busq=0;
+						$n=1;
+						while ($n<=$m)//Recorrer el arreglo
+						{
+							if ($vfch[$n]==invFech($r["fech_trs"],"-")) $clv_busq=1;
+							$n++;
+						}
+						if ($clv_busq==0)
+						{
+							$m++;
+							$vfch[$m]=invFech($r["fech_trs"],"-");
+						}
 					}
 				}
 				//------------------------------------------------------- BOTONES -------------------------------------------------------
@@ -85,11 +87,8 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				<!------------------------------------------------------- FORMULARIO ------------------------------------------------------->
 				<form name="usuario" action="" method="post">
 					<?php txtoculto("txtcadsql",$cadsql);?>
-					<span id="etq5">Zona:</span>
-					<?php 
-					//cmbnormal("cmbzna", $var_zona, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var_zona,"","nomb_zna"); 
-					?>
+					<span id="etq5">Zona:</span><?php 
+					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var_zona,"","nomb_zna"); ?>
 					<span id="etq5">Guía Remisión: Serie =</span><?php echo " "; txtvalstl("txtser",$var_seri,2,"width:20px;"); echo " - "; txtvalstl("txtndc",$var_ndoc,6,"width:50px;");?>
 					<span id="etq5">Fecha:</span> <?php cmbarray("cmbfch", $var_fech, $vfch, $m);?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); } ?>

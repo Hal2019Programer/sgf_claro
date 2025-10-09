@@ -153,27 +153,29 @@ muestraDatos_x_innerHTML_Js() ?>
 				lblnorm("Usuario:","etq5"); cmbfieldJs_span("spn_usuario","cmb_usuario",$Conexion,"SELECT id_usr, nomb_usr FROM usuarios WHERE activ_usr='1'","","onchange=\"filtra_lista_stock_juego()\";","id_usr","nomb_usr");
 				lblnorm("Zona:","etq5"); cmbfieldJs_span("spn_zona","cmb_zona",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'","","onchange=\"filtra_lista_stock_juego()\";","nomb_zna");
 				lblnorm("Tipo Registro:","etq5"); cmbNormJs_span("spn_trg","cmb_trg","","onchange=\"filtra_lista_stock_juego()\";","I","E");
-				if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar");}
-				?>
+				if (activar_boton($datos,$resultado_perfil_accesos,"Actualizar")) { btnnormal("btnGrl", "Actualizar");} ?>
 				<br><hr>
 				<?php txtoculto("txtnumreg",$numreg);?>
-				<div id="colizq" style=" float:left; width:33%;">
-					<span id="etq2" style="width:90px;">ID:</span><?php txtrdonly("txt_id_stkjg",$id_stkjg);?><br>
-					<span id="etq2" style="width:90px;">Saldo:</span><?php txtrdonly("txt_saldo_stkjg",$saldo_stkjg);?><br>
-					<span id="etq2" style="width:90px;">Ingreso S/ :</span><?php txtvalue("txt_ingreso_stkjg",$ingreso_stkjg,25);?><br>
-					<span id="etq2" style="width:90px;">Egreso S/ :</span><?php txtrdonly("txt_egreso_stkjg",$egreso_stkjg);?><br>
+				<div class="formulario">
+					<div id="colizq" style=" float:left; width:33%;">
+						<span id="etq2" style="width:90px;">ID:</span><?php txtrdonly("txt_id_stkjg",$id_stkjg);?><br>
+						<span id="etq2" style="width:90px;">Saldo:</span><?php txtrdonly("txt_saldo_stkjg",$saldo_stkjg);?><br>
+						<span id="etq2" style="width:90px;">Ingreso S/ :</span><?php txtvalue("txt_ingreso_stkjg",$ingreso_stkjg,25);?><br>
+						<span id="etq2" style="width:90px;">Egreso S/ :</span><?php txtrdonly("txt_egreso_stkjg",$egreso_stkjg);?><br>
+					</div>
+					<div id="colder" style=" float:left; width:33%;">	
+						<span id="etq2" style="width:90px;">Fecha:</span><?php txtvalue01("txt_fecha_stkjg", $fecha_stkjg, "", "date", "");?><br>
+						<span id="etq2" style="width:90px;">Zona:</span><?php cmbfield("cmb_zona_stkjg", $Conexion, "SELECT * FROM zona WHERE activo_zna='S'", $zona_stkjg,"nomb_zna");?><br>
+						<span id="etq2" style="width:90px;">Usuario:</span><?php txtrdonly("txt_id_usr",$id_usr.":".$nick_usr);?><br>
+						<span id="etq5" style="width:100px;">Producto:</span><?php txtronstl("txt_id_pro",$producto,"width:230px;");?>
+					</div>
+					<div id="colders"  style=" float:left; width:34%;">		
+						<span id="etq5" style="width:100px;">Comprobante:</span><?php txtronstl("txt_id_rvc",$comprobante,"width:220px;");?><br>
+						<span id="etq5" style="width:100px;">Tipo registro:</span><?php txtronstl("txt_proces_stkjg",$proces_stkjg,"width:30px;");?><br>
+						<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar saldo"))  { btnnormal("btnGrl", "Agregar saldo"); } ?>
+					</div><div style="clear:both"></div>
 				</div>
-				<div id="colder" style=" float:left; width:33%;">	
-					<span id="etq2" style="width:90px;">Fecha:</span><?php txtvalue01("txt_fecha_stkjg", $fecha_stkjg, "", "date", "");?><br>
-					<span id="etq2" style="width:90px;">Zona:</span><?php cmbfield("cmb_zona_stkjg", $Conexion, "SELECT * FROM zona WHERE activo_zna='S'", $zona_stkjg,"nomb_zna");?><br>
-					<span id="etq2" style="width:90px;">Usuario:</span><?php txtrdonly("txt_id_usr",$id_usr.":".$nick_usr);?><br>
-					<span id="etq5" style="width:100px;">Producto:</span><?php txtronstl("txt_id_pro",$producto,"width:230px;");?>
-				</div>
-				<div id="colders"  style=" float:left; width:34%;">		
-					<span id="etq5" style="width:100px;">Comprobante:</span><?php txtronstl("txt_id_rvc",$comprobante,"width:220px;");?><br>
-					<span id="etq5" style="width:100px;">Tipo registro:</span><?php txtronstl("txt_proces_stkjg",$proces_stkjg,"width:30px;");?><br>
-					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar saldo"))  { btnnormal("btnGrl", "Agregar saldo"); } ?>
-				</div><div style="clear:both"></div><hr>
+				<hr>
 			</form>
 			<!---------------------------------------------- LSITADO DE DATOS EN TABLAS ---------------------------------------------->
 			<div id="tabla_lista_stock_juego"> <?php

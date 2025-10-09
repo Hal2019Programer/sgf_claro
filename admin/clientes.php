@@ -241,38 +241,34 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 			if (activar_boton($datos,$resultado_perfil_accesos,"Buscar Cliente")) { btnnormal("btnGrl", "Buscar Cliente"); } ?>
 			<br><hr> <!-- Salto de linea y linea de división -->
 			<input type="hidden" name="txtnumreg" value="<?php echo $numreg ?>"/>
-			<div id="colizq" style=" float:left; width:28%;">
-				<div><span id="etq2">ID:</span>&nbsp;<input type="text" name="txtid" style="background:rgb(220,220,255);" readonly="readonly" value="<?php echo $var0?>"/></div>
-				<div><span id="etq2">Nombre/Raz.Social:</span>&nbsp;<input type="text" name="txtnrs"  value="<?php echo $var1?>"/></div>
-				<div><span id="etq2">Tipo Doc.:</span>&nbsp;<?php cmbfield("cmb_id_tipdoc",$Conexion,"SELECT * FROM tipodocident",$id_tipdoc,"id_tipdoc","abrev_tipdoc");?></div>
-				<div><span id="etq2">N°.Doc:</span>&nbsp;<input type="text" name="txtdrc"  value="<?php echo $var2?>" style="width:90px;"/></div>
-				<div><span id="etq2">Dirección:</span>&nbsp;<input type="text" name="txtdir"  value="<?php echo $var4?>" style="width:240px;"/></div>
-			</div>
-			<div id="colder" style=" float:left; width:25%;">	
-				<div><span id="etq2">Teléfono/Celular:</span>&nbsp;<input type="text" name="txttcl"  value="<?php echo $var3?>"/></div>
-				<div><span id="etq2">Correo Electrón.:</span>&nbsp;<input type="text" name="txteml"  value="<?php echo $email_cli?>"/></div>
-				<div><span id="etq2">Tipo de cliente:</span>&nbsp;<?php cmbnormal("cmbtcl", $var10, "Gral", "PtVt");?></div>
-				<div><span id="etq2">Zona:</span>&nbsp;
-				<?php 
-				//cmbnormal("cmbzna", $var11, "JUNCD05", "JUNDL39", "JUNDL43", "PRE_DL39", "PRE_DL43", "JUNCD12", "Almacen1", "Almacen2", "Almacen3", "Almacen4", "Almacen5", "JUNDA29");
-				cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var11,"","nomb_zna"); 
-				?></div>
-				<div><span id="etq2">Lugar:</span>&nbsp;<input type="text" name="txtlug"  value="<?php echo $var5?>"/></div>
-			</div>
-			<div id="colders"  style=" float:left; width:42%;">		
-				
-				<div>
-				    <span id="etq2">Ubigeo:</span>&nbsp;
-				    <?php 
-				        //cmbfield("cmb_cod_ubigeo",$Conexion,"SELECT * FROM ubigeo WHERE id_ubi>=1144 AND id_ubi<=1277",$cod_ubigeo,"id_ubi","regi_ubi","prov_ubi","dist_ubi");
-				        cmbfield("cmb_cod_ubigeo",$Conexion,"SELECT * FROM ubigeo WHERE 1",$cod_ubigeo,"id_ubi","regi_ubi","prov_ubi","dist_ubi");
-				    ?>
+			<div class="formulario">
+				<div id="colizq" style=" float:left; width:28%;">
+					<div><span id="etq2">ID:</span>&nbsp;<input type="text" name="txtid" style="background:rgb(220,220,255);" readonly="readonly" value="<?php echo $var0?>"/></div>
+					<div><span id="etq2">Nombre/Raz.Social:</span>&nbsp;<input type="text" name="txtnrs"  value="<?php echo $var1?>"/></div>
+					<div><span id="etq2">Tipo Doc.:</span>&nbsp;<?php cmbfield("cmb_id_tipdoc",$Conexion,"SELECT * FROM tipodocident",$id_tipdoc,"id_tipdoc","abrev_tipdoc");?></div>
+					<div><span id="etq2">N°.Doc:</span>&nbsp;<input type="text" name="txtdrc"  value="<?php echo $var2?>" style="width:90px;"/></div>
+					<div><span id="etq2">Dirección:</span>&nbsp;<input type="text" name="txtdir"  value="<?php echo $var4?>" style="width:240px;"/></div>
 				</div>
-				<div><span id="etq2" style="width:150px;">Persona de contacto:</span>&nbsp;<input type="text" name="txtprs"  value="<?php echo $var6?>"/></div>
-				<div><span id="etq2" style="width:150px;">Tlf/Cel. pers.contac.:</span>&nbsp;<input type="text" name="txttpr"  value="<?php echo $var7?>"/></div>
-				<div><span id="etq2" style="width:150px;">Fecha:</span>&nbsp;<input type="text" name="txtfch" value="<?php echo $var8?>" style="width:80px;"/></div>
+				<div id="colder" style=" float:left; width:25%;">	
+					<div><span id="etq2">Teléfono/Celular:</span>&nbsp;<input type="text" name="txttcl"  value="<?php echo $var3?>"/></div>
+					<div><span id="etq2">Correo Electrón.:</span>&nbsp;<input type="text" name="txteml"  value="<?php echo $email_cli?>"/></div>
+					<div><span id="etq2">Tipo de cliente:</span>&nbsp;<?php cmbnormal("cmbtcl", $var10, "Gral", "PtVt");?></div>
+					<div><span id="etq2">Zona:</span>&nbsp;
+					<?php 
+					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var11,"","nomb_zna"); 
+					?></div>
+					<div><span id="etq2">Lugar:</span>&nbsp;<input type="text" name="txtlug"  value="<?php echo $var5?>"/></div>
+				</div>
+				<div id="colders"  style=" float:left; width:42%;">		
+					<div>
+						<span id="etq2">Ubigeo:</span>&nbsp;<?php cmbfield("cmb_cod_ubigeo",$Conexion,"SELECT * FROM ubigeo WHERE 1",$cod_ubigeo,"id_ubi","regi_ubi","prov_ubi","dist_ubi");?>
+					</div>
+					<div><span id="etq2" style="width:150px;">Persona de contacto:</span>&nbsp;<input type="text" name="txtprs"  value="<?php echo $var6?>"/></div>
+					<div><span id="etq2" style="width:150px;">Tlf/Cel. pers.contac.:</span>&nbsp;<input type="text" name="txttpr"  value="<?php echo $var7?>"/></div>
+					<div><span id="etq2" style="width:150px;">Fecha:</span>&nbsp;<input type="text" name="txtfch" value="<?php echo $var8?>" style="width:80px;"/></div>
+				</div>
+				<div style="clear:both"></div>
 			</div>
-			<div style="clear:both"></div>
 			<hr>
 			<?php if (activar_boton($datos,$resultado_perfil_accesos,"Agregar")) { ?> <input type="submit" name="btnGrl" value="Agregar"/> <?php } ?>
 			<?php if (activar_boton($datos,$resultado_perfil_accesos,"Modificar")) { ?> <input type="submit" name="btnGrl" value="Modificar"/> <?php } ?>

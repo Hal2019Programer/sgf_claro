@@ -244,14 +244,10 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				<!---------------------------------------------- Formulario ---------------------------------------------->
 				<form name="usuario" action="" method="post">
 					<?php txtoculto("txtcadsql",$cadsql);?>
-					<span id="etq5">Zona:</span>
-					<?php 
-					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var_zona,"","nomb_zna"); 
-					?>
+					<span id="etq5">Zona:</span><?php 
+					cmbfieldJs_span("spn_zona","cmbzna",$Conexion,"SELECT nomb_zna FROM zona WHERE activo_zna='S'",$var_zona,"","nomb_zna"); ?>
 					<span id="etq5"style="width:100px;">Tipo venta:</span><?php 
-					//cmbnormal("cmbtip", $var_tvta, "Postpago", "Prepago", "Rec.Normal", "Rec.PDV", "Accesorios", "Servicios", "Otros", "Juego");
-					cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var_tvta,"","descrip_vtv");
-					?>
+					cmbfieldJs_span("spn_select_tipVent","cmbtip",$Conexion,"SELECT * FROM tipoventa WHERE activo_vtv='S'",$var_tvta,"","descrip_vtv");	?>
 					<span id="etq5"style="width:100px;">Usuario:</span><?php cmbfield("cmbusr", $Conexion, "SELECT * from usuarios WHERE (categ_usr='Vend') OR (categ_usr='Caja') OR (categ_usr='Cord') OR (categ_usr='Supr')", $var_usua, "id_usr","nomb_usr");?>
 					<span id="etq5"style="width:100px;">Tipo Doc.:</span><?php cmbnormal("cmbtdc", $var_tdoc, "Boleta de venta", "Factura");?>
 					<?php if (activar_boton($datos,$resultado_perfil_accesos,"Filtrar")) { btnnormal("btnGrl", "Filtrar"); }?>
@@ -262,37 +258,32 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					<span id="etq5">Fecha Inicial:</span> <?php cmbday("cmbfdyi", $var_fchdyi);cmbmes("cmbfmsi", $var_fchmsi);cmbann("cmbfani", $var_fchani);?>
 					<span id="etq5">Fecha Final:</span> <?php cmbday("cmbfdyf", $var_fchdyf);cmbmes("cmbfmsf", $var_fchmsf);cmbann("cmbfanf", $var_fchanf);?>
 					<hr>
-					<span id="etq5" class="color_items" style="width:100px;">ZONA:</span>
-					<?php //Agregado por Juan (27-04-2019) -----------------------------------------------------
-					$registro_x_zona->mostrar_lista($rz,$registro_x_zona->lista_zona);
-					//-----------------------------------------------------------
-					?><br>
-					<span id="etq5" class="color_items" style="width:100px;">TIPO DE VENTA:</span>
-					<span id="etq4"style="width:70px;">Postpago =</span><?php echo " S/. ",$mtppg," (",$tvppg,")";?>
-					<span id="etq4"style="width:100px;">Prepago =</span><?php echo " S/. ",$mtprp," (",$tvprp,")";?>
-					<span id="etq4"style="width:100px;">Rec.Normal =</span><?php echo " S/. ",$mtrnor," (",$trnor,")";?>
-					<span id="etq4"style="width:100px;">Rec.PDV =</span><?php echo " S/. ",$mtrpdv," (",$trpdv,")";?>
-					<span id="etq5"style="width:100px;">Accesorios =</span><?php echo " S/. ",$mtacc," (",$tvacc,")";?>
-					<span id="etq3"style="width:100px;">Servicios =</span><?php echo " S/. ",$mtser," (",$tvser,")";?>
-					<span id="etq3"style="width:80px;">Otros =</span><?php echo " S/. ",$mtotr," (",$tvotr,")";?>
-					<span id="etq3"style="width:80px;">Juego =</span><?php echo " S/. ",$monto_vtas_juego," (",$canti_vtas_juego,")";?>
-					<span id="etq3"style="width:120px;">Porta Pre a Post =</span><?php echo " S/. ",$monto_PortaPrePost," (",$cant_PortaPrePost,")";?>
-					<span id="etq3"style="width:120px;">Porta Post a Post =</span><?php echo " S/. ",$monto_PortaPostPost," (",$cant_PortaPostPost,")";?>
-					<span id="etq3"style="width:120px;">Porta Pre =</span><?php echo " S/. ",$monto_PortaPre," (",$cant_PortaPre,")";?>
-					<span id="etq3"style="width:120px;">1 Play =</span><?php echo " S/. ",$monto_1Play," (",$cant_1Play,")";?>
-					<span id="etq3"style="width:120px;">2 Play =</span><?php echo " S/. ",$monto_2Play," (",$cant_2Play,")";?>
-					<span id="etq3"style="width:120px;">3 Play =</span><?php echo " S/. ",$monto_3Play," (",$cant_3Play,")";?><br><hr>
-					<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE REGISTROS DE VENTA:</span><?php echo " S/. ",$mtrgv;?> <br><hr>
-					<span id="etq5" class="color_items" style="width:120px;">PAGOS DIVERSOS:</span>
-					<?php //Agregado por Juan (27-04-2019) -----------------------------------------------------
-					$pagosdiv_x_zona->mostrar_lista($pz,$pagosdiv_x_zona->lista_zona);
-					//-----------------------------------------------------------
-					?><br>
-					<!-- <span id="etq8"style="width:242px;">Pago Adelantado =</span>--><?php //echo " S/. ",$monto_pa," (",$cant_pa,")";?>
-					<span id="etq8"style="width:242px;">PayJoy =</span><?php echo " S/. ",$monto_PayJoy," (",$cant_PayJoy,")";?>
-					<span id="etq3"style="width:120px;">Pago Mensual =</span><?php echo " S/. ",$monto_pm," (",$cant_pm,")";?><br><hr>
-					<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE PAGOS DIVERSOS:</span><?php echo " S/. ",$suma_monto;?> <br><hr>
-					<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE VENTAS + PAGOS DIVERSOS:</span><span id="etq4"><?php echo "S/. ",$mtgrl;?></span>
+					<div class="formulario">
+						<span id="etq5" class="color_items" style="width:100px;">ZONA:</span><?php
+						$registro_x_zona->mostrar_lista($rz,$registro_x_zona->lista_zona); ?><br>
+						<span id="etq5" class="color_items" style="width:100px;">TIPO DE VENTA:</span>
+						<span id="etq4"style="width:70px;">Postpago =</span><?php echo " S/. ",$mtppg," (",$tvppg,")";?>
+						<span id="etq4"style="width:100px;">Prepago =</span><?php echo " S/. ",$mtprp," (",$tvprp,")";?>
+						<span id="etq4"style="width:100px;">Rec.Normal =</span><?php echo " S/. ",$mtrnor," (",$trnor,")";?>
+						<span id="etq4"style="width:100px;">Rec.PDV =</span><?php echo " S/. ",$mtrpdv," (",$trpdv,")";?>
+						<span id="etq5"style="width:100px;">Accesorios =</span><?php echo " S/. ",$mtacc," (",$tvacc,")";?>
+						<span id="etq3"style="width:100px;">Servicios =</span><?php echo " S/. ",$mtser," (",$tvser,")";?>
+						<span id="etq3"style="width:80px;">Otros =</span><?php echo " S/. ",$mtotr," (",$tvotr,")";?>
+						<span id="etq3"style="width:80px;">Juego =</span><?php echo " S/. ",$monto_vtas_juego," (",$canti_vtas_juego,")";?>
+						<span id="etq3"style="width:120px;">Porta Pre a Post =</span><?php echo " S/. ",$monto_PortaPrePost," (",$cant_PortaPrePost,")";?>
+						<span id="etq3"style="width:120px;">Porta Post a Post =</span><?php echo " S/. ",$monto_PortaPostPost," (",$cant_PortaPostPost,")";?>
+						<span id="etq3"style="width:120px;">Porta Pre =</span><?php echo " S/. ",$monto_PortaPre," (",$cant_PortaPre,")";?>
+						<span id="etq3"style="width:120px;">1 Play =</span><?php echo " S/. ",$monto_1Play," (",$cant_1Play,")";?>
+						<span id="etq3"style="width:120px;">2 Play =</span><?php echo " S/. ",$monto_2Play," (",$cant_2Play,")";?>
+						<span id="etq3"style="width:120px;">3 Play =</span><?php echo " S/. ",$monto_3Play," (",$cant_3Play,")";?><br><hr>
+						<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE REGISTROS DE VENTA:</span><?php echo " S/. ",$mtrgv;?> <br><hr>
+						<span id="etq5" class="color_items" style="width:120px;">PAGOS DIVERSOS:</span><?php
+						$pagosdiv_x_zona->mostrar_lista($pz,$pagosdiv_x_zona->lista_zona); ?><br>
+						<span id="etq8"style="width:242px;">PayJoy =</span><?php echo " S/. ",$monto_PayJoy," (",$cant_PayJoy,")";?>
+						<span id="etq3"style="width:120px;">Pago Mensual =</span><?php echo " S/. ",$monto_pm," (",$cant_pm,")";?><br><hr>
+						<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE PAGOS DIVERSOS:</span><?php echo " S/. ",$suma_monto;?> <br><hr>
+						<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE VENTAS + PAGOS DIVERSOS:</span><span id="etq4"><?php echo "S/. ",$mtgrl;?></span>
+					</div>
 					<hr>	
 				</form>
 				<!---------------------------------------------- Inicio de listado de datos de usuario ---------------------------------------------->

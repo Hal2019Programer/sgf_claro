@@ -301,46 +301,41 @@ else
 				?>
 				<!---------------------------------------------------------- Formulario ---------------------------------------------------------->
 				<form name="usuario" action="" method="post">
-					<div>
-						<?php 
+					<div><?php 
 						lblnorm("Buscar Código Comprobante de Pago:","etq8"); txtnrmstl("txtbus","width:50px;");
 						btnnormal("btnGrl", "Buscar"); btnnormal("btnGrl", "Actualizar"); btnnormal("btnGrl", "Actualizar Clientes"); lblspace(2); 
 						if ($nivel_usuario<>"tot")	{ btnnormal("btnGrl", "Cobrar"); } lblspace(2); btnnormal("btnGrl", "Anular Venta"); echo "<hr>"; 
 						txtoculto("txtnumreg",$numreg); txtoculto("txt_vincbv",$vincbv); txtoculto("txt_vincfc",$vincfc);
-						txtoculto("txt_vsubtt",$vsubtt); txtoculto("txt_valigv",$valigv);
-						?>
+						txtoculto("txt_vsubtt",$vsubtt); txtoculto("txt_valigv",$valigv);?>
 					</div>
-					<div>
-						<?php 
-						lblnorm("ID.RV.:","etq2"); txtronstl("txtid",$id_rvi,"width:50px;");
-						lblnorm("Cliente:","etq14"); txtronstl("txtcli",$id_cli,"width:50px;"); echo valfldmul($Conexion, "clientes", "id_cli", $id_cli, "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli"); echo "<br>";
-						lblnorm("Fecha de emisión:","etq2"); txtronstl("txtfev",$fechaemi_rvi,"width:80px;"); lblspace(3);
-						lblnorm("Fecha de venta:","etq5"); txtronstl("txtfvv",$fechaven_rvi,"width:80px;"); lblspace(3);
-						lblnorm("Cod. Comprob. Pago:","etq5"); txtronstl("txtccp",$codcpg_rvi,"width:50px;"); echo "<br>";
-						?>
-					</div><hr>
-					<div id="colizq" style="float:left; width:50%;">
-						<?php 
-						lblnorm("Documento:","etq2"); cmbnormal_onchg("cmbtdv", $tipodoccp_rvi, "Boleta de venta", "Factura"); echo "<br>";
-						$seriecp_rvi=num_serie_doc($zona_usuario); // Obtiene el numero de serie de boleta y factura
-						//$seriecp_rvi=1; // El numero de serie es unico y solo se diferenciará por la zona o almacen
-						lblnorm("Serie:","etq2"); txtronstl("txtsrv",$seriecp_rvi,"width:30px;"); lblspace(1);
-						lblnorm("N°:","etq5"); txtronstl("txtncv",$numcp_rvi,"width:50px;"); echo "<br>";
-						lblnorm("Descripción:","etq2"); txtvalue("txtdsv",$descrip_rvi,50); echo "<br>";
-						lblnorm("Forma de pago:","etq2"); cmbnormal("cmbfpv", $formapago_rvi, "Contado"); echo "<br>";
-						lblnorm("Estado de pago:","etq2"); cmbnormal("cmbpag", $rgpag_rvc, "Pagado", "NoPago");
-						?>
+					<div class="formulario">
+						<div><?php 
+							lblnorm("ID.RV.:","etq2"); txtronstl("txtid",$id_rvi,"width:50px;");
+							lblnorm("Cliente:","etq14"); txtronstl("txtcli",$id_cli,"width:50px;"); echo valfldmul($Conexion, "clientes", "id_cli", $id_cli, "nom_rzs_cli", "dni_ruc_cli", "direcc_cli", "lugar_cli"); echo "<br>";
+							lblnorm("Fecha de emisión:","etq2"); txtronstl("txtfev",$fechaemi_rvi,"width:80px;"); lblspace(3);
+							lblnorm("Fecha de venta:","etq5"); txtronstl("txtfvv",$fechaven_rvi,"width:80px;"); lblspace(3);
+							lblnorm("Cod. Comprob. Pago:","etq5"); txtronstl("txtccp",$codcpg_rvi,"width:50px;"); echo "<br>";?>
+						</div><hr>
+						<div id="colizq" style="float:left; width:50%;"><?php 
+							lblnorm("Documento:","etq2"); cmbnormal_onchg("cmbtdv", $tipodoccp_rvi, "Boleta de venta", "Factura"); echo "<br>";
+							$seriecp_rvi=num_serie_doc($zona_usuario); // Obtiene el numero de serie de boleta y factura
+							//$seriecp_rvi=1; // El numero de serie es unico y solo se diferenciará por la zona o almacen
+							lblnorm("Serie:","etq2"); txtronstl("txtsrv",$seriecp_rvi,"width:30px;"); lblspace(1);
+							lblnorm("N°:","etq5"); txtronstl("txtncv",$numcp_rvi,"width:50px;"); echo "<br>";
+							lblnorm("Descripción:","etq2"); txtvalue("txtdsv",$descrip_rvi,50); echo "<br>";
+							lblnorm("Forma de pago:","etq2"); cmbnormal("cmbfpv", $formapago_rvi, "Contado"); echo "<br>";
+							lblnorm("Estado de pago:","etq2"); cmbnormal("cmbpag", $rgpag_rvc, "Pagado", "NoPago");?>
+						</div>
+						<div id="colder" style="float:left; width:50%;"><?php 
+							lblnorm("Bas.imp.prod. grv.:","etq2"); txtrdonly("txtbgr",$baseimpopgrv_rvi); echo "<br>";
+							lblnorm("Bas.imp.prod. no grv.:","etq2"); txtrdonly("txtbng",$baseimpopngrv_rvi); echo "<br>";
+							lblnorm("ISC:","etq2"); txtrdonly("txtisc",$isc_rvi); echo "<br>";
+							lblnorm("IGV:","etq2"); txtrdonly("txtigv",$igv_rvi); echo "<br>";
+							lblnorm("Importe total:","etq2"); txtrdonly("txtitv",$importetot_rvi);?>
+						</div>
+						<div style="clear:both"></div>
 					</div>
-					<div id="colder" style="float:left; width:50%;">
-						<?php 
-						lblnorm("Bas.imp.prod. grv.:","etq2"); txtrdonly("txtbgr",$baseimpopgrv_rvi); echo "<br>";
-						lblnorm("Bas.imp.prod. no grv.:","etq2"); txtrdonly("txtbng",$baseimpopngrv_rvi); echo "<br>";
-						lblnorm("ISC:","etq2"); txtrdonly("txtisc",$isc_rvi); echo "<br>";
-						lblnorm("IGV:","etq2"); txtrdonly("txtigv",$igv_rvi); echo "<br>";
-						lblnorm("Importe total:","etq2"); txtrdonly("txtitv",$importetot_rvi);
-						?>
-					</div>
-					<div style="clear:both"></div><hr>
+					<hr>
 				</form> <!-- Fin de formulario -->
 				<!-- Inicio de listado de datos de usuario -->	
 				<center>

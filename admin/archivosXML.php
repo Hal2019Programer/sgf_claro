@@ -83,7 +83,8 @@ $mensaje=$mensaje_estadoCp=$mensaje_estadoRUC=$mensaje_condDomiRuc="";
 								if (!empty($tipoDocumento) AND !empty($serie) AND !empty($correlativo))
 								{
 									//--------- Usado con el servicio billConsultService, actualmente inactivo --------------
-									// consultar_CE_enviado_a_SUNAT($rucEmisor,$tipoDocumento,$serie,$correlativo, $validez_consulta_estadoCDR,$codigo_estadoCDR,$mensaje_estadoCDR,$codigo_respuesta_CDR,$aceptado_respuesta_CDR,$descripcion_respuesta_CDR,$nombre_documento_respuesta_CDR,$notas_respuesta_CDR, $codigo_resultado_error,$mensaje_resultado_error,$mensaje_busquedaCDR,$estado_de_consulta);
+									//consultar_CE_enviado_a_SUNAT($rucEmisor,$tipoDocumento,$serie,$correlativo, $validez_consulta_estadoCDR,$codigo_estadoCDR,$mensaje_estadoCDR,$codigo_respuesta_CDR,$aceptado_respuesta_CDR,$descripcion_respuesta_CDR,$nombre_documento_respuesta_CDR,$notas_respuesta_CDR, $codigo_resultado_error,$mensaje_resultado_error,$mensaje_busquedaCDR,$estado_de_consulta);
+									// Las variables se cargan para la funcón mostrar_resultado_consulta_CDR()
 									
 									$datos_comprobante=datos_de_comprobante($tipoDocumento,$serie,$correlativo,$rc->fechaemi_rvi,$rc->importetot_rvi);
 									consulta_validez(obtener_token(),$datos_comprobante,$mensaje,$mensaje_estadoCp,$mensaje_estadoRUC,$mensaje_condDomiRuc);
@@ -274,7 +275,8 @@ $mensaje=$mensaje_estadoCp=$mensaje_estadoRUC=$mensaje_condDomiRuc="";
 					<!-- Presentación de datos encontrados del comprobante luego de la busqueda por Id -->
 					<?php mostrar_reg_comprobante($rc,$v_cliente,$v_usuario,$v_usuario_anula,$datos,$resultado_perfil_accesos,$dni_ruc_cliente,$desc_tipdoc);
 					//--------- Usado con el servicio billConsultService, actualmente inactivo --------------
-					// mostrar_resultado_consulta_CDR($rucEmisor, $validez_consulta_estadoCDR,$codigo_estadoCDR,$mensaje_estadoCDR,$codigo_respuesta_CDR,$aceptado_respuesta_CDR,$descripcion_respuesta_CDR,$nombre_documento_respuesta_CDR,$notas_respuesta_CDR, $codigo_resultado_error,$mensaje_resultado_error,$mensaje_busquedaCDR,$estado_de_consulta);
+					//mostrar_resultado_consulta_CDR($rucEmisor, $validez_consulta_estadoCDR,$codigo_estadoCDR,$mensaje_estadoCDR,$codigo_respuesta_CDR,$aceptado_respuesta_CDR,$descripcion_respuesta_CDR,$nombre_documento_respuesta_CDR,$notas_respuesta_CDR, $codigo_resultado_error,$mensaje_resultado_error,$mensaje_busquedaCDR,$estado_de_consulta);
+					// Las variables se cargan desde la función consultar_CE_enviado_a_SUNAT()
 					mostrar_validez_de_consulta_de_comprobante($mensaje,$mensaje_estadoCp,$mensaje_estadoRUC,$mensaje_condDomiRuc);?>
 					<div style="clear:both"></div><hr>
 				</form>
@@ -416,55 +418,57 @@ function busqueda_filtros_comprobante($v_fechaven_rvi,$var_doc,$var_std,$var_zna
 }
 function mostrar_reg_comprobante($rc,$v_cliente,$v_usuario,$v_usuario_anula,$datos,$resultado_perfil_accesos,$dni_ruc_cliente,$desc_tipdoc)
 { ?>
-	<div>	<?php 
-		echo "<b>REGISTRO DE COMPROBANTE</b>"; spc(16);
-		lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$rc->id_rvc,"width:50px;");
-		lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$rc->id_cli.":".$v_cliente,"width:220px;"); txtoculto("txt_dni_ruc_cliente", $dni_ruc_cliente); txtoculto("txt_desc_tipdoc", $desc_tipdoc);
-		lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$rc->fechaemi_rvi,"width:75px;");
-		lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$rc->fechaven_rvi,"width:75px;");
-		lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $rc->codcpg_rvi, "width:70px;");?>
-		<input type="button" name=boton3 onclick=mostrar_datos_comprobante() value="CPE" style="border-radius:5px; height:25px; border:1px; background-color:rgb(230,180,100); color:rgb(255,255,255);"/>
-	</div><hr>
-	<div>
-		<!--<div id="colizq2">-->
-		<div style="float:left; width:26%;">
-			<div> <?php 
-				lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $rc->tipodoccp_rvi, "width:110px;");
-				txtronstl("txt_v_seriecp_rvi", $rc->seriecp_rvi, "width:15px;"); echo "-";
-				txtronstl("txt_v_numcp_rvi", $rc->numcp_rvi, "width:50px;");?>
+	<div class="formulario">
+		<div><?php 
+			echo "<b>REGISTRO DE COMPROBANTE</b>"; spc(16);
+			lblnorm("ID:","etq14"); txtronstl("txt_id_rvc",$rc->id_rvc,"width:50px;");
+			lblnorm("Cliente:","etq14"); txtronstl("txt_v_id_cli",$rc->id_cli.":".$v_cliente,"width:220px;"); txtoculto("txt_dni_ruc_cliente", $dni_ruc_cliente); txtoculto("txt_desc_tipdoc", $desc_tipdoc);
+			lblnorm("Fecha emisión:","etq14"); txtronstl("txt_v_fechaemi_rvi",$rc->fechaemi_rvi,"width:75px;");
+			lblnorm("Fecha venta:","etq14"); txtronstl("txt_v_fechaven_rvi",$rc->fechaven_rvi,"width:75px;");
+			lblnorm("Cód.Pago:","etq14"); txtronstl("txt_v_codcpg_rvi", $rc->codcpg_rvi, "width:70px;");?>
+			<input type="button" name=boton3 onclick=mostrar_datos_comprobante() value="CPE" style="border-radius:5px; height:25px; border:1px; background-color:rgb(230,180,100); color:rgb(255,255,255);"/>
+		</div><hr>
+		<div>
+			<!--<div id="colizq2">-->
+			<div style="float:left; width:26%;">
+				<div> <?php 
+					lblnorm("Documento:","etq4"); txtronstl("txt_v_tipodoccp_rvi", $rc->tipodoccp_rvi, "width:110px;");
+					txtronstl("txt_v_seriecp_rvi", $rc->seriecp_rvi, "width:15px;"); echo "-";
+					txtronstl("txt_v_numcp_rvi", $rc->numcp_rvi, "width:50px;");?>
+				</div>
+				<div><?php lblnorm("Descripción:","etq4"); txtronstl("txt_v_descrip_rvi", $rc->descrip_rvi, "width:220px;");?></div>
+				<div><?php lblnorm("Forma pago:","etq4"); txtronstl("txt_v_formapago_rvi", $rc->formapago_rvi, "width:60px;");?></div>
+				<div><?php lblnorm("Estado pago:","etq4"); txtronstl("txt_v_estado_rvc", $rc->rgpag_rvc, "width:50px;");?></div>
+				<div><?php lblnorm("Zona:","etq4"); txtronstl("txt_v_zona_rvi", $rc->zona_rvi, "width:75px;");?></div>
 			</div>
-			<div><?php lblnorm("Descripción:","etq4"); txtronstl("txt_v_descrip_rvi", $rc->descrip_rvi, "width:220px;");?></div>
-			<div><?php lblnorm("Forma pago:","etq4"); txtronstl("txt_v_formapago_rvi", $rc->formapago_rvi, "width:60px;");?></div>
-			<div><?php lblnorm("Estado pago:","etq4"); txtronstl("txt_v_estado_rvc", $rc->rgpag_rvc, "width:50px;");?></div>
-			<div><?php lblnorm("Zona:","etq4"); txtronstl("txt_v_zona_rvi", $rc->zona_rvi, "width:75px;");?></div>
-		</div>
-		<!--<div id="colcen2">-->
-		<div style="float:left; width:13%;">
-			<div><?php lblnorm("BIPG:","etq4"); txtronstl("txt_v_baseimpopgrv_rvi", $rc->baseimpopgrv_rvi, "width:60px;");?></div>
-			<div><?php lblnorm("BIPNG:","etq4"); txtronstl("txt_v_baseimpopngrv_rvi", $rc->baseimpopngrv_rvi, "width:60px;");?></div>
-			<div><?php lblnorm("ISC:","etq4"); txtronstl("txt_v_isc_rvi", $rc->isc_rvi, "width:60px;");?></div>
-			<div><?php lblnorm("IGV:","etq4"); txtronstl("txt_v_igv_rvi", $rc->igv_rvi, "width:60px;");?></div>
-			<div><?php lblnorm("Total:","etq4"); txtronstl("txt_v_importetot_rvi", $rc->importetot_rvi, "width:60px;");?></div>
-		</div>
-		<!--<div id="colder2">-->
-		<div style="float:left; width:22%;">
-			<div><?php lblnorm("Usuario Inicial:","etq2"); txtronstl("txt_v_id_usr", $rc->id_usr.":".$v_usuario, "width:130px;");?></div>
-			<div><?php lblnorm("Estado:","etq2"); txtronstl("txt_v_estado_rvc", $rc->estado_rvc, "width:60px;");?></div>
-			<div><?php lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $rc->id_usr_anula.":".$v_usuario_anula, "width:130px;");?></div>
-			<div><?php lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $rc->causanul_rvc, "width:75px;");?></div>
-		</div>
-		<!-- MODIFICADO POR JUAN (09-06-2019) PARA COMPROBANTE ELECTRONICO -->
-		<div style="float:left; width:39%;">
-			<div><?php lblnorm("Compr.Emitid.:","etq2"); txtronstl("txt_v_cee_rvc", $rc->cee_rvc, "width:50px;");?></div>
-			<div><?php lblnorm("Archivo:","etq2"); txtronstl("txt_v_nombarch_rvc", $rc->nombarch_rvc, "width:230px;");?></div>
-			<div><?php lblnorm("Codigo CDR:","etq2"); txtronstl("txt_v_codigocdr_rvc", $rc->codigocdr_rvc, "width:50px;");?></div>
-			<div><?php lblnorm("Mensaje CDR:","etq2"); txtronstl("txt_v_mensajecdr_rvc", $rc->mensajecdr_rvc, "width:360px;");?></div>
-			<div><?php lblnorm("Comprobante Electrónico:","etq5"); 
-			if (activar_boton($datos,$resultado_perfil_accesos,"Enviar")) { btnnormal("btnGrl", "Enviar"); }
-			//if (activar_boton($datos,$resultado_perfil_accesos,"Rehacer")) { btnnormal("btnGrl", "Rehacer"); } ?>
+			<!--<div id="colcen2">-->
+			<div style="float:left; width:13%;">
+				<div><?php lblnorm("BIPG:","etq4"); txtronstl("txt_v_baseimpopgrv_rvi", $rc->baseimpopgrv_rvi, "width:60px;");?></div>
+				<div><?php lblnorm("BIPNG:","etq4"); txtronstl("txt_v_baseimpopngrv_rvi", $rc->baseimpopngrv_rvi, "width:60px;");?></div>
+				<div><?php lblnorm("ISC:","etq4"); txtronstl("txt_v_isc_rvi", $rc->isc_rvi, "width:60px;");?></div>
+				<div><?php lblnorm("IGV:","etq4"); txtronstl("txt_v_igv_rvi", $rc->igv_rvi, "width:60px;");?></div>
+				<div><?php lblnorm("Total:","etq4"); txtronstl("txt_v_importetot_rvi", $rc->importetot_rvi, "width:60px;");?></div>
 			</div>
-		</div><div style="clear:both"></div><hr>
-	</div> <?php
+			<!--<div id="colder2">-->
+			<div style="float:left; width:22%;">
+				<div><?php lblnorm("Usuario Inicial:","etq2"); txtronstl("txt_v_id_usr", $rc->id_usr.":".$v_usuario, "width:130px;");?></div>
+				<div><?php lblnorm("Estado:","etq2"); txtronstl("txt_v_estado_rvc", $rc->estado_rvc, "width:60px;");?></div>
+				<div><?php lblnorm("Usuario Anulad.:","etq2"); txtronstl("txt_v_id_usr_anula", $rc->id_usr_anula.":".$v_usuario_anula, "width:130px;");?></div>
+				<div><?php lblnorm("Causa Anulac.:","etq2"); txtronstl("txt_v_causanul_rvc", $rc->causanul_rvc, "width:75px;");?></div>
+			</div>
+			<!-- MODIFICADO POR JUAN (09-06-2019) PARA COMPROBANTE ELECTRONICO -->
+			<div style="float:left; width:39%;">
+				<div><?php lblnorm("Compr.Emitid.:","etq2"); txtronstl("txt_v_cee_rvc", $rc->cee_rvc, "width:50px;");?></div>
+				<div><?php lblnorm("Archivo:","etq2"); txtronstl("txt_v_nombarch_rvc", $rc->nombarch_rvc, "width:230px;");?></div>
+				<div><?php lblnorm("Codigo CDR:","etq2"); txtronstl("txt_v_codigocdr_rvc", $rc->codigocdr_rvc, "width:50px;");?></div>
+				<div><?php lblnorm("Mensaje CDR:","etq2"); txtronstl("txt_v_mensajecdr_rvc", $rc->mensajecdr_rvc, "width:360px;");?></div>
+				<div><?php lblnorm("Comprobante Electrónico:","etq5"); 
+				if (activar_boton($datos,$resultado_perfil_accesos,"Enviar")) { btnnormal("btnGrl", "Enviar"); }
+				//if (activar_boton($datos,$resultado_perfil_accesos,"Rehacer")) { btnnormal("btnGrl", "Rehacer"); } ?>
+				</div>
+			</div><div style="clear:both"></div><hr>
+		</div>
+	</div><?php
 }
 function mostrar_resultado_consulta_CDR($rucEmisor,$validez_consulta_estadoCDR,$codigo_estadoCDR,$mensaje_estadoCDR,$codigo_respuesta_CDR,$aceptado_respuesta_CDR,$descripcion_respuesta_CDR,$nombre_documento_respuesta_CDR,$notas_respuesta_CDR,
 $codigo_resultado_error,$mensaje_resultado_error,$mensaje_busquedaCDR,$estado_de_consulta)
@@ -647,12 +651,31 @@ function mostrar_validez_de_consulta_de_comprobante($mensaje,$mensaje_estadoCp,$
 	<div style="float:left; width:40%;"> <?php
 		echo "<b>Validez de consulta de comprobante: </b><br>";
 		echo "Operacion: ".$mensaje."<br>";
-		echo "Estado del comprobante: ".$mensaje_estadoCp." (".$extension_msj_estadoCP.")<br>";?>
+		echo "Estado del comprobante: "."<span style='".mensaje_de_estado($mensaje_estadoCp)."'>".$mensaje_estadoCp." (".$extension_msj_estadoCP.")</span><br>";?>
 	</div>
 	<div style="float:left; width:40%;"><?php
 		echo "<br>";
 		echo "Estado del contribuyente: ".$mensaje_estadoRUC."<br>";
 		echo "Condicion del domicilio: ".$mensaje_condDomiRuc."<br>";?>
 	</div> <?php
+}
+function mensaje_de_estado($mensaje_estadoCp)
+{
+	if ($mensaje_estadoCp=="ACEPTADO")
+	{
+		$color_mensaje_estado="color:rgba(28, 214, 28, 1); font-weight:bold;";
+	}
+	else
+	{
+		if ($mensaje_estadoCp=="ANULADO")
+		{
+		$color_mensaje_estado="color:rgba(236, 26, 26, 1); font-weight:bold;";
+		}
+		else
+		{
+			$color_mensaje_estado=null;
+		}
+	}
+	return $color_mensaje_estado;
 }
 ?>
