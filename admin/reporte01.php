@@ -177,6 +177,9 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 				// Añadido para conteo de PortaPrePost, PortaPostPost, PortaPre, 1Play, 2Play, 3Play
 				$cant_PortaPrePost=$cant_PortaPostPost=$cant_PortaPre=$cant_1Play=$cant_2Play=$cant_3Play = 0;
 				$monto_PortaPrePost=$monto_PortaPostPost=$monto_PortaPre=$monto_1Play=$monto_2Play=$monto_3Play = 0;
+				// Añadido para conteo de RenoPost, RenoPre, RepoPost, RepoPre
+				$cant_RenoPost=$cant_RenoPre=$cant_RepoPost=$cant_RepoPre=0;
+				$monto_RenoPost=$monto_RenoPre=$monto_RepoPost=$monto_RepoPre=0;
 				//-------------------------------------------------
 				$mtrgv=0;
 				//--------------------- Conteos en regventas ---------------------
@@ -209,6 +212,11 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 					if ($tp_pla=="1Play") { $cant_1Play++; $monto_1Play=$monto_1Play+$im_tot; }
 					if ($tp_pla=="2Play") { $cant_2Play++; $monto_2Play=$monto_2Play+$im_tot; }
 					if ($tp_pla=="3Play") { $cant_3Play++; $monto_3Play=$monto_3Play+$im_tot; }
+					// Añadido para calcular RenoPost, RenoPre, RepoPost, RepoPre
+					if ($tp_pla=="RenoPost") { $cant_RenoPost++; $monto_RenoPost=$monto_RenoPost+$im_tot; }
+					if ($tp_pla=="RenoPre") { $cant_RenoPre++; $monto_RenoPre=$monto_RenoPre+$im_tot; }
+					if ($tp_pla=="RepoPost") { $cant_RepoPost++; $monto_RepoPost=$monto_RepoPost+$im_tot; }
+					if ($tp_pla=="RepoPre") { $cant_RepoPre++; $monto_RepoPre=$monto_RepoPre+$im_tot; }
 					//Suma total
 					$mtrgv=$mtrgv+$im_tot;
 				}
@@ -275,7 +283,12 @@ verificar_procesos_de_boton($resultado_perfil_accesos);
 						<span id="etq3"style="width:120px;">Porta Pre =</span><?php echo " S/. ",$monto_PortaPre," (",$cant_PortaPre,")";?>
 						<span id="etq3"style="width:120px;">1 Play =</span><?php echo " S/. ",$monto_1Play," (",$cant_1Play,")";?>
 						<span id="etq3"style="width:120px;">2 Play =</span><?php echo " S/. ",$monto_2Play," (",$cant_2Play,")";?>
-						<span id="etq3"style="width:120px;">3 Play =</span><?php echo " S/. ",$monto_3Play," (",$cant_3Play,")";?><br><hr>
+						<span id="etq3"style="width:120px;">3 Play =</span><?php echo " S/. ",$monto_3Play," (",$cant_3Play,")";?>
+						<span id="etq3"style="width:120px;">RenoPost =</span><?php echo " S/. ",$monto_RenoPost," (",$cant_RenoPost,")";?>
+						<span id="etq3"style="width:120px;">RenoPre =</span><?php echo " S/. ",$monto_RenoPre," (",$cant_RenoPre,")";?>
+						<span id="etq3"style="width:120px;">RepoPost =</span><?php echo " S/. ",$monto_RepoPost," (",$cant_RepoPost,")";?>
+						<span id="etq3"style="width:120px;">RepoPre =</span><?php echo " S/. ",$monto_RepoPre," (",$cant_RepoPre,")";?>
+						<br><hr>
 						<span id="etq5" class="color_items" style="text-align:left;">TOTAL DE REGISTROS DE VENTA:</span><?php echo " S/. ",$mtrgv;?> <br><hr>
 						<span id="etq5" class="color_items" style="width:120px;">PAGOS DIVERSOS:</span><?php
 						$pagosdiv_x_zona->mostrar_lista($pz,$pagosdiv_x_zona->lista_zona); ?><br>
