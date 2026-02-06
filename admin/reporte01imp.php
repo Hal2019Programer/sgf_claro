@@ -26,6 +26,12 @@ else
 $fchi=$_GET['vifin'];if (empty($fchi)) $fchi="";
 $fchf=$_GET['viffi'];if (empty($fchf)) $fchf="";
 ?>
+<style>
+#etq3 { display: inline-block; font-weight: bold; }
+#etq4 { display: inline-block; font-weight: bold; }
+th { font-size: 10px; }
+td { font-size: 9px; }
+</style>
 <!DOCTYPE HTML>
 <html>
 	<head><?php pestanna($nombre_usuario, $nivel_usuario, $ident_usuario, $zona_usuario, $categ_usuario, "Impresion de reporte 01");?></head>
@@ -57,26 +63,30 @@ $fchf=$_GET['viffi'];if (empty($fchf)) $fchf="";
 				conteos_y_sumas($sql,
 				$cant_postpago,$cant_prepago,$cant_recargas,$cant_recarga_PDV,$cant_accesorios,$cant_servicios,$cant_otros,$cant_vtas_juego,$cant_portaprepost,$cant_portapostpost,$cant_portapre,$cant_1play,$cant_2play,$cant_3play,
 				$monto_postpago,$monto_prepago,$monto_recargas,$monto_recarga_PDV,$monto_accesorios,$monto_servicios,$monto_otros,$monto_vtas_juego,$monto_portaprepost,$monto_portapostpost,$monto_portapre,$monto_1play,$monto_2play,$monto_3play,
-				$monto_total_ventas,$registro_x_zona,$rz);?>
+				$monto_total_ventas,$registro_x_zona,$rz,$cant_RenoPost,$cant_RenoPre,$cant_RepoPost,$cant_RepoPre,$monto_RenoPost,$monto_RenoPre,$monto_RepoPost,$monto_RepoPre);?>
 				<form name="usuario" action="" method="post">
 					<center><h3>Reporte de Ventas</h3></center><hr>
-					<span id="etq4">ZONA:</span><?php echo $zona;?><span id="etq4">TIPO=</span><?php echo $tipo;?><span id="etq4">USUARIO=</span><?php echo $nmus;?><span id="etq4">FechaIni:</span><?php echo $fchi;?><span id="etq4">FechaFin:</span><?php echo $fchf;?><br><hr>
+					<span id="etq4">ZONA:</span>&nbsp;<?php echo $zona;?><span id="etq4">TIPO=</span><?php echo $tipo;?>&nbsp;<span id="etq4">USUARIO=</span><?php echo $nmus;?>&nbsp;<span id="etq4">FechaIni:</span>&nbsp;<?php echo $fchi;?>&nbsp;&nbsp;<span id="etq4">FechaFin:</span>&nbsp;<?php echo $fchf;?><br><hr>
 					<span id="etq3">ZONA:</span><?php $registro_x_zona->mostrar_lista($rz,$registro_x_zona->lista_zona);?><br>
-					<span id="etq3">TIPO DE VENTA:</span>
-					<span id="etq3">Postpago=</span><?php echo pvmc($monto_postpago,$cant_postpago);?>
-					<span id="etq3">Prepago=</span><?php echo pvmc($monto_prepago,$cant_prepago);?>
-					<span id="etq3">Rec.Normal=</span><?php echo pvmc($monto_recargas,$cant_recargas);?>
-					<span id="etq3">Rec.PDV=</span><?php echo pvmc($monto_recarga_PDV,$cant_recarga_PDV);?>
-					<span id="etq3">Accesorios=</span><?php echo pvmc($monto_accesorios,$cant_accesorios);?>
-					<span id="etq3">Servicios=</span><?php echo pvmc($monto_servicios,$cant_servicios);?>
-					<span id="etq3">Otros=</span><?php echo pvmc($monto_otros,$cant_otros);?>
-					<span id="etq3">Juego=</span><?php echo pvmc($monto_vtas_juego,$cant_vtas_juego);?>
-					<span id="etq3">Porta Pre a Post=</span><?php echo pvmc($monto_portaprepost,$cant_portaprepost);?>
-					<span id="etq3">Porta Post a Post=</span><?php echo pvmc($monto_portapostpost,$cant_portapostpost);?>
-					<span id="etq3">Porta Pre=</span><?php echo pvmc($monto_portapre,$cant_portapre);?>
-					<span id="etq3">1 Play=</span><?php echo pvmc($monto_1play,$cant_1play);?>
-					<span id="etq3">2 Play=</span><?php echo pvmc($monto_2play,$cant_2play);?>
-					<span id="etq3">3 Play=</span><?php echo pvmc($monto_3play,$cant_3play);?><br>
+					<span id="etq3">TIPO DE VENTA:</span>&nbsp;
+					<span id="etq3">Postpago=</span><?php echo pvmc($monto_postpago,$cant_postpago);?>&nbsp;
+					<span id="etq3">Prepago=</span><?php echo pvmc($monto_prepago,$cant_prepago);?>&nbsp;
+					<span id="etq3">Rec.Normal=</span><?php echo pvmc($monto_recargas,$cant_recargas);?>&nbsp;
+					<span id="etq3">Rec.PDV=</span><?php echo pvmc($monto_recarga_PDV,$cant_recarga_PDV);?>&nbsp;
+					<span id="etq3">Accesorios=</span><?php echo pvmc($monto_accesorios,$cant_accesorios);?>&nbsp;
+					<span id="etq3">Servicios=</span><?php echo pvmc($monto_servicios,$cant_servicios);?>&nbsp;
+					<span id="etq3">Otros=</span><?php echo pvmc($monto_otros,$cant_otros);?>&nbsp;
+					<span id="etq3">Juego=</span><?php echo pvmc($monto_vtas_juego,$cant_vtas_juego);?>&nbsp;
+					<span id="etq3">Porta Pre a Post=</span><?php echo pvmc($monto_portaprepost,$cant_portaprepost);?>&nbsp;
+					<span id="etq3">Porta Post a Post=</span><?php echo pvmc($monto_portapostpost,$cant_portapostpost);?>&nbsp;
+					<span id="etq3">Porta Pre=</span><?php echo pvmc($monto_portapre,$cant_portapre);?>&nbsp;
+					<span id="etq3">1 Play=</span><?php echo pvmc($monto_1play,$cant_1play);?>&nbsp;
+					<span id="etq3">2 Play=</span><?php echo pvmc($monto_2play,$cant_2play);?>&nbsp;
+					<span id="etq3">3 Play=</span><?php echo pvmc($monto_3play,$cant_3play);?>&nbsp;
+					<span id="etq3">RenoPost=</span><?php echo pvmc($monto_RenoPost,$cant_RenoPost);?>&nbsp;
+					<span id="etq3">RenoPre=</span><?php echo pvmc($monto_RenoPre,$cant_RenoPre);?>&nbsp;
+					<span id="etq3">RepoPost=</span><?php echo pvmc($monto_RepoPost,$cant_RepoPost);?>&nbsp;
+					<span id="etq3">RepoPre=</span><?php echo pvmc($monto_RepoPre,$cant_RepoPre);?><br>
 					<span id="etq3">TOTAL DE VENTAS:</span><span id="etq3"><?php echo "S/. ",$monto_total_ventas;?></span>
 					<hr>	
 				</form> <!-- Fin de formulario -->
@@ -175,12 +185,12 @@ function realizar_consulta(&$sql)
 function conteos_y_sumas($sql,
 	&$cant_postpago,&$cant_prepago,&$cant_recargas,&$cant_recarga_PDV,&$cant_accesorios,&$cant_servicios,&$cant_otros,&$cant_vtas_juego,&$cant_portaprepost,&$cant_portapostpost,&$cant_portapre,&$cant_1play,&$cant_2play,&$cant_3play,
 	&$monto_postpago,&$monto_prepago,&$monto_recargas,&$monto_recarga_PDV,&$monto_accesorios,&$monto_servicios,&$monto_otros,&$monto_vtas_juego,&$monto_portaprepost,&$monto_portapostpost,&$monto_portapre,&$monto_1play,&$monto_2play,&$monto_3play,
-	&$monto_total_ventas,$registro_x_zona,&$rz)
+	&$monto_total_ventas,$registro_x_zona,&$rz,&$cant_RenoPost,&$cant_RenoPre,&$cant_RepoPost,&$cant_RepoPre,&$monto_RenoPost,&$monto_RenoPre,&$monto_RepoPost,&$monto_RepoPre)
 {
 	// Declarar variables de cantidad
-	$cant_postpago=$cant_prepago=$cant_recargas=$cant_recarga_PDV=$cant_accesorios=$cant_servicios=$cant_otros=$cant_vtas_juego=$cant_portaprepost=$cant_portapostpost=$cant_portapre=$cant_1play=$cant_2play=$cant_3play=0;
+	$cant_postpago=$cant_prepago=$cant_recargas=$cant_recarga_PDV=$cant_accesorios=$cant_servicios=$cant_otros=$cant_vtas_juego=$cant_portaprepost=$cant_portapostpost=$cant_portapre=$cant_1play=$cant_2play=$cant_3play=$cant_RenoPost=$cant_RenoPre=$cant_RepoPost=$cant_RepoPre=0;
 	// Declarar variables de montos
-	$monto_postpago=$monto_prepago=$monto_recargas=$monto_recarga_PDV=$monto_accesorios=$monto_servicios=$monto_otros=$monto_vtas_juego=$monto_portaprepost=$monto_portapostpost=$monto_portapre=$monto_1play=$monto_2play=$monto_3play=0;
+	$monto_postpago=$monto_prepago=$monto_recargas=$monto_recarga_PDV=$monto_accesorios=$monto_servicios=$monto_otros=$monto_vtas_juego=$monto_portaprepost=$monto_portapostpost=$monto_portapre=$monto_1play=$monto_2play=$monto_3play=$monto_RenoPost=$monto_RenoPre=$monto_RepoPost=$monto_RepoPre=0;
 	$monto_total_ventas=0;
 	$registro_x_zona->inicializar_lista($rz,$registro_x_zona->lista_zona);
 	mysqli_data_seek($sql, 0); 
@@ -206,6 +216,11 @@ function conteos_y_sumas($sql,
 		if ($tp_pla=="1Play") { $cant_1play++; $monto_1play+=$im_tot; }
 		if ($tp_pla=="2Play") { $cant_2play++; $monto_2play+=$im_tot; }
 		if ($tp_pla=="3Play") { $cant_3play++; $monto_3play+=$im_tot; }
+		// Conteo por tipo de venta - Renovaciones y Reposiciones
+		if ($tp_pla=="RenoPost") { $cant_RenoPost++; $monto_RenoPost+=$im_tot; }
+		if ($tp_pla=="RenoPre") { $cant_RenoPre++; $monto_RenoPre+=$im_tot; }
+		if ($tp_pla=="RepoPost") { $cant_RepoPost++; $monto_RepoPost+=$im_tot; }
+		if ($tp_pla=="RepoPre") { $cant_RepoPre++; $monto_RepoPre+=$im_tot; }			
 		//Suma total
 		$monto_total_ventas+=$im_tot;
 	}
