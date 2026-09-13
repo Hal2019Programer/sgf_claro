@@ -1506,6 +1506,8 @@ function conversion_de_consulta($cadena)
 Las variables deben tener la siguiente sintaxis de datos:
 nombre_de_titulo:ancho */
 {
+	/*
+	Conversión original
 	$v="";
 	$long=strlen($cadena);
 	for ($x=1; $x<=$long; $x++)
@@ -1521,6 +1523,9 @@ nombre_de_titulo:ancho */
 		}
 		$v=$v.$c;
 	}
+	return $v;*/
+	$v=null;
+	$v=base64_encode($cadena);
 	return $v;
 }
 ?>
@@ -1530,6 +1535,8 @@ function conversion_a_consulta($cadena)
 Las variables deben tener la siguiente sintaxis de datos:
 nombre_de_titulo:ancho */
 {
+	/*
+	Conversion original
 	$v="";
 	$long=strlen($cadena);
 	for ($x=1; $x<=$long; $x++)
@@ -1545,6 +1552,9 @@ nombre_de_titulo:ancho */
 		}
 		$v=$v.$c;
 	}
+	return $v;*/
+	$v=null;
+	$v=base64_decode($cadena);
 	return $v;
 }
 ?>
